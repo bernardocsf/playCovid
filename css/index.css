@@ -11,6 +11,41 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+div.animation {
+    width: 450px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.555);
+    border-radius: 10px;
+    position: relative;
+}
+
+p.animation {
+    padding-bottom: 200px;
+    animation: mymove 5s infinite;
+    margin-top: 10vh;
+    animation-delay: 2s;
+}
+
+@keyframes mymove {
+    to {
+        transform: rotateX(180deg);
+    }
+}
+
+p.animationn {
+    border-radius: 10px;
+    position: relative;
+    animation: mymovee 5s infinite;
+    margin-top: 10vh;
+    animation-delay: 2s;
+}
+
+@keyframes mymovee {
+    to {
+        transform: rotateX(180deg);
+    }
+}
+
 article,
 aside,
 figcaption,
@@ -2626,10 +2661,6 @@ header.masthead {
 header.masthead .masthead-content {
     z-index: 1;
     position: relative;
-}
-
-header.masthead .masthead-content .masthead-heading {
-    font-size: 4rem;
 }
 
 header.masthead .masthead-content .masthead-subheading {
@@ -5491,17 +5522,19 @@ a.badge:focus {
     top: -1px;
 }
 
-@media (min-width: 992px) {
-    header.masthead {
-        padding-top: calc(10rem + 55px);
-        padding-bottom: 10rem;
-    }
-    header.masthead .masthead-content .masthead-heading {
-        font-size: 6rem;
-    }
-    header.masthead .masthead-content .masthead-subheading {
-        font-size: 4rem;
-    }
+header.masthead {
+    padding-top: calc(10rem + 55px);
+    padding-bottom: 9rem;
+}
+
+header.masthead .masthead-content .masthead-heading {
+    font-size: 50px;
+    margin-right: 650px;
+    margin-top: -90px;
+}
+
+header.masthead .masthead-content .masthead-subheading {
+    font-size: 4rem;
 }
 
 .badge-pill {
@@ -8454,14 +8487,7 @@ button.bg-dark:focus {
     right: 0;
     left: 0;
     z-index: 1030;
-}
-
-.fixed-bottom {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1030;
+    padding: 20px;
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -8701,7 +8727,7 @@ button.bg-dark:focus {
 
 .mt-5,
 .my-5 {
-    margin-top: 3rem !important;
+    margin-top: 15rem !important;
 }
 
 .mr-5,
@@ -8845,7 +8871,7 @@ button.bg-dark:focus {
 
 .pt-5,
 .py-5 {
-    padding-top: 3rem !important;
+    padding-top: 2rem !important;
 }
 
 .pr-5,
@@ -8855,7 +8881,7 @@ button.bg-dark:focus {
 
 .pb-5,
 .py-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 2rem !important;
 }
 
 .pl-5,
