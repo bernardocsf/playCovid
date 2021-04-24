@@ -22,25 +22,6 @@ body {
     background-color: #fff;
 }
 
-.animation {
-    width: 30rem;
-    height: 17rem;
-    background: rgba(0, 0, 0, 0.438);
-    border-radius: 1rem;
-    position: relative;
-    margin-top: 2rem;
-    margin-left: -1rem;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-}
-
-@media screen and (max-width: 600px) {
-    .animation {
-        width: 100%;
-        display: block;
-        margin-bottom: 30px;
-    }
-}
-
 article,
 aside,
 figcaption,
@@ -62,6 +43,12 @@ hr {
     box-sizing: content-box;
     height: 0;
     overflow: visible;
+}
+
+.h2sabiasque {
+    position: relative;
+    margin-top: 3.5rem;
+    font-size: 2rem;
 }
 
 h1,
@@ -1391,7 +1378,7 @@ pre code {
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
-    .col-lg-3 {
+    mb .col-lg-3 {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
@@ -2626,6 +2613,9 @@ textarea.form-control.is-invalid {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+
+/* css das sections */
+
 .jogar {
     background-image: url("fundo2.jpg");
     background-repeat: no-repeat;
@@ -2659,60 +2649,26 @@ textarea.form-control.is-invalid {
     background: rgb(181, 213, 106, 0.90);
 }
 
+
+/* esta parte gere a posição do ecrã inicial e a imagem de fundo */
+
 header.masthead {
     position: relative;
     overflow: hidden;
-    padding-top: calc(7rem + 72px);
-    padding-bottom: 9rem;
+    padding-top: calc(15rem + 72px);
     background-image: url("fundo1.png");
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-attachment: scroll;
     background-size: cover;
 }
 
-header.masthead .masthead-content {
-    z-index: 1;
+
+/* esta parte contém o h3:"sabias que" e carousel */
+
+.masthead-content {
     position: relative;
-}
-
-header.masthead .masthead-content .masthead-subheading {
-    font-size: 2rem;
-}
-
-header.masthead .bg-circle {
-    z-index: 0;
-    position: absolute;
-    border-radius: 100%;
-    background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);
-}
-
-header.masthead .bg-circle-1 {
-    height: 90rem;
-    width: 90rem;
-    bottom: -55rem;
-    left: -55rem;
-}
-
-header.masthead .bg-circle-2 {
-    height: 50rem;
-    width: 50rem;
-    top: -25rem;
-    right: -25rem;
-}
-
-header.masthead .bg-circle-3 {
-    height: 20rem;
-    width: 20rem;
-    bottom: -10rem;
-    right: 5%;
-}
-
-header.masthead .bg-circle-4 {
-    height: 30rem;
-    width: 30rem;
-    top: -5rem;
-    right: 35%;
+    bottom: 5rem;
 }
 
 .btn-xl {
@@ -4528,11 +4484,13 @@ input[type="button"].btn-block {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
+    font-size: 1.25rem;
 }
 
 .nav-link:hover,
 .nav-link:focus {
     text-decoration: none;
+    color: white;
 }
 
 .nav-link.disabled {
@@ -4542,7 +4500,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #ffffff;
 }
 
 .nav-tabs .nav-item {
@@ -4557,7 +4515,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
-    border-color: #e9ecef #e9ecef #dee2e6;
+    border-color: #ffffff;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -4568,7 +4526,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-    color: #495057;
+    color: #ffffff;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
 }
@@ -5040,7 +4998,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-dark .navbar-brand:hover,
@@ -5054,7 +5012,7 @@ input[type="button"].btn-block {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link:focus {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgb(255, 255, 255);
 }
 
 .navbar-dark .navbar-nav .nav-link.disabled {
@@ -5290,23 +5248,10 @@ a.badge:focus {
     top: -1px;
 }
 
-header.masthead {
-    padding-top: calc(10rem + 55px);
-    padding-bottom: 0rem;
-}
-
 header.masthead .masthead-content .masthead-heading {
     font-size: 2.5rem;
     margin-top: -6rem;
     margin-right: 45rem;
-}
-
-@media screen and (max-width: 600px) {
-    .masthead-heading {
-        width: 100%;
-        display: block;
-        margin-bottom: 30px;
-    }
 }
 
 header.masthead .masthead-content .masthead-subheading {
@@ -6657,24 +6602,6 @@ a.close.disabled {
 .popover-body {
     padding: 0.5rem 0.75rem;
     color: #212529;
-}
-
-.carousel-inner>.item>img,
-.carousel-inner>.item>a>img {
-    width: 70%;
-    margin: auto;
-}
-
-.spinner-border {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    vertical-align: text-bottom;
-    border: 0.25em solid currentColor;
-    border-right-color: transparent;
-    border-radius: 50%;
-    -webkit-animation: spinner-border .75s linear infinite;
-    animation: spinner-border .75s linear infinite;
 }
 
 .spinner-border-sm {
@@ -8208,6 +8135,9 @@ button.bg-dark:focus {
 .mb-1,
 .my-1 {
     margin-bottom: 0.25rem !important;
+    font-size: 2.5rem;
+    margin-top: -6rem;
+    margin-right: 45rem;
 }
 
 .ml-1,
@@ -10304,53 +10234,21 @@ a.text-dark:focus {
     }
 }
 
-@keyframes tonext {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: 100%;
-    }
-    98% {
-        left: 100%;
-    }
-    99% {
-        left: 0;
-    }
-}
-
-@keyframes tostart {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: -300%;
-    }
-    98% {
-        left: -300%;
-    }
-    99% {
-        left: 0;
-    }
-}
-
-@keyframes snap {
-    96% {
-        scroll-snap-align: center;
-    }
-    97% {
-        scroll-snap-align: none;
-    }
-    99% {
-        scroll-snap-align: none;
-    }
-    100% {
-        scroll-snap-align: center;
-    }
-}
-
 *::-webkit-scrollbar {
     width: 0;
+}
+
+
+/* CARROUSEL */
+
+.animation {
+    width: 30rem;
+    height: 17rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+    position: relative;
+    top: 1rem;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
 }
 
 ol,
@@ -10390,19 +10288,18 @@ li {
     left: 0;
     width: 100%;
     height: 100%;
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
 }
 
-@media (hover: hover) {
-    .carousel__snapper {
-        animation-name: tonext, snap;
-        animation-timing-function: ease;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-    }
-    .carousel__slide:last-child .carousel__snapper {
-        animation-name: tostart, snap;
-    }
+.carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
 }
+
+
+/* CSS DOS BOTOES EM FORMA DE CARD */
 
 .rowcards {
     display: flex;
@@ -10414,60 +10311,71 @@ li {
 .column {
     width: 20%;
     padding: 0 10px;
-    margin-bottom: 0rem;
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 10px;
     font-size: 30px;
-    text-align: center;
-}
-
-#cardum {
-    background: rgb(240, 193, 75, 0.90);
-    border-radius: 1rem 1rem 0rem 0rem;
-}
-
-#carddois {
-    background: rgb(234, 112, 101, 0.90);
-    border-radius: 1rem 1rem 0rem 0rem;
-}
-
-#cardtres {
-    background: rgb(181, 213, 106, 0.90);
-    border-radius: 1rem 1rem 0rem 0rem;
-}
-
-.btn-scroll-down i {
-    opacity: 0;
 }
 
 .card:hover {
     transform: scale(1.10);
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+    box-shadow: 0 0 40px -10px rgb(0, 0, 0);
     transition: 0.2s;
 }
 
-.card:hover .btn-scroll-down i {
-    transform: scale(1.2v0);
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
-    transition: 0.2s;
-    font-size: 2rem;
-    color: #fff;
+.bi-arrow-down-short {
+    opacity: 0;
+}
+
+.card:hover .bi-arrow-down-short {
     opacity: 1;
+    position: relative;
+    top: -5px;
 }
 
-.rowcards:after {
-    content: "";
-    display: table;
-    clear: both;
+.h3card {
+    font-size: 1.75rem;
 }
+
+#cardone {
+    background: rgb(240, 193, 75, 0.90);
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+#cardtwo {
+    background: rgb(234, 112, 101, 0.90);
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+#cardthree {
+    background: rgb(181, 213, 106, 0.90);
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+
+/* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
+    .masthead-heading {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    .masthead-content {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
     .column {
         width: 100%;
         display: block;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+    }
+    .animation {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
     }
 }
