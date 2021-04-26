@@ -666,8 +666,6 @@ pre code {
 .col-xl-auto {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 
 .col {
@@ -4135,6 +4133,7 @@ input[type="button"].btn-block {
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
+    transition: 0.6s;
 }
 
 .navbar-custom {
@@ -5409,36 +5408,6 @@ a.badge-dark.focus {
     color: #fff;
     background-color: #1b1e21;
     border-color: #1b1e21;
-}
-
-.close {
-    float: right;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: .5;
-}
-
-.close:hover {
-    color: #000;
-    text-decoration: none;
-}
-
-.close:not(:disabled):not(.disabled):hover,
-.close:not(:disabled):not(.disabled):focus {
-    opacity: .75;
-}
-
-button.close {
-    padding: 0;
-    background-color: transparent;
-    border: 0;
-}
-
-a.close.disabled {
-    pointer-events: none;
 }
 
 .toast {
@@ -9658,6 +9627,17 @@ header.masthead {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
+    animation-name: animatetop1;
+    animation-duration: 0.6s;
+}
+
+@keyframes animatetop1 {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
 }
 
 
@@ -9671,46 +9651,11 @@ header.masthead {
     border-radius: 1rem 1rem 1rem 1rem;
     width: 60%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-name: animatetop2;
+    animation-duration: 0.6s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .modal.fade .modal-dialog {
-        transition: none;
-    }
-}
-
-@media (min-width: 992px) {
-    .modal-lg,
-    .modal-xl {
-        max-width: 800px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .modal-xl {
-        max-width: 1140px;
-    }
-}
-
-
-/* Animação do modal */
-
-@-webkit-keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0
-    }
-    to {
-        top: 0;
-        opacity: 1
-    }
-}
-
-@keyframes animatetop {
+@keyframes animatetop2 {
     from {
         top: -300px;
         opacity: 0
@@ -9725,7 +9670,7 @@ header.masthead {
 /* CSS do formulário */
 
 .form-container {
-    max-width: 600px;
+    max-width: 700px;
     position: relative;
     margin: auto;
     padding: 2rem;
@@ -9790,6 +9735,36 @@ header.masthead {
     margin-bottom: 10px;
     opacity: 0.9;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+}
+
+
+/* CSS do botao de fechar */
+
+.form-container .close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(255, 0, 0);
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.5;
+    transition: 0.6s;
+    transform: scale(1.10);
+}
+
+.close:hover {
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.6s;
+    transform: scale(1.50);
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
 }
 
 
@@ -9798,14 +9773,7 @@ header.masthead {
 .form-container .registar:hover,
 .open-button:hover {
     opacity: 1;
-}
-
-
-/* Opacidade do botao fechar do formulário */
-
-.form-container .fechar:hover,
-.open-button:hover {
-    opacity: 1;
+    transition: 0.6s;
 }
 
 
