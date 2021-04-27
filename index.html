@@ -17,8 +17,8 @@
             <a class="navbar-brand" href="#">Início</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="navbar-brand" id="myBtn" href="#">Regista-te</a>
-                    <div id="myModal" class="modal">
+                    <a class="navbar-brand" id="btnNavRegistate" href="#">Regista-te</a>
+                    <div id="modal" class="modal">
                         <div class="modal-content">
                             <form class="form-container">
                                 <div class="form-row">
@@ -27,10 +27,8 @@
                                         <p class="pform">É rápido e fácil.</p>
                                     </div>
                                     <div class="col">
-                                        <button id="close" type="button" class="close" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            <div id="myModal" class="modal">
-                                                <div class="modal-content"></div></div>
+                                        <button id="btnClose" type="button" class="btnClose" aria-label="Close">
+                                            <span class="close" aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                 </div>
@@ -55,7 +53,7 @@
                                         <input type="password" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
                                     </div>
                                 </div>
-                                <button type="submit" class="registar">Registar</button>
+                                <button type="submit" class="btnRegistar">Registar</button>
                             </form>
                         </div>
                     </div>
@@ -133,7 +131,7 @@
                                         <div class="col">
                                             <input type="password" placeholder="Palavra-passe" name="psw" required> </div>
                                     </div>
-                                    <button type="submit" class="registar">Iniciar sessão</button>
+                                    <button type="submit" class="btnIniciarSessao">Iniciar sessão</button>
                                 </form>
                             </div>
                         </div>
