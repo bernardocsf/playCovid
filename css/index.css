@@ -9398,7 +9398,6 @@ a.text-dark:focus {
     font-size: 1.7rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 }
 
 ol,
@@ -9410,7 +9409,7 @@ li {
 
 .carousel {
     position: relative;
-    padding-top: 100%;
+    padding-top: 50%;
     filter: drop-shadow(0 0 10px #0003);
     perspective: 100px;
 }
@@ -9781,13 +9780,19 @@ header.masthead {
 /* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
+    .carousel {
+        position: relative;
+        padding-top: 100%;
+        filter: drop-shadow(0 0 10px #0003);
+        perspective: 100px;
+    }
     .masthead-content {
         width: 100%;
         display: block;
         margin-bottom: 20px;
     }
     .column {
-        width: 100%;
+        width: 80%;
         display: block;
         margin-bottom: 20px;
     }
