@@ -19,7 +19,10 @@ body {
     line-height: 1.5;
     color: #ffffff;
     text-align: left;
-    background-color: #fff;
+    background-image: url("fundo2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
 }
 
 article,
@@ -7707,224 +7710,14 @@ button.bg-dark:focus {
 /* CARROUSEL */
 
 .animation {
-    position: relative;
-    width: 30rem;
-    height: 17rem;
+    position: fixed;
+    width: 20rem;
+    height: 20.5rem;
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.7);
-    top: 1rem;
+    top: 10rem;
+    right: 6rem;
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-}
-
-.h2sabiasque {
-    position: relative;
-    margin-top: 3.5rem;
-    font-size: 1.7rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-ol,
-li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.carousel {
-    position: relative;
-    padding-top: 50%;
-    filter: drop-shadow(0 0 10px #0003);
-    perspective: 100px;
-}
-
-.carousel__viewport {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-}
-
-.carousel__slide {
-    position: relative;
-    flex: 0 0 100%;
-}
-
-.carousel__snapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation-name: tonext, snap;
-    animation-timing-function: ease;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-}
-
-.carousel__slide:last-child .carousel__snapper {
-    animation-name: tostart, snap;
-}
-
-@keyframes tonext {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: 100%;
-    }
-    98% {
-        left: 100%;
-    }
-    99% {
-        left: 0;
-    }
-}
-
-@keyframes tostart {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: -300%;
-    }
-    98% {
-        left: -300%;
-    }
-    99% {
-        left: 0;
-    }
-}
-
-@keyframes snap {
-    96% {
-        scroll-snap-align: center;
-    }
-    97% {
-        scroll-snap-align: none;
-    }
-    99% {
-        scroll-snap-align: none;
-    }
-    100% {
-        scroll-snap-align: center;
-    }
-}
-
-*::-webkit-scrollbar {
-    width: 0;
-}
-
-
-/* CSS DOS BOTOES EM FORMA DE CARD */
-
-.rowcards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-flow: wrap;
-}
-
-.column {
-    width: 20%;
-    padding: 0 10px;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    font-size: 30px;
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.10);
-    box-shadow: 0 0 40px -10px rgb(0, 0, 0);
-    transition: 0.2s;
-}
-
-.bi-arrow-down-short {
-    opacity: 0;
-}
-
-.card:hover .bi-arrow-down-short {
-    opacity: 1;
-    position: relative;
-    top: -5px;
-}
-
-.h3card {
-    font-size: 1.75rem;
-}
-
-#cardone {
-    background: rgb(240, 193, 75, 0.90);
-    border-radius: 1rem 1rem 0rem 0rem;
-}
-
-#cardtwo {
-    background: rgb(234, 112, 101, 0.90);
-    border-radius: 1rem 1rem 0rem 0rem;
-}
-
-#cardthree {
-    background: rgb(181, 213, 106, 0.90);
-    border-radius: 1rem 1rem 0rem 0rem;
-}
-
-
-/* css das sections */
-
-.jogar {
-    background-image: url("fundo2.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-}
-
-#jogar {
-    background: rgb(240, 193, 75, 0.90);
-}
-
-.quiz {
-    background-image: url("fundo2.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-}
-
-#quiz {
-    background: rgb(234, 112, 101, 0.90);
-}
-
-.duvidas {
-    background-image: url("fundo2.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-}
-
-#duvidas {
-    background: rgb(181, 213, 106, 0.90);
-}
-
-
-/* esta parte gere a posição do ecrã inicial e a imagem de fundo */
-
-header.masthead {
-    position: relative;
-    overflow: hidden;
-    padding-top: calc(3rem + 72px);
-    background-image: url("fundo1.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: scroll;
-    background-size: cover;
 }
 
 
@@ -8030,34 +7823,11 @@ header.masthead {
 }
 
 
-/* CSS do botao registar */
-
-.btnRegistar {
-    background-color: #48bb4c;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
-    opacity: 0.9;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.btnRegistar:hover {
-    opacity: 1;
-    transition: 0.6s;
-}
-
-
 /* CSS do botao iniciar sessão */
 
-.btnIniciarSessao {
-    background-color: #48bb4c;
-    color: white;
+.btnUtilizador {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     padding: 16px 20px;
     border: none;
     cursor: pointer;
@@ -8070,7 +7840,7 @@ header.masthead {
     font-weight: bold;
 }
 
-.btnIniciarSessao:hover {
+.btnUtilizador:hover {
     opacity: 1;
     transition: 0.6s;
 }
@@ -8104,33 +7874,12 @@ header.masthead {
 /* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
-    .carousel {
-        position: relative;
-        padding-top: 100%;
-        filter: drop-shadow(0 0 10px #0003);
-        perspective: 100px;
-    }
-    .masthead-content {
-        width: 100%;
-        display: block;
-        margin-bottom: 20px;
-    }
-    .column {
-        width: 80%;
-        display: block;
-        margin-bottom: 20px;
-    }
     .animation {
-        width: 100%;
+        position: relative;
+        width: 80%;
+        left: 3rem;
         display: block;
         margin-bottom: 20px;
-    }
-    .h2sabiasque {
-        position: relative;
-        margin-top: 3.5rem;
-        font-size: 1.5rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
     }
     .modal-content {
         position: relative;
