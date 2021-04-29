@@ -2096,6 +2096,45 @@ header.masthead {
 }
 
 
+/* CSS do formulário */
+
+.form-container {
+    max-width: 700px;
+    position: relative;
+    margin: auto;
+    padding: 2rem;
+}
+
+.h3form {
+    display: flex;
+    flex-direction: row;
+    color: #002752;
+    font-weight: bold;
+}
+
+.pform {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.form-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-row>.col,
+.form-row>[class*="col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+
 /* CSS dos inputs */
 
 .form-container input[type=text],
@@ -2110,18 +2149,27 @@ header.masthead {
 }
 
 
+/* Quando se colocar texto nestes inputs vai mete-los mais escuros*/
+
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    transition: 0.6s;
+}
+
+
 /* Fundo de Do texto */
 
 .backgroundText {
     position: relative;
     right: 10rem;
-    width: 52rem;
-    height: 40rem;
+    width: 50rem;
+    height: 90rem;
     margin: auto;
     margin-bottom: 3rem;
     border-radius: 1rem;
     background: rgb(255, 255, 255);
-    opacity: 0.9;
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
     color: #000000;
 }
@@ -2132,13 +2180,59 @@ header.masthead {
 .backgroundBtns {
     position: fixed;
     width: 20rem;
-    height: 20rem;
+    height: 29rem;
     margin: auto;
     border-radius: 1rem;
-    background: rgba(0, 0, 0, 0.7);
-    top: 12rem;
+    background: rgba(255, 255, 255, 0.1);
+    top: 7.5rem;
     right: 3rem;
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+}
+
+.profile-pic {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    color: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.profile-pic:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.profile-pic span {
+    display: inline-flex;
+    padding: 0.2em;
+}
+
+#output {
+    border-radius: 50% !important;
+    width: 130px;
+    height: 130px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }
 
 
@@ -2152,7 +2246,6 @@ header.masthead {
     cursor: pointer;
     width: 100%;
     margin-bottom: 15px;
-    opacity: 0.9;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
     transition: 0.6s;
     font-size: 1.2rem;
@@ -2160,17 +2253,7 @@ header.masthead {
 }
 
 .btnsUtilizador:hover {
-    opacity: 1;
-    transition: 0.6s;
-}
-
-
-/* Quando se colocar texto nestes inputs vai mete-los mais escuros*/
-
-.form-container input[type=text]:focus,
-.form-container input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
+    opacity: 0.9;
     transition: 0.6s;
 }
 
@@ -2180,18 +2263,19 @@ header.masthead {
 .modal {
     position: fixed;
     z-index: 1;
-    left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-    top: -100%;
+    right: -100%;
+    top: 0;
     opacity: 0;
     transition: 0.6s;
 }
 
 .modal.show {
+    right: 0;
     top: 0;
     opacity: 1;
 }
@@ -2211,6 +2295,29 @@ header.masthead {
 }
 
 
+/* CSS DO BOTAO DE EDITAR PERFIL NO MODAL */
+
+.btnEditado {
+    background-color: #48bb4c;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.btnRegistar:hover {
+    opacity: 1;
+    transition: 0.6s;
+}
+
+
 /* CSS DO BOTAO DE FECHAR O MODAL */
 
 .btnClose {
@@ -2220,7 +2327,7 @@ header.masthead {
     line-height: 1;
     text-shadow: 0 1px 0 #fff;
     opacity: 0.5;
-    transition: 0.6s;
+    transition: 0.4s;
     transform: scale(1.10);
     padding: 0;
     background-color: transparent;
@@ -2231,7 +2338,7 @@ header.masthead {
     color: rgb(255, 0, 0);
     text-decoration: none;
     opacity: 1;
-    transition: 0.6s;
+    transition: 0.4s;
     transform: scale(1.50);
 }
 
@@ -2245,16 +2352,16 @@ header.masthead {
 /* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
-    .backgroundText {
-        width: 80%;
-        right: 0rem;
-    }
     .backgroundBtns {
         position: relative;
-        width: 80%;
+        width: 95%;
         right: 0rem;
         top: 0rem;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
+    }
+    .backgroundText {
+        width: 95%;
+        right: 0rem;
     }
     .masthead-content {
         width: 100%;

@@ -157,7 +157,6 @@ th {
 
 label {
     display: inline-block;
-    margin-bottom: 0.5rem;
 }
 
 button {
@@ -2063,6 +2062,24 @@ pre code {
     text-align: center !important;
 }
 
+#output {
+    border-radius: 50% !important;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 3rem;
+    cursor: pointer;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
 
 /* CARROUSEL */
 
@@ -2279,7 +2296,7 @@ li {
 header.masthead {
     position: relative;
     overflow: hidden;
-    padding-top: calc(3rem + 72px);
+    padding-top: calc(2rem + 72px);
     background-image: url("fundo1.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2359,18 +2376,19 @@ header.masthead {
 .modal {
     position: fixed;
     z-index: 1;
-    left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+    right: -50%;
     top: -100%;
     opacity: 0;
     transition: 0.6s;
 }
 
 .modal.show {
+    right: 0;
     top: 0;
     opacity: 1;
 }
@@ -2389,6 +2407,33 @@ header.masthead {
     top: 6rem;
 }
 
+.profile-pic {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    color: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.profile-pic:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.profile-pic span {
+    justify-content: center;
+    padding: 0.2em;
+}
+
 
 /* CSS DO BOTAO DE REGISTAR CONTA DO MODAL */
 
@@ -2403,7 +2448,7 @@ header.masthead {
     opacity: 0.9;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
     transition: 0.6s;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
@@ -2422,7 +2467,7 @@ header.masthead {
     line-height: 1;
     text-shadow: 0 1px 0 #fff;
     opacity: 0.5;
-    transition: 0.6s;
+    transition: 0.4s;
     transform: scale(1.10);
     padding: 0;
     background-color: transparent;
@@ -2433,7 +2478,7 @@ header.masthead {
     color: rgb(255, 0, 0);
     text-decoration: none;
     opacity: 1;
-    transition: 0.6s;
+    transition: 0.4s;
     transform: scale(1.50);
 }
 
@@ -2526,5 +2571,8 @@ header.masthead {
         color: #002752;
         font-weight: bold;
         font-size: 1.72rem;
+    }
+    #output {
+        left: 5rem;
     }
 }
