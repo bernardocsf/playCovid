@@ -60,3 +60,90 @@ function previewFile() {
         reader.readAsDataURL(file);
     }
 }
+
+
+
+
+
+
+
+
+
+let usersNames = []
+if (localStorage.getItem("usernameList")) {
+    usersNames = JSON.parse(localStorage.getItem("usernameList"))
+}
+
+let utilizadores = []
+if (localStorage.getItem("userList")) {
+    utilizadores = JSON.parse(localStorage.getItem("userList"))
+}
+
+let x = usersNames.length
+let y = x - 1
+
+function perfilDados() {
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            let editarUsername = utilizadores[i].username
+            let editarName = utilizadores[i].name
+            let editarEmail = utilizadores[i].email
+            let editarData = utilizadores[i].data
+            let editarGenero = utilizadores[i].genero
+            let editarPassword = utilizadores[i].password
+            let editarPasswordConf = utilizadores[i].passwordConf
+            document.getElementById("editarUtilizador").value = editarUsername
+            document.getElementById("editarNome").value = editarName
+            document.getElementById("editarEmail").value = editarEmail
+            document.getElementById("editarData").value = editarData
+            if (editarGenero == "Masculino") {
+                document.getElementById("editarMasculino").checked = true
+            } else {
+                document.getElementById("editarFeminino").checked = true
+            }
+            document.getElementById("editarPassword").value = editarPassword
+            document.getElementById("editarPasswordConf").value = editarPasswordConf
+            break
+        }
+    }
+}
+
+let contaRegistada = false
+
+function perfilEditado() {
+    let editadoUtilizador = document.getElementById("editarUtilizador").value
+    let editadoNome = document.getElementById("editarNome").value
+    let editadoEmail = document.getElementById("editarEmail").value
+    let editadoData = document.getElementById("editarData").value
+    let editadoGenero = ""
+    if (document.getElementById("editarMasculino").checked == true) {
+        editadoGenero = "Masculino"
+    } else {
+        editadoGenero = "Feminino"
+    }
+    let editadoPassword = document.getElementById("editarPassword").value
+    let editadoPasswordConf = document.getElementById("editarPasswordConf").value
+
+
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            utilizadores[i].username = editadoUtilizador
+            utilizadores[i].name = editadoNome
+            utilizadores[i].email = editadoEmail
+            utilizadores[i].data = editadoData
+            utilizadores[i].genero = editadoGenero
+            utilizadores[i].password = editadoPassword
+            utilizadores[i].passwordConf = editadoPasswordConf
+            if (editadoPassword != editadoPasswordConf) {
+                alert("Passwords não coincidem!")
+            } else {
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
+                alert("Vais ter que reinicar sessão!")
+                document.getElementById("editadoForm").onsubmit = function() {
+                    window.location.replace("index.html")
+                    return false
+                }
+            }
+        }
+    }
+}

@@ -6,19 +6,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Play Covid</title>
+    <title>Utilizador</title>
     <link rel="sortcut icon" href="img/imgbg.jpg">
     <link rel="stylesheet" href="css/utilizador.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 </head>
 
-<body>
+<body onload="perfilDados()">
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#"><img width="35" height="35" src="img/logo.png"></a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="navbar-brand" id="btnNavRegistate" href="index.html">Sair</a>
+                    <div class="backgroundBtns">
+                        <div class="p-5">
+                            <div class="masthead-content">
+                                <label><img id="output" src="img/p1.png" ><input type="file" class="inputfile" onchange="previewFile()"></label>
+                                <button type="submit" href="#" id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
+                                <div id="modalEditarPerfil" class="modal">
+                                    <div class="modal-content">
+                                        <form class="form-container" id="editadoForm">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <h3 class="h3form">Edita o teu Perfil</h3>
+                                                    <p class="pform">Aqui podes altera os teus dados.</p>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="button" class="btnClose" aria-label="Close">
+                                                        <span id="closeEditarPerfil" aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="text" id="editarUtilizador" placeholder="Nome de utilizador" name="utilizador" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="editarNome" placeholder="Nome próprio" name="nome" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="text" id="editarEmail" placeholder="Email" name="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="text" id="editarData" placeholder="Data de Nascimento" class="textbox-n" onfocus="(this.type='date')">
+                                                </div>
+                                                <div class="col">
+                                                    <div class="controls">
+                                                        <label class="radio"></label>
+                                                        <input type="radio" id="editarMasculino" name="gender" value="Masculino">Masculino
+
+                                                        <label class="radio"></label>
+                                                        <input type="radio" id="editarFeminino" name="gender" value="Feminino">Feminino
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="password" id="editarPassword" placeholder="Palavra-passe" name="psw" required>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="password" id="editarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btnEditado" onclick="perfilEditado()">Editar Perfil</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <button type="submit" href="#" id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
+                                <div id="modalEstatisticas" class="modal">
+                                    <div class="modal-content">
+                                        <form class="form-container">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <h3 class="h3form">Estatísticas</h3>
+                                                    <p class="pform">Analisa as tuas estatísticas.</p>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="button" class="btnClose" aria-label="Close">
+                                                        <span id="closeEstatisticas" aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="text" id="registarEmail" placeholder="Email" name="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required> </div>
+                                                <div class="col">
+                                                    <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btnEditado">Editar Perfil</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <button type="submit" href="#" id="btnConquistas" class="btnsUtilizador">Conquistas</button>
+                                <div id="modalConquistas" class="modal">
+                                    <div class="modal-content">
+                                        <form class="form-container">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <h3 class="h3form">Conquistas</h3>
+                                                    <p class="pform">Aqui podes ver quais foram as tuas vitórias.</p>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="button" class="btnClose" aria-label="Close">
+                                                        <span id="closeConquistas" aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="text" id="registarEmail" placeholder="Email" name="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required> </div>
+                                                <div class="col">
+                                                    <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btnEditado">Editar Perfil</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -48,173 +211,7 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="container">
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="p-5">
-                                <h2 class="display-4"><b>Tens dúvidas?</b></h2>
-                                <p>Estás com alguma dúvida? Se sim, deixa a tua pergunta no formulário e receberás uma resposta em breve!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container" id="duvidas">
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="p-5">
-                                <h2 class="display-4"><b>Tens dúvidas?</b></h2>
-                                <p>Estás com alguma dúvida? Se sim, deixa a tua pergunta no formulário e receberás uma resposta em breve!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
-            <div class="backgroundBtns">
-                <div class="p-5">
-                    <div class="masthead-content">
-                        <label><img id="output" src="img/p1.png" ><input type="file" class="inputfile" onchange="previewFile()"></label>
-                        <button type="submit" href="#" id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
-                        <div id="modalEditarPerfil" class="modal">
-                            <div class="modal-content">
-                                <form class="form-container">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <h3 class="h3form">Editar Perfil</h3>
-                                            <p class="pform">Altera os teus dados.</p>
-                                        </div>
-                                        <div class="col">
-                                            <button type="button" class="btnClose" aria-label="Close">
-                                                <span id="closeEditarPerfil" aria-hidden="true">&times;</span>
-                                                </button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="registarEmail" placeholder="Email" name="email" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="date" id="registarAniversário" placeholder="Data de aniversário" name="aniversário">
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="controls">
-                                                <label class="radio"></label>
-                                                <input type="radio" id="registarMasculino" name="gender" value="Masculino">Masculino
-
-                                                <label class="radio"></label>
-                                                <input type="radio" id="registarFeminino" name="gender" value="Feminino">Feminino
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required>
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btnEditado">Editar Perfil</button>
-                                </form>
-                            </div>
-                        </div>
-                        <button type="submit" href="#" id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
-                        <div id="modalEstatisticas" class="modal">
-                            <div class="modal-content">
-                                <form class="form-container">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <h3 class="h3form">Estatísticas</h3>
-                                            <p class="pform">Analisa as tuas estatísticas.</p>
-                                        </div>
-                                        <div class="col">
-                                            <button type="button" class="btnClose" aria-label="Close">
-                                                <span id="closeEstatisticas" aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="registarEmail" placeholder="Email" name="email" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required> </div>
-                                        <div class="col">
-                                            <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btnEditado">Editar Perfil</button>
-                                </form>
-                            </div>
-                        </div>
-                        <button type="submit" href="#" id="btnConquistas" class="btnsUtilizador">Conquistas</button>
-                        <div id="modalConquistas" class="modal">
-                            <div class="modal-content">
-                                <form class="form-container">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <h3 class="h3form">Conquistas</h3>
-                                            <p class="pform">Aqui podes ver quais foram as tuas vitórias.</p>
-                                        </div>
-                                        <div class="col">
-                                            <button type="button" class="btnClose" aria-label="Close">
-                                                <span id="closeConquistas" aria-hidden="true">&times;</span>
-                                                </button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="registarEmail" placeholder="Email" name="email" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required> </div>
-                                        <div class="col">
-                                            <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btnEditado">Editar Perfil</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 

@@ -136,7 +136,7 @@ function registar() {
         localStorage.setItem("userList", JSON.stringify(utilizadores))
         alert("Conta criada com sucesso")
         document.getElementById("registarForm").onsubmit = function() {
-            window.location.replace("utilizador.html")
+            window.location.replace("index.html")
             return false
         }
     } else {
