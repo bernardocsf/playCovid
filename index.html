@@ -21,14 +21,14 @@
                     <a class="navbar-brand" id="btnNavRegistate" href="#">Regista-te</a>
                     <div id="modal" class="modal">
                         <div class="modal-content">
-                            <form class="form-container">
+                            <form class="form-container" id="registarForm" onsubmit="return validar()">
                                 <div class="form-row">
                                     <div class="col">
                                         <h3 class="h3form">Regista-te</h3>
                                         <p class="pform">É rápido e fácil.</p>
                                     </div>
                                     <div class="col">
-                                        <label><img id="registarFoto" src="img/p1.png" ><input type="file" class="inputfile" onchange="previewFile()"></label>
+                                        <label><img id="registarFoto" src="img/p1.png" ><input type="file" class="inputfile" onchange="registarFotoPerfil()"></label>
                                     </div>
                                     <div class="col">
                                         <button type="button" class="btnClose" aria-label="Close">
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="date" id="registarAniversário" placeholder="Data de aniversário" name="aniversário">
+                                        <input type="text" id="registarData" placeholder="Data de Nascimento" class="textbox-n" onfocus="(this.type='date')">
                                     </div>
                                     <div class="col">
                                         <div class="controls">
@@ -69,10 +69,10 @@
                                         <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required>
                                     </div>
                                     <div class="col">
-                                        <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
+                                        <input type="password" id="registarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
                                     </div>
                                 </div>
-                                <button type="submit" class="btnRegistar">Registar</button>
+                                <button type="submit" class="btnRegistar" onclick="registar()">Registar</button>
                             </form>
                         </div>
                     </div>
@@ -139,17 +139,17 @@
                         <div class="masthead-content">
                             <h2>Iniciar Sessão</h2>
                             <div class="animation">
-                                <form class="form-container">
+                                <form name="formis" id="formis" class="form-container">
                                     <div class="form-row">
                                         <div class="col">
-                                            <input type="text" id="inicarSessao" placeholder="Nome de utilizador" name="utilizador" required>
+                                            <input type="text" id="iniciarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
-                                            <input type="password" id="inicarPassword" placeholder="Palavra-passe" name="psw" required> </div>
+                                            <input type="password" id="iniciarPassword" placeholder="Palavra-passe" name="psw" required> </div>
                                     </div>
-                                    <button type="submit" href="utilizador.html" class="btnIniciarSessao">Iniciar sessão</button>
+                                    <button type="submit" href="utilizador.html" class="btnIniciarSessao" onclick="login()">Iniciar sessão</button>
                                 </form>
                             </div>
                         </div>
