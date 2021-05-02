@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Início</a>
+            <a class="navbar-brand" href="#"><img width="35" height="35" src="img/logo.png"></a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="navbar-brand" id="btnNavRegistate" href="index.html">Sair</a>
@@ -107,7 +107,23 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
-                                            <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required> </div>
+                                            <input type="date" id="registarAniversário" placeholder="Data de aniversário" name="aniversário">
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="controls">
+                                                <label class="radio"></label>
+                                                <input type="radio" id="registarMasculino" name="gender" value="Masculino">Masculino
+
+                                                <label class="radio"></label>
+                                                <input type="radio" id="registarFeminino" name="gender" value="Feminino">Feminino
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required>
+                                        </div>
                                         <div class="col">
                                             <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
                                         </div>

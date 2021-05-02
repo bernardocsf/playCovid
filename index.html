@@ -28,7 +28,7 @@
                                         <p class="pform">É rápido e fácil.</p>
                                     </div>
                                     <div class="col">
-                                        <label><img id="output" src="img/p1.png" ><input type="file" class="inputfile" onchange="previewFile()"></label>
+                                        <label><img id="registarFoto" src="img/p1.png" ><input type="file" class="inputfile" onchange="previewFile()"></label>
                                     </div>
                                     <div class="col">
                                         <button type="button" class="btnClose" aria-label="Close">
@@ -54,14 +54,20 @@
                                     <div class="col">
                                         <input type="date" id="registarAniversário" placeholder="Data de aniversário" name="aniversário">
                                     </div>
-
                                     <div class="col">
-                                        <input type="password" id="registarSexo" placeholder="Sexo" name="sexo" required>
+                                        <div class="controls">
+                                            <label class="radio"></label>
+                                            <input type="radio" id="registarMasculino" name="gender" value="Masculino">Masculino
+
+                                            <label class="radio"></label>
+                                            <input type="radio" id="registarFeminino" name="gender" value="Feminino">Feminino
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required> </div>
+                                        <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required>
+                                    </div>
                                     <div class="col">
                                         <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
                                     </div>
@@ -74,7 +80,6 @@
             </ul>
         </div>
     </nav>
-
 
 
     <header class="masthead text-center text-white">
@@ -180,6 +185,7 @@
             </div>
         </div>
     </header>
+
 
     <section class="jogar">
         <div id="jogar">

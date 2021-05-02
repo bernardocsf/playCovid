@@ -14,7 +14,7 @@ window.onclick = function(event) {
 }
 
 function previewFile() {
-    const preview = document.querySelector('img');
+    const preview = document.getElementById('registarFoto');
     const file = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
 
