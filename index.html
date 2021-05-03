@@ -28,7 +28,7 @@
                                         <p class="pform">É rápido e fácil.</p>
                                     </div>
                                     <div class="col">
-                                        <label><img id="registarFoto" src="img/p1.png" ><input type="file" class="inputfile" onchange="registarFotoPerfil()"></label>
+                                        <label><img id="registarFoto" src="img/p1.png" ><input type="file" class="inputfile" id="inputfile" onchange="registarFotoPerfil()"></label>
                                     </div>
                                     <div class="col">
                                         <button type="button" class="btnClose" aria-label="Close">
@@ -39,7 +39,7 @@
                                 <hr>
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
+                                        <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" onkeyup="this.value = this.value.toLowerCase();" required>
                                     </div>
                                     <div class="col">
                                         <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
@@ -66,10 +66,10 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required>
+                                        <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" minlength="4" required>
                                     </div>
                                     <div class="col">
-                                        <input type="password" id="registarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
+                                        <input type="password" id="registarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" minlength="4" required>
                                     </div>
                                 </div>
                                 <button type="submit" class="btnRegistar" onclick="registar()">Registar</button>

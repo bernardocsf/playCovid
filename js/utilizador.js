@@ -47,8 +47,8 @@ modalConquistas.onclick = function(event) {
 }
 
 
-function previewFile() {
-    const preview = document.querySelector('img');
+function editarFotoPerfil() {
+    const preview = document.getElementById('editarfoto');
     const file = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
 
@@ -60,13 +60,6 @@ function previewFile() {
         reader.readAsDataURL(file);
     }
 }
-
-
-
-
-
-
-
 
 
 let usersNames = []
@@ -92,6 +85,7 @@ function perfilDados() {
             let editarGenero = utilizadores[i].genero
             let editarPassword = utilizadores[i].password
             let editarPasswordConf = utilizadores[i].passwordConf
+            let editarPerfil = utilizadores[i].fotoperfil
             document.getElementById("editarUtilizador").value = editarUsername
             document.getElementById("editarNome").value = editarName
             document.getElementById("editarEmail").value = editarEmail
@@ -103,6 +97,8 @@ function perfilDados() {
             }
             document.getElementById("editarPassword").value = editarPassword
             document.getElementById("editarPasswordConf").value = editarPasswordConf
+            document.getElementById("editarfoto").src = editarPerfil
+            document.getElementById("output").src = editarPerfil
             break
         }
     }
@@ -123,8 +119,7 @@ function perfilEditado() {
     }
     let editadoPassword = document.getElementById("editarPassword").value
     let editadoPasswordConf = document.getElementById("editarPasswordConf").value
-
-
+    let editadoPerfil = document.getElementById("editarfoto").src
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
             utilizadores[i].username = editadoUtilizador
@@ -134,6 +129,7 @@ function perfilEditado() {
             utilizadores[i].genero = editadoGenero
             utilizadores[i].password = editadoPassword
             utilizadores[i].passwordConf = editadoPasswordConf
+            utilizadores[i].fotoperfil = editadoPerfil
             if (editadoPassword != editadoPasswordConf) {
                 alert("Passwords não coincidem!")
             } else {

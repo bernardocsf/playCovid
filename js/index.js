@@ -27,10 +27,6 @@ function registarFotoPerfil() {
     }
 }
 
-
-
-
-
 let usersNames = []
 if (localStorage.getItem("usernameList")) {
     usersNames = JSON.parse(localStorage.getItem("usernameList"))
@@ -115,7 +111,6 @@ function registar() {
     let registarPassword = document.getElementById("registarPassword").value
     let registarPasswordConf = document.getElementById("registarPasswordConf").value
     let registarPerfil = document.getElementById("registarFoto").src
-
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == registarUtilizador) {
             contaRegistada = true
@@ -127,6 +122,10 @@ function registar() {
         }
         if (registarPassword != registarPasswordConf) {
             alert("Passwords não coincidem!")
+            return false
+        }
+        if (registarPassword.length <= 4 && registarPasswordConf.length <= 4) {
+            alert("Passwords muito curtas!")
             return false
         }
     }

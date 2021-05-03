@@ -18,11 +18,11 @@
             <a class="navbar-brand" href="#"><img width="35" height="35" src="img/logo.png"></a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="navbar-brand" id="btnNavRegistate" href="index.html">Sair</a>
+                    <a class="navbar-brand" id="btnNavRegistate" href="index.html">Terminar Sessão</a>
                     <div class="backgroundBtns">
                         <div class="p-5">
                             <div class="masthead-content">
-                                <label><img id="output" src="img/p1.png" ><input type="file" class="inputfile" onchange="previewFile()"></label>
+                                <label><img id="output" src=""><input class="inputfile" id="inputfile" onchange="editarFotoPerfil()"></label>
                                 <button type="submit" href="#" id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
                                 <div id="modalEditarPerfil" class="modal">
                                     <div class="modal-content">
@@ -31,6 +31,9 @@
                                                 <div class="col">
                                                     <h3 class="h3form">Edita o teu Perfil</h3>
                                                     <p class="pform">Aqui podes altera os teus dados.</p>
+                                                </div>
+                                                <div class="col">
+                                                    <label><img id="editarfoto" src=""><input type="file" class="inputfile" id="inputfile" onchange="editarFotoPerfil()"></label>
                                                 </div>
                                                 <div class="col">
                                                     <button type="button" class="btnClose" aria-label="Close">

@@ -2193,12 +2193,21 @@ header.masthead {
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
 }
 
+#editarfoto {
+    border-radius: 50% !important;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 3.5rem;
+    cursor: pointer;
+}
+
 #output {
     border-radius: 50% !important;
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
     position: relative;
-    cursor: pointer;
+    left: 3.5rem;
     margin-bottom: 20px;
 }
 
@@ -2278,7 +2287,7 @@ header.masthead {
     border-radius: 1rem 1rem 1rem 1rem;
     width: 60%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 2rem;
+    top: 0.5rem;
 }
 
 
