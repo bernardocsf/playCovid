@@ -124,7 +124,7 @@ function registar() {
             alert("Passwords não coincidem!")
             return false
         }
-        if (registarPassword.length <= 4 && registarPasswordConf.length <= 4) {
+        if (registarPassword.length < 4 && registarPasswordConf.length < 4) {
             alert("Passwords muito curtas!")
             return false
         }
@@ -140,5 +140,6 @@ function registar() {
         }
     } else {
         alert("Este username já existe")
+        return false
     }
 }

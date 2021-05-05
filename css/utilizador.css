@@ -157,7 +157,7 @@ th {
 
 label {
     display: inline-block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 button {
@@ -2102,7 +2102,7 @@ header.masthead {
     max-width: 700px;
     position: relative;
     margin: auto;
-    padding: 2rem;
+    padding: 1.2rem;
 }
 
 .h3form {
@@ -2143,7 +2143,7 @@ header.masthead {
 .form-container input[type=radio] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 5px 0 15px 0;
     border: none;
     background: #f1f1f1;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
@@ -2169,7 +2169,7 @@ header.masthead {
     position: relative;
     right: 10rem;
     width: 50rem;
-    height: 90rem;
+    height: 130rem;
     margin: auto;
     margin-bottom: 3rem;
     border-radius: 1rem;
@@ -2187,8 +2187,8 @@ header.masthead {
     height: 26rem;
     margin: auto;
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    top: 9rem;
+    background: rgba(0, 0, 0, 0.6);
+    top: 9.5rem;
     right: 3rem;
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
 }
@@ -2198,17 +2198,8 @@ header.masthead {
     width: 100px;
     height: 100px;
     position: relative;
-    left: 3.5rem;
+    left: 0rem;
     cursor: pointer;
-}
-
-#output {
-    border-radius: 50% !important;
-    width: 100px;
-    height: 100px;
-    position: relative;
-    left: 3.5rem;
-    margin-bottom: 20px;
 }
 
 .inputfile {
@@ -2218,6 +2209,95 @@ header.masthead {
     overflow: hidden;
     position: absolute;
     z-index: -1;
+}
+
+#output {
+    border-radius: 50% !important;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 0rem;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#output:hover {
+    opacity: 0.7;
+}
+
+
+/* The Modal (background) */
+
+.modalfoto {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* Modal Content (Image) */
+
+.modalfoto-content {
+    margin: auto;
+    display: block;
+    width: 35%;
+    max-width: 700px;
+    border-radius: 2rem;
+}
+
+
+/* Add Animation - Zoom in the Modal */
+
+.modalfoto-content {
+    animation-name: zoom;
+    animation-duration: 0.5s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* The Close Button */
+
+.closefoto {
+    position: absolute;
+    top: 115px;
+    right: 460px;
+    color: #f1f1f1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0.5;
+    transition: 0.4s;
+    padding: 0;
+    background-color: transparent;
+    transform: scale(1.50);
+}
+
+.closefoto:hover,
+.closefoto:focus {
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.4s;
+    transform: scale(2.0);
+    cursor: pointer;
 }
 
 
@@ -2287,7 +2367,7 @@ header.masthead {
     border-radius: 1rem 1rem 1rem 1rem;
     width: 60%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 0.5rem;
+    top: 6rem;
 }
 
 
@@ -2296,11 +2376,10 @@ header.masthead {
 .btnEditado {
     background-color: #48bb4c;
     color: white;
-    padding: 16px 20px;
+    padding: 12px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 10px;
     opacity: 0.9;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
     transition: 0.6s;
@@ -2308,7 +2387,7 @@ header.masthead {
     font-weight: bold;
 }
 
-.btnRegistar:hover {
+.btnEditado:hover {
     opacity: 1;
     transition: 0.6s;
 }
@@ -2348,16 +2427,57 @@ header.masthead {
 /* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
+    .modalfoto {
+        top: 60px;
+        width: 100%;
+        height: 100%;
+    }
+    .modalfoto-content {
+        width: 90%;
+    }
+    .closefoto {
+        position: absolute;
+        top: 115px;
+        right: 40px;
+        transform: scale(1.30);
+    }
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .backgroundBtns {
         position: relative;
         width: 95%;
         right: 0rem;
-        top: 0rem;
-        margin-bottom: 50px;
+        top: -2.2rem;
+        height: 26rem;
+        margin: auto;
+        border-radius: 1rem;
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .btnsUtilizador {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        padding: 14px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+        transition: 0.6s;
+        font-size: 1.1rem;
+        font-weight: bold;
     }
     .backgroundText {
         width: 95%;
         right: 0rem;
+        top: 2rem;
+        margin: auto;
+        margin-bottom: 6rem;
+        border-radius: 1rem;
+        background: rgb(255, 255, 255);
+        box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+        color: #000000;
     }
     .masthead-content {
         width: 100%;
@@ -2391,5 +2511,316 @@ header.masthead {
         color: #002752;
         font-weight: bold;
         font-size: 1.72rem;
+    }
+    #output {
+        position: relative;
+        left: 0rem;
+        margin-bottom: 20px;
+    }
+    #editarfoto {
+        border-radius: 50% !important;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 0rem;
+        cursor: pointer;
+    }
+}
+
+
+/* CSS DO JOGO */
+
+.containergame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 85%;
+    background-image: url("fundo2.jpg");
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 8px 9px 26px 0 rgba(105, 124, 139, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.card {
+    background-color: white;
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0.2rem 0.2rem;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+    animation-name: flipInY;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #E5F720;
+    font-size: 33px;
+    animation-name: rubberBand;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.deck .card.unmatched {
+    animation-name: pulse;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+    background: #e2043b;
+}
+
+.deck .card.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+.fa-star {
+    color: #FFD700;
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+
+/*
+ * Styles for congratulations modal
+ */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 85%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #E5F720;
+}
+
+.popup .content-1,
+.content-2 {
+    max-height: 30%;
+    overflow: auto;
+    text-align: center;
+}
+
+.show {
+    visibility: visible !important;
+    opacity: 100 !important;
+}
+
+#starRating li {
+    display: inline-block;
+}
+
+#play-again {
+    background-color: #141214;
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+
+/* animations */
+
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+    }
+    80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+    to {
+        transform: perspective(400px);
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+/****** Media queries
+***************************/
+
+@media (max-width: 320px) {
+    .deck {
+        width: 85%;
+    }
+    .deck .card {
+        height: 4.7rem;
+        width: 4.7rem;
+    }
+}
+
+
+/* For Tablets and larger screens
+****************/
+
+@media (min-width: 768px) {
+    .containergame {
+        font-size: 22px;
+    }
+    .deck {
+        width: 660px;
+        height: 680px;
+    }
+    .deck .card {
+        height: 125px;
+        width: 125px;
+    }
+    .popup {
+        width: 60%;
     }
 }
