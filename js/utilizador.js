@@ -179,6 +179,7 @@ const stars = document.querySelectorAll(".fa-star");
 let matchedCard = document.getElementsByClassName("match");
 let starsList = document.querySelectorAll(".stars li");
 let closeicon = document.querySelector(".close");
+let modaljogar = document.getElementById("popupjogar")
 let modal = document.getElementById("popup1")
 var openedCards = [];
 
@@ -196,8 +197,10 @@ function shuffle(array) {
     return array;
 };
 
+modaljogar.classList.add("show");
 
 function startGame() {
+    
 
     openedCards = [];
     cards = shuffle(cards);
@@ -354,6 +357,11 @@ function closeModal() {
 
 function playAgain() {
     modal.classList.remove("show");
+    startGame();
+}
+
+function playAgain() {
+    modaljogar.classList.remove("show");
     startGame();
 }
 

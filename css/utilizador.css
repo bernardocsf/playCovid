@@ -2574,12 +2574,29 @@ header.masthead {
     opacity: 1;
 }
 
+.overlayjogar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlayjogar:target {
+    visibility: visible;
+    opacity: 1;
+}
+
 .popup {
     margin: 70px auto;
     padding: 20px;
     background: #ffffff;
     border-radius: 1.5rem;
-    width: 50%;
+    width: 35%;
     position: relative;
     top: 7rem;
     right: 10rem;
@@ -2827,5 +2844,16 @@ header.masthead {
     }
     .card {
         border-radius: 0.5rem;
+    }
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 1.5rem;
+        width: 70%;
+        position: relative;
+        top: 9rem;
+        right: 0rem;
+        transition: all 5s ease-in-out;
     }
 }
