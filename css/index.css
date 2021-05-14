@@ -2258,7 +2258,7 @@ li {
 /* css das sections */
 
 .jogar {
-    background-image: url("fundo2.jpg");
+    background-image: url("/img/fundo2.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -2269,7 +2269,7 @@ li {
 }
 
 .quiz {
-    background-image: url("fundo2.jpg");
+    background-image: url("/img/fundo2.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
