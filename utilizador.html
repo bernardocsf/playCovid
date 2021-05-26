@@ -111,10 +111,10 @@
 
                     <div id="popupjogar" class="overlayjogar">
                         <div class="popupjogar">
-                            <button class="btnJogar" onclick="playAgain()">
+                            <button class="btnJogar" onclick="jogar()">
                                 Jogar</a>
                             </button>
-                            <button class="btnEstatisticasJogo" onclick="playAgain()">
+                            <button class="btnEstatisticasJogo" onclick="jogar()">
                                 Estatísticas</a>
                             </button>
                         </div>
@@ -132,7 +132,7 @@
                                 <p>Em <span id=totalTime> </span></p>
                                 <p>Rating: <span id=starRating></span></p>
                             </div>
-                            <button class="btnJogarNovamente" onclick="playAgain()">
+                            <button class="btnJogarNovamente" onclick="jogarNovamente()">
                                 Jogar novamente</a>
                             </button>
                         </div>
@@ -219,14 +219,13 @@
                                     </form>
                                 </div>
                             </div>
-                            <button type="submit" href="#" id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
+                            <button id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
                             <div id="modalEstatisticas" class="modalEstatisticas">
                                 <div class="modalEstatisticas-content">
                                     <form class="form-container">
                                         <div class="form-row">
                                             <div class="col">
                                                 <h3 class="h3form">Estatísticas</h3>
-                                                <p class="pform">Analisa as tuas estatísticas.</p>
                                             </div>
                                             <div class="col">
                                                 <button type="button" class="btnClose" aria-label="Close">
@@ -237,10 +236,18 @@
                                         <hr>
                                         <div class="form-row">
                                             <div class="col">
+                                                <h3 class="estatisticasTxt">Jogo da Memória</h3>
+                                                <br>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col">
                                                 <p class="estatisticasTxt">Vezes Jogadas</p>
+                                                <span class="estatisticasTxt" id="njogos">0</span>
                                             </div>
                                             <div class="col">
                                                 <p class="estatisticasTxt">Tempo Jogado</p>
+                                                <span class="estatisticasTxt" id="tempojogado"> 0 min </span>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -249,7 +256,7 @@
                                                 <ul class="stars">
                                                     <li><i class="fa fa-star"></i></li>
                                                     <li>
-                                                        <p class="estatisticasTxt"> 20 </p>
+                                                        <span class="estatisticasTxt" id="jogoscomumaestrela">0</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -259,7 +266,7 @@
                                                         <li><i class="fa fa-star"></i></li>
                                                         <li><i class="fa fa-star"></i></li>
                                                         <li>
-                                                            <p class="estatisticasTxt"> 15 </p>
+                                                            <span class="estatisticasTxt" id="jogoscomduasestrelas">0</span>
                                                         </li>
                                                     </ul>
                                                 </p>
@@ -271,10 +278,27 @@
                                                         <li><i class="fa fa-star"></i></li>
                                                         <li><i class="fa fa-star"></i></li>
                                                         <li>
-                                                            <p class="estatisticasTxt"> 10 </p>
+                                                            <span class="estatisticasTxt" id="jogoscomtresestrelas">0</span>
                                                         </li>
                                                     </ul>
                                                 </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <h3 class="estatisticasTxt">Quiz</h3>
+                                                <br>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <p class="estatisticasTxt">Vezes Jogadas</p>
+                                                <p class="estatisticasTxt">24</p>
+                                            </div>
+                                            <div class="col">
+                                                <p class="estatisticasTxt">Tempo Jogado</p>
+                                                <p class="estatisticasTxt">34 minutos</p>
                                             </div>
                                         </div>
                                     </form>

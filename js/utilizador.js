@@ -162,6 +162,8 @@ function perfilEditado() {
     }
 }
 
+
+
 // JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
 let cards = [...card];
@@ -175,6 +177,10 @@ let closeicon = document.querySelector(".close");
 let modaljogar = document.getElementById("popupjogar")
 let modal = document.getElementById("popup1")
 var openedCards = [];
+let njogos = 0
+let jogoscomumaestrela = 0
+let jogoscomduasestrelas = 0
+let jogoscomtresestrelas = 0
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -288,7 +294,7 @@ function moveCounter() {
                 stars[i].style.visibility = "collapse";
             }
         }
-    } else if (moves > 15) {
+    } else if (moves >= 15) {
         for (i = 0; i < 3; i++) {
             if (i > 0) {
                 stars[i].style.visibility = "collapse";
@@ -320,6 +326,28 @@ function startTimer() {
 
 function congratulations() {
     if (matchedCard.length == 16) {
+
+        njogos++
+        document.getElementById("njogos").innerHTML = njogos
+
+
+
+        document.getElementById("tempojogado").innerHTML = sum
+
+        if (moves >= 15) {
+            jogoscomumaestrela++
+
+            document.getElementById("jogoscomumaestrela").innerHTML = jogoscomumaestrela
+        } else if (moves > 8 && moves <= 14) {
+            jogoscomduasestrelas++
+
+            document.getElementById("jogoscomduasestrelas").innerHTML = jogoscomduasestrelas
+        } else if (moves <= 8) {
+            jogoscomtresestrelas++
+
+            document.getElementById("jogoscomtresestrelas").innerHTML = jogoscomtresestrelas
+        }
+
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
@@ -333,17 +361,15 @@ function congratulations() {
     }
 }
 
-function play() {
+function jogar() {
     modaljogar.classList.remove("show");
     startGame();
 }
 
-function playAgain() {
+function jogarNovamente() {
     modal.classList.remove("show");
     startGame();
 }
-
-
 
 for (var i = 0; i < cards.length; i++) {
     card = cards[i];
