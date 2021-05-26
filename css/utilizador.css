@@ -113,7 +113,6 @@ pre,
 code,
 kbd,
 samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1em;
 }
 
@@ -2074,7 +2073,7 @@ pre code {
 }
 
 
-/* esta parte gere a posição da imagem de fundo inicial */
+/* FORMATAÇÃO DA IMAGEM DE FUNDO */
 
 header.masthead {
     position: relative;
@@ -2088,7 +2087,7 @@ header.masthead {
 }
 
 
-/* este css posiconar o carousel e parte de iniciar sessão */
+/* FORMATAÇÃO DO CARROSSEL E DA SECÇAO DE INICIAR SESSAO*/
 
 .masthead-content {
     position: relative;
@@ -2096,7 +2095,7 @@ header.masthead {
 }
 
 
-/* Fundo de Do texto */
+/* FORMATAÇÃO DO TEXTO */
 
 .backgroundText {
     position: relative;
@@ -2112,7 +2111,22 @@ header.masthead {
 }
 
 
-/* CSS DOS BOTOES FIXOS */
+/* FUNDO DOS BOTOES FIXOS DO TIPO MENU */
+
+.backgroundBtns {
+    position: fixed;
+    width: 20rem;
+    height: 26rem;
+    margin: auto;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    top: 9.5rem;
+    right: 3rem;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+}
+
+
+/* BOTOES FIXOS TIPO MENU */
 
 .btnsUtilizador {
     background-color: #ffffff;
@@ -2128,24 +2142,12 @@ header.masthead {
     font-weight: bold;
 }
 
+
+/* QUANDO O RATO ESTIVER EM CIMA DE ALGUM BOTAO FIXO */
+
 .btnsUtilizador:hover {
     opacity: 0.9;
     transition: 0.6s;
-}
-
-
-/* Fundo de Dos botões fixos "MENU" */
-
-.backgroundBtns {
-    position: fixed;
-    width: 20rem;
-    height: 26rem;
-    margin: auto;
-    border-radius: 1rem;
-    background: rgba(0, 0, 0, 0.6);
-    top: 9.5rem;
-    right: 3rem;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
 }
 
 
@@ -2172,7 +2174,7 @@ header.masthead {
 }
 
 
-/* Modal Content Editar Perfil */
+/* MODAL CONTENT Editar Perfil */
 
 .modalEditarPerfil-content {
     position: relative;
@@ -2186,7 +2188,7 @@ header.masthead {
 }
 
 
-/* CSS DO BOTAO DE EDITAR PERFIL NO MODAL */
+/* BOTAO DE EDITAR PERFIL NO MODAL */
 
 .btnEditado {
     background-color: #48bb4c;
@@ -2208,7 +2210,7 @@ header.masthead {
 }
 
 
-/* CSS do formulário de editar perfil */
+/* FORMULARIO - EDITAR PERFIL */
 
 .form-container {
     max-width: 700px;
@@ -2247,7 +2249,7 @@ header.masthead {
 }
 
 
-/* CSS dos inputs */
+/* INPUTS */
 
 .form-container input[type=text],
 .form-container input[type=password],
@@ -2346,7 +2348,7 @@ header.masthead {
 }
 
 
-/* Modal Content Estatisticas */
+/* MODAL CONTENT Estatisticas */
 
 .modalEstatisticas-content {
     position: relative;
@@ -2388,7 +2390,7 @@ header.masthead {
 }
 
 
-/* Modal Content Conquistas */
+/* MODAL CONTENT Conquistas */
 
 .modalConquistas-content {
     position: relative;
@@ -2402,7 +2404,7 @@ header.masthead {
 }
 
 
-/* CSS DO BOTAO DE FECHAR O MODAL GERAL*/
+/* BOTAO DE FECHAR O MODAL GERAL*/
 
 .btnClose {
     float: right;
@@ -2433,7 +2435,7 @@ header.masthead {
 }
 
 
-/* The Modal FOTO DE PERFIL*/
+/* MODAL DA FOTO DE PERFIL*/
 
 .modalfoto {
     display: none;
@@ -2450,7 +2452,7 @@ header.masthead {
 }
 
 
-/* Modal Content da foto de perfil*/
+/* MODAL CONTENT DA FOTO DE PERFIL*/
 
 .modalfoto-content {
     margin: auto;
@@ -2692,7 +2694,7 @@ header.masthead {
     border-radius: 1.5rem;
     width: 60%;
     position: relative;
-    top: 7rem;
+    top: 8.3rem;
     right: 0rem;
     transition: all 5s ease-in-out;
 }
@@ -2748,7 +2750,7 @@ header.masthead {
     font-weight: bold;
 }
 
-.close {
+.closeCongratulations {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -2764,7 +2766,7 @@ header.masthead {
     transform: scale(1.50);
 }
 
-.close:hover {
+.closeCongratulations:hover {
     color: rgb(255, 0, 0);
     text-decoration: none;
     opacity: 1;
