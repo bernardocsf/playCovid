@@ -2096,7 +2096,119 @@ header.masthead {
 }
 
 
-/* CSS do formulário */
+/* Fundo de Do texto */
+
+.backgroundText {
+    position: relative;
+    right: 10rem;
+    width: 50rem;
+    height: 130rem;
+    margin: auto;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+    color: #000000;
+}
+
+
+/* CSS DOS BOTOES FIXOS */
+
+.btnsUtilizador {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btnsUtilizador:hover {
+    opacity: 0.9;
+    transition: 0.6s;
+}
+
+
+/* Fundo de Dos botões fixos "MENU" */
+
+.backgroundBtns {
+    position: fixed;
+    width: 20rem;
+    height: 26rem;
+    margin: auto;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    top: 9.5rem;
+    right: 3rem;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+}
+
+
+/* MODAL EDITAR PERFIL*/
+
+.modalEditarPerfil {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    right: -100%;
+    top: 0;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.modalEditarPerfil.show {
+    right: 0;
+    top: 0;
+    opacity: 1;
+}
+
+
+/* Modal Content Editar Perfil */
+
+.modalEditarPerfil-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 60%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+    top: 6rem;
+}
+
+
+/* CSS DO BOTAO DE EDITAR PERFIL NO MODAL */
+
+.btnEditado {
+    background-color: #48bb4c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.btnEditado:hover {
+    opacity: 1;
+    transition: 0.6s;
+}
+
+
+/* CSS do formulário de editar perfil */
 
 .form-container {
     max-width: 700px;
@@ -2163,35 +2275,18 @@ header.masthead {
 }
 
 
-/* Fundo de Do texto */
+/* RADIO BUTTON */
 
-.backgroundText {
+.controls {
+    display: flex;
     position: relative;
-    right: 10rem;
-    width: 50rem;
-    height: 130rem;
-    margin: auto;
-    margin-bottom: 3rem;
-    border-radius: 1rem;
-    background: rgb(255, 255, 255);
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+    top: 20%;
+    width: 90%;
     color: #000000;
 }
 
 
-/* Fundo de Dos botões fixos */
-
-.backgroundBtns {
-    position: fixed;
-    width: 20rem;
-    height: 26rem;
-    margin: auto;
-    border-radius: 1rem;
-    background: rgba(0, 0, 0, 0.6);
-    top: 9.5rem;
-    right: 3rem;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-}
+/* EDITAR FOTO DE PERFIL */
 
 #editarfoto {
     border-radius: 50% !important;
@@ -2228,42 +2323,9 @@ header.masthead {
 }
 
 
-/* CSS DOS BOTOES FIXOS */
+/* MODAL ESTATÍSTICAS*/
 
-.btnsUtilizador {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    padding: 14px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.btnsUtilizador:hover {
-    opacity: 0.9;
-    transition: 0.6s;
-}
-
-
-/* RADIO BUTTON */
-
-.controls {
-    display: flex;
-    position: relative;
-    top: 20%;
-    width: 90%;
-    color: #000000;
-}
-
-
-/* MODAL */
-
-.modal {
+.modalEstatisticas {
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -2277,16 +2339,58 @@ header.masthead {
     transition: 0.6s;
 }
 
-.modal.show {
+.modalEstatisticas.show {
     right: 0;
     top: 0;
     opacity: 1;
 }
 
 
-/* Modal Content */
+/* Modal Content Estatisticas */
 
-.modal-content {
+.modalEstatisticas-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 60%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+    top: 6rem;
+}
+
+.estatisticasTxt {
+    color: #002752;
+    font-weight: bold;
+}
+
+
+/* MODAL CONQUISTAS*/
+
+.modalConquistas {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    right: -100%;
+    top: 0;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.modalConquistas.show {
+    right: 0;
+    top: 0;
+    opacity: 1;
+}
+
+
+/* Modal Content Conquistas */
+
+.modalConquistas-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -2298,29 +2402,7 @@ header.masthead {
 }
 
 
-/* CSS DO BOTAO DE EDITAR PERFIL NO MODAL */
-
-.btnEditado {
-    background-color: #48bb4c;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.btnEditado:hover {
-    opacity: 1;
-    transition: 0.6s;
-}
-
-
-/* CSS DO BOTAO DE FECHAR O MODAL */
+/* CSS DO BOTAO DE FECHAR O MODAL GERAL*/
 
 .btnClose {
     float: right;
@@ -2351,10 +2433,7 @@ header.masthead {
 }
 
 
-/* CSS DO JOGO */
-
-
-/* The Modal (background) */
+/* The Modal FOTO DE PERFIL*/
 
 .modalfoto {
     display: none;
@@ -2371,7 +2450,7 @@ header.masthead {
 }
 
 
-/* Modal Content (Image) */
+/* Modal Content da foto de perfil*/
 
 .modalfoto-content {
     margin: auto;
@@ -2382,7 +2461,7 @@ header.masthead {
 }
 
 
-/* Add Animation - Zoom in the Modal */
+/* ANIMAÇÃO DA FOTO DE PERFIL*/
 
 .modalfoto-content {
     animation-name: zoom;
@@ -2399,7 +2478,7 @@ header.masthead {
 }
 
 
-/* The Close Button */
+/* FECHAR O MODAL DA FOTO DE PERFIL*/
 
 .closefoto {
     position: absolute;
@@ -2442,7 +2521,9 @@ header.masthead {
  */
 
 .deck {
-    width: 65%;
+    position: relative;
+    width: 550px;
+    height: 580px;
     background-image: url("/img/fundo2.jpg");
     padding: 1rem;
     border-radius: 1.5rem;
@@ -2575,11 +2656,11 @@ header.masthead {
 }
 
 .overlayjogar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    top: -40.3rem;
+    width: 34.3rem;
+    height: 36.2rem;
+    border-radius: 1.5rem;
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
     visibility: hidden;
@@ -2601,6 +2682,70 @@ header.masthead {
     top: 7rem;
     right: 10rem;
     transition: all 5s ease-in-out;
+}
+
+.popupjogar {
+    position: relative;
+    margin: 70px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 60%;
+    position: relative;
+    top: 7rem;
+    right: 0rem;
+    transition: all 5s ease-in-out;
+}
+
+.btnJogar {
+    background-color: #002b63;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.btnJogar:hover {
+    opacity: 0.9;
+}
+
+.btnJogarNovamente {
+    background-color: #002b63;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    opacity: 1;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.btnJogarNovamente:hover {
+    opacity: 0.9;
+}
+
+.btnEstatisticasJogo {
+    background-color: #ffffff00;
+    color: #00367e;
+    padding: 12px 20px;
+    border: black;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .close {
@@ -2642,17 +2787,6 @@ header.masthead {
 
 #starRating li {
     display: inline-block;
-}
-
-#play-again {
-    background-color: #141214;
-    padding: 0.7rem 1rem;
-    font-size: 1.1rem;
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    color: #ffffff;
-    border-radius: 5px;
 }
 
 
@@ -2723,10 +2857,6 @@ header.masthead {
 @media (min-width: 768px) {
     .containergame {
         font-size: 22px;
-    }
-    .deck {
-        width: 550px;
-        height: 580px;
     }
     .card {
         height: 110px;

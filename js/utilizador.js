@@ -64,9 +64,7 @@ modalfoto.onclick = function(event) {
     }
 }
 
-
-
-
+// função para editar a foto de perfil
 function editarFotoPerfil() {
     let editarfoto = document.getElementById('editarfoto');
     let filefoto = document.querySelector('input[type=file]').files[0];
@@ -81,7 +79,7 @@ function editarFotoPerfil() {
     }
 }
 
-
+// parte para editar o perfil
 let usersNames = []
 if (localStorage.getItem("usernameList")) {
     usersNames = JSON.parse(localStorage.getItem("usernameList"))
@@ -164,12 +162,7 @@ function perfilEditado() {
     }
 }
 
-
-
-
-
-
-
+// JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 const deck = document.getElementById("card-deck");
@@ -200,11 +193,8 @@ function shuffle(array) {
 modaljogar.classList.add("show");
 
 function startGame() {
-    
-
     openedCards = [];
     cards = shuffle(cards);
-
     for (var i = 0; i < cards.length; i++) {
         deck.innerHTML = "";
         [].forEach.call(cards, function(item) {
@@ -212,10 +202,8 @@ function startGame() {
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
     }
-
     moves = 0;
     counter.innerHTML = moves;
-
     for (var i = 0; i < stars.length; i++) {
         stars[i].style.color = "#FFD700";
         stars[i].style.visibility = "visible";
@@ -342,17 +330,12 @@ function congratulations() {
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
-
-        closeModal();
-    };
+    }
 }
 
-
-function closeModal() {
-    closeicon.addEventListener("click", function(e) {
-        modal.classList.remove("show");
-        startGame();
-    });
+function play() {
+    modaljogar.classList.remove("show");
+    startGame();
 }
 
 function playAgain() {
@@ -360,10 +343,6 @@ function playAgain() {
     startGame();
 }
 
-function playAgain() {
-    modaljogar.classList.remove("show");
-    startGame();
-}
 
 
 for (var i = 0; i < cards.length; i++) {
@@ -374,4 +353,5 @@ for (var i = 0; i < cards.length; i++) {
 };
 card.addEventListener("click", displayCard);
 card.addEventListener("click", cardOpen);
+card.addEventListener("click", congratulations);
 card.addEventListener("click", congratulations);
