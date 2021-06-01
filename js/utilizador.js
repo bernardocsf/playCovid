@@ -1,5 +1,10 @@
-let utilizadores = []
-    // MODAL DE EDITAR PERFIL
+window.onload = function() {
+    perfilDados()
+    startGame()
+    congratulations()
+}
+
+// MODAL DE EDITAR PERFIL
 var modalEditarPerfil = document.getElementById('modalEditarPerfil');
 var btnEditarPerfil = document.getElementById("btnEditarPerfil");
 var closeEditarPerfil = document.getElementById("closeEditarPerfil")
@@ -13,22 +18,6 @@ modalEditarPerfil.onclick = function(event) {
     if (event.target == modalEditarPerfil) {
         modalEditarPerfil.classList.remove('show');
     }
-}
-
-window.onload = function() {
-    getLocalStorageData()
-    perfilDados()
-    startGame()
-    congratulations()
-}
-
-function getLocalStorageData() {
-
-    if (localStorage.getItem("userList")) {
-        utilizadores = JSON.parse(localStorage.getItem("userList"))
-    }
-    console.log("ola");
-    console.log(utilizadores);
 }
 
 // MODAL DE VER ESTATÍSTICAS
@@ -103,9 +92,10 @@ if (localStorage.getItem("usernameList")) {
     usersNames = JSON.parse(localStorage.getItem("usernameList"))
 }
 /* VAI GUARDAR OS DADOS TODOS DE TODOS OS USERNAMES NUMA LISTA NA LOCALSTORAGE */
-/*let utilizadores = []*/
+let utilizadores = []
 if (localStorage.getItem("userList")) {
     utilizadores = JSON.parse(localStorage.getItem("userList"))
+    console.log(utilizadores)
 }
 
 let x = usersNames.length
@@ -170,7 +160,6 @@ function perfilEditado() {
             if (editadoPassword != editadoPasswordConf) {
                 alert("Passwords não coincidem!")
             } else {
-                console.log(utilizadores);
                 localStorage.setItem("userList", JSON.stringify(utilizadores))
                 alert("Vais ter que reinicar sessão!")
                 document.getElementById("editadoForm").onsubmit = function() {
@@ -181,6 +170,7 @@ function perfilEditado() {
         }
     }
 }
+
 
 // JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
@@ -194,10 +184,6 @@ let starsList = document.querySelectorAll(".stars li");
 let modaljogar = document.getElementById("popupjogar")
 let modal = document.getElementById("popup1")
 var openedCards = [];
-let qtdJogadosV = 0
-let umaEstrelaV = 0
-let duasEstrelaV = 0
-let tresEstrelaV = 0
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -341,10 +327,47 @@ function startTimer() {
     }, 1000);
 }
 
+
+if (parseInt(document.getElementById("qtdJogados").innerHTML) != 0) {
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            utilizadores[i].qtdJogados = document.getElementById("qtdJogados").innerHTML
+            utilizadores[i].umaEstrela = document.getElementById("umaEstrela").innerHTML
+            utilizadores[i].duasEstrela = document.getElementById("duasEstrela").innerHTML
+            utilizadores[i].tresEstrela = document.getElementById("tresEstrela").innerHTML
+            utilizadores[i].tempoJogado = document.getElementById("tempoJogado").innerHTML
+        }
+    }
+}
+
+console.log(document.getElementById("qtdJogados").innerHTML)
+
 function congratulations() {
     if (matchedCard.length == 2) {
+        /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
+        var tempoUltimoJogo = hour + ":" + minute + ":" + second
+        var tempoTotal = document.getElementById("tempoJogado").innerHTML
+
+        var split1 = tempoUltimoJogo.split(':');
+        var split2 = tempoTotal.split(':');
+
+        hora = parseInt(split1[0]) + parseInt(split2[0])
+        minuto = parseInt(split1[1]) + parseInt(split2[1])
+        hora = hora + minuto / 60;
+        segundo = parseInt(split1[2]) + parseInt(split2[2])
+        minuto = minuto + segundo / 60;
+        segundo = segundo - 1 % 60;
+
+        var tempoJogadoV = parseInt(hora) + ':' + parseInt(minuto) + ':' + parseInt(segundo)
+
+        var qtdJogadosV = document.getElementById("qtdJogados").innerHTML
+        let umaEstrelaV = document.getElementById("umaEstrela").innerHTML
+        let duasEstrelaV = document.getElementById("duasEstrela").innerHTML
+        let tresEstrelaV = document.getElementById("tresEstrela").innerHTML
+
         /* VAI CONTAR AS VEZES JOGADAS */
-        qtdJogadosV++
+        qtdJogadosV = parseInt(qtdJogadosV) + 1
+
         /* VAI CONTAR AS VEZES GANHADAS COM X ESTRELAS */
         if (moves >= 15) {
             umaEstrelaV++
@@ -353,6 +376,7 @@ function congratulations() {
         } else if (moves <= 8) {
             tresEstrelaV++
         }
+
         /* VAI GUARDAR OS DADOS NA LOCALSTORAGE */
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
@@ -360,20 +384,17 @@ function congratulations() {
                 utilizadores[i].umaEstrela = umaEstrelaV
                 utilizadores[i].duasEstrela = duasEstrelaV
                 utilizadores[i].tresEstrela = tresEstrelaV
+                utilizadores[i].tempoJogado = tempoJogadoV
             }
         }
-        console.log(utilizadores)
         localStorage.setItem("userList", JSON.stringify(utilizadores))
-
-        /* VAI SOMAR O TEMPO TOTAL DE JOGO */
 
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
-        modal.classList.add("show");
+        modal.classList.add("show")
 
         var starRating = document.querySelector(".stars").innerHTML;
-
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
@@ -385,9 +406,12 @@ function congratulations() {
             document.getElementById("umaEstrela").innerHTML = utilizadores[i].umaEstrela
             document.getElementById("duasEstrela").innerHTML = utilizadores[i].duasEstrela
             document.getElementById("tresEstrela").innerHTML = utilizadores[i].tresEstrela
+            document.getElementById("tempoJogado").innerHTML = utilizadores[i].tempoJogado
         }
     }
 }
+
+
 
 /* BOTAO PARA COMEÇAR A JOGAR */
 function jogar() {
@@ -405,7 +429,6 @@ function fecharJogo() {
     startGame();
     modaljogar.classList.add("show")
 }
-
 
 for (var i = 0; i < cards.length; i++) {
     card = cards[i];
