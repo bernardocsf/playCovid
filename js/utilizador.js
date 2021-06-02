@@ -338,44 +338,7 @@ card.addEventListener("click", cardOpen);
 card.addEventListener("click", congratulations);
 card.addEventListener("click", congratulations);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* CRIA OS VALORES */
 for (var i = 0; i < utilizadores.length; i++) {
     if (utilizadores[i].username == usersNames[y]) {
         utilizadores[i].qtdJogados
@@ -388,6 +351,7 @@ for (var i = 0; i < utilizadores.length; i++) {
     }
 }
 
+/* IMPRIME OS VALORES INICIAIS CASO A QUANTIDADE DE JOGADORES FOR 0 = UNDEFINED */
 if (qtdJogados0 == undefined) {
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
@@ -527,7 +491,6 @@ function estatisticasJogo() {
             reactNaoGosto += 1
         }
     }
-
     document.getElementById("reactGosto").innerHTML = reactGosto
     document.getElementById("reactNaoGosto").innerHTML = reactNaoGosto
     document.getElementById("totalQtdJogado").innerHTML = totalJogadoUtiV
