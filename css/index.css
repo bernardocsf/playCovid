@@ -2280,7 +2280,7 @@ li {
 }
 
 .duvidas {
-    background-image: url("fundo2.jpg");
+    background-image: url("/img/fundo2.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;

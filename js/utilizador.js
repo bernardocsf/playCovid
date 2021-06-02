@@ -95,7 +95,6 @@ if (localStorage.getItem("usernameList")) {
 let utilizadores = []
 if (localStorage.getItem("userList")) {
     utilizadores = JSON.parse(localStorage.getItem("userList"))
-    console.log(utilizadores)
 }
 
 let x = usersNames.length
@@ -183,6 +182,7 @@ let matchedCard = document.getElementsByClassName("match");
 let starsList = document.querySelectorAll(".stars li");
 let modaljogar = document.getElementById("popupjogar")
 let modal = document.getElementById("popup1")
+let modalEstatisticasJogo = document.getElementById("modalEstatisticasJogo")
 var openedCards = [];
 
 function shuffle(array) {
@@ -327,8 +327,68 @@ function startTimer() {
     }, 1000);
 }
 
+for (var i = 0; i < cards.length; i++) {
+    card = cards[i];
+    card.addEventListener("click", displayCard);
+    card.addEventListener("click", cardOpen);
+    card.addEventListener("click", congratulations);
+};
+card.addEventListener("click", displayCard);
+card.addEventListener("click", cardOpen);
+card.addEventListener("click", congratulations);
+card.addEventListener("click", congratulations);
 
-if (parseInt(document.getElementById("qtdJogados").innerHTML) != 0) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for (var i = 0; i < utilizadores.length; i++) {
+    if (utilizadores[i].username == usersNames[y]) {
+        utilizadores[i].qtdJogados
+        utilizadores[i].umaEstrela
+        utilizadores[i].duasEstrela
+        utilizadores[i].tresEstrela
+        utilizadores[i].tempoJogado
+        utilizadores[i].react
+        var qtdJogados0 = utilizadores[i].qtdJogados
+    }
+}
+
+if (qtdJogados0 == undefined) {
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
             utilizadores[i].qtdJogados = document.getElementById("qtdJogados").innerHTML
@@ -336,11 +396,33 @@ if (parseInt(document.getElementById("qtdJogados").innerHTML) != 0) {
             utilizadores[i].duasEstrela = document.getElementById("duasEstrela").innerHTML
             utilizadores[i].tresEstrela = document.getElementById("tresEstrela").innerHTML
             utilizadores[i].tempoJogado = document.getElementById("tempoJogado").innerHTML
+            utilizadores[i].react = document.getElementById("react").innerHTML
+            localStorage.setItem("userList", JSON.stringify(utilizadores))
         }
     }
 }
 
-console.log(document.getElementById("qtdJogados").innerHTML)
+var reactV = document.getElementById("react").innerHTML
+
+function gosto() {
+    reactV = document.getElementById("react").innerHTML = "Gosto";
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            utilizadores[i].react = reactV
+        }
+    }
+    localStorage.setItem("userList", JSON.stringify(utilizadores))
+}
+
+function naogosto() {
+    reactV = document.getElementById("react").innerHTML = "Não gosto";
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            utilizadores[i].react = reactV
+        }
+    }
+    localStorage.setItem("userList", JSON.stringify(utilizadores))
+}
 
 function congratulations() {
     if (matchedCard.length == 2) {
@@ -353,17 +435,17 @@ function congratulations() {
 
         hora = parseInt(split1[0]) + parseInt(split2[0])
         minuto = parseInt(split1[1]) + parseInt(split2[1])
-        hora = hora + minuto / 60;
         segundo = parseInt(split1[2]) + parseInt(split2[2])
+        hora = hora + minuto / 60;
         minuto = minuto + segundo / 60;
-        segundo = segundo - 1 % 60;
+        segundo = segundo % 60;
 
-        var tempoJogadoV = parseInt(hora) + ':' + parseInt(minuto) + ':' + parseInt(segundo)
+        var tempoJogadoV = parseInt(hora) + 'h: ' + parseInt(minuto) + 'm: ' + parseInt(segundo) + 's'
 
-        var qtdJogadosV = document.getElementById("qtdJogados").innerHTML
-        let umaEstrelaV = document.getElementById("umaEstrela").innerHTML
-        let duasEstrelaV = document.getElementById("duasEstrela").innerHTML
-        let tresEstrelaV = document.getElementById("tresEstrela").innerHTML
+        var qtdJogadosV = parseInt(document.getElementById("qtdJogados").innerHTML)
+        let umaEstrelaV = parseInt(document.getElementById("umaEstrela").innerHTML)
+        let duasEstrelaV = parseInt(document.getElementById("duasEstrela").innerHTML)
+        let tresEstrelaV = parseInt(document.getElementById("tresEstrela").innerHTML)
 
         /* VAI CONTAR AS VEZES JOGADAS */
         qtdJogadosV = parseInt(qtdJogadosV) + 1
@@ -411,11 +493,62 @@ function congratulations() {
     }
 }
 
+/* ESTATISTICAS DO JOGO */
+function estatisticasJogo() {
+    modalEstatisticasJogo.classList.add("show")
+    let totalJogadoUtiV = 0
+    var rating1V = 0
+    var rating2V = 0
+    var rating3V = 0
+    var reactGosto = 0
+    var reactNaoGosto = 0
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            document.getElementById("qtdJogados").innerHTML = utilizadores[i].qtdJogados
+            document.getElementById("umaEstrela").innerHTML = utilizadores[i].umaEstrela
+            document.getElementById("duasEstrela").innerHTML = utilizadores[i].duasEstrela
+            document.getElementById("tresEstrela").innerHTML = utilizadores[i].tresEstrela
+            document.getElementById("react").innerHTML = utilizadores[i].react
+        }
+        var utilizadoresQtdJogos = utilizadores[i].qtdJogados
+        totalJogadoUtiV += parseInt(utilizadoresQtdJogos)
+        var rating1s = utilizadores[i].umaEstrela
+        rating1V += parseInt(rating1s)
+        var rating2s = utilizadores[i].duasEstrela
+        rating2V += parseInt(rating2s)
+        var rating3s = utilizadores[i].tresEstrela
+        rating3V += parseInt(rating3s)
 
+        var reactVR = utilizadores[i].react
+        if (reactVR == "Gosto") {
+            reactGosto += 1
+        }
+        if (reactVR == "Não gosto") {
+            reactNaoGosto += 1
+        }
+    }
+
+    document.getElementById("reactGosto").innerHTML = reactGosto
+    document.getElementById("reactNaoGosto").innerHTML = reactNaoGosto
+    document.getElementById("totalQtdJogado").innerHTML = totalJogadoUtiV
+    if (rating1V > rating2V && rating1V > rating3V) {
+        document.getElementById("mediaRating").innerHTML = String.fromCodePoint(11088)
+    } else if (rating2V > rating1V && rating2V > rating3V) {
+        document.getElementById("mediaRating").innerHTML = String.fromCodePoint(11088, 11088)
+    } else if (rating3V > rating1V && rating3V > rating2V) {
+        document.getElementById("mediaRating").innerHTML = String.fromCodePoint(11088, 11088, 11088)
+    }
+}
 
 /* BOTAO PARA COMEÇAR A JOGAR */
 function jogar() {
     modaljogar.classList.remove("show")
+    startGame()
+}
+/* BOTAO PARA COMEÇAR A JOGAR NAS ESTATISTICAS*/
+function jogarE() {
+    modaljogar.classList.remove("show")
+    modalEstatisticasJogo.classList.remove("show")
     startGame()
 }
 /* BOTAO PARA JOGOR NOVAMENTE*/
@@ -429,14 +562,10 @@ function fecharJogo() {
     startGame();
     modaljogar.classList.add("show")
 }
-
-for (var i = 0; i < cards.length; i++) {
-    card = cards[i];
-    card.addEventListener("click", displayCard);
-    card.addEventListener("click", cardOpen);
-    card.addEventListener("click", congratulations);
-};
-card.addEventListener("click", displayCard);
-card.addEventListener("click", cardOpen);
-card.addEventListener("click", congratulations);
-card.addEventListener("click", congratulations);
+/* BOTAO PARA FECHAR O JOGO NAS ESTATISTICAS*/
+function fecharJogoE() {
+    modalEstatisticasJogo.classList.remove("show")
+    modal.classList.remove("show")
+    startGame();
+    modaljogar.classList.add("show")
+}

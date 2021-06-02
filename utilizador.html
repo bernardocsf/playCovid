@@ -114,7 +114,7 @@
                             <button class="btnJogar" onclick="jogar()">
                                 Jogar</a>
                             </button>
-                            <button class="btnEstatisticasJogo" onclick="jogar()">
+                            <button class="btnEstatisticasJogo" onclick="estatisticasJogo()">
                                 Estatísticas</a>
                             </button>
                         </div>
@@ -131,9 +131,26 @@
                                 <p>Usas-te <span id=finalMove> </span> jogadas</p>
                                 <p>Em <span id=totalTime> </span></p>
                                 <p>Rating: <span id=starRating></span></p>
+                                <p><span onclick="gosto()">&#128077</span><span onclick="naogosto()">&#128078</span></p>
+                                <p><span id="react"></span></p>
                             </div>
                             <button class="btnJogarNovamente" onclick="jogarNovamente()">
                                 Jogar novamente</a>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="modalEstatisticasJogo" class="overlayEstatisticasJogo">
+                        <div class="modalEstatisticasJogo">
+                            <h2>Jogo da Memória</h2>
+                            <a class="closeCongratulations" onclick="fecharJogoE()"><span>&times;</span></a>
+                            <div class="content-2">
+                                <p>Já foi jogado <span id="totalQtdJogado"></span> vezes</p>
+                                <p>Média de rating: <span id="mediaRating"></span></p>
+                                <p> &#128077 <span id="reactGosto"></span> &#128078 <span id="reactNaoGosto"></span></p>
+                            </div>
+                            <button class="btnJogarNovamente" onclick="jogarE()">
+                                Jogar</a>
                             </button>
                         </div>
                     </div>

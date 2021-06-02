@@ -2674,6 +2674,23 @@ header.masthead {
     opacity: 1;
 }
 
+.overlayEstatisticasJogo {
+    position: relative;
+    top: -76.7rem;
+    width: 34.3rem;
+    height: 36.2rem;
+    border-radius: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlayEstatisticasJogo:target {
+    visibility: visible;
+    opacity: 1;
+}
+
 .popup {
     margin: 70px auto;
     padding: 20px;
@@ -2695,6 +2712,27 @@ header.masthead {
     width: 60%;
     position: relative;
     top: 8.3rem;
+    right: 0rem;
+    transition: all 5s ease-in-out;
+}
+
+#gosto {
+    cursor: pointer;
+}
+
+#naogosto {
+    cursor: pointer;
+}
+
+.modalEstatisticasJogo {
+    position: relative;
+    margin: 90px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 80%;
+    position: relative;
+    top: 3rem;
     right: 0rem;
     transition: all 5s ease-in-out;
 }
