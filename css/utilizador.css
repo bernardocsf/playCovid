@@ -2210,6 +2210,28 @@ header.masthead {
 }
 
 
+/* BOTAO DE APAGAR PERFIL NO MODAL */
+
+.btnApagarPerfil {
+    background-color: #d82424;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.btnApagarPerfil:hover {
+    opacity: 1;
+    transition: 0.6s;
+}
+
+
 /* FORMULARIO - EDITAR PERFIL */
 
 .form-container {
@@ -2389,6 +2411,92 @@ header.masthead {
     opacity: 1;
 }
 
+.checked {
+    color: orange;
+}
+
+
+/* Three column layout */
+
+.side {
+    color: #002b63;
+    font-weight: bold;
+    float: left;
+    width: 15%;
+    margin-top: 10px;
+}
+
+.middle {
+    margin-top: 10px;
+    float: left;
+    width: 70%;
+}
+
+#metaxp {
+    margin-top: 10px;
+}
+
+
+/* Place text to the right */
+
+.right {
+    text-align: center;
+}
+
+.rowBarT {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #0000002d;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    height: 6.5rem;
+    margin-top: 3rem;
+    padding-top: 1rem;
+}
+
+
+/* Clear floats after the columns */
+
+.rowBar:after {
+    content: "";
+    display: table;
+    clear: both;
+    color: #000000;
+}
+
+
+/* The bar container */
+
+.bar-container {
+    width: 100%;
+    background-color: #002b6338;
+    text-align: center;
+    color: rgb(226, 226, 226);
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+
+/* Individual bars */
+
+.bar-1 {
+    width: 0%;
+    height: 25px;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    background-color: #002b63;
+}
+
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+
+@media (max-width: 400px) {
+    .side,
+    .middle {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+}
+
 
 /* MODAL CONTENT Conquistas */
 
@@ -2411,7 +2519,7 @@ header.masthead {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 rgb(0, 0, 0);
     opacity: 0.5;
     transition: 0.4s;
     transform: scale(1.10);
@@ -2447,7 +2555,6 @@ header.masthead {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -2462,12 +2569,15 @@ header.masthead {
     border-radius: 2rem;
 }
 
-
-/* ANIMAÇÃO DA FOTO DE PERFIL*/
-
 .modalfoto-content {
+    margin: auto;
+    display: block;
+    width: 35%;
+    max-width: 700px;
+    border-radius: 2rem;
     animation-name: zoom;
     animation-duration: 0.5s;
+    transition: opacity 500ms;
 }
 
 @keyframes zoom {
@@ -2486,7 +2596,7 @@ header.masthead {
     position: absolute;
     top: 115px;
     right: 460px;
-    color: #f1f1f1;
+    color: #000000;
     font-size: 1.5rem;
     font-weight: bold;
     line-height: 1;
@@ -2630,6 +2740,30 @@ header.masthead {
     color: #FFD700;
 }
 
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+}
+
+.stars-outer::before {
+    content: "\f006     \f006     \f006";
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-inner::before {
+    content: "\f005     \f005     \f005";
+    color: #f8ce0b;
+}
+
 .timer {
     display: inline-block;
     margin: 0 1rem;
@@ -2691,6 +2825,19 @@ header.masthead {
     opacity: 1;
 }
 
+.modalEstatisticasJogo {
+    position: relative;
+    margin: 90px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 80%;
+    position: relative;
+    top: 3rem;
+    right: 0rem;
+    transition: all 0.5s ease-in-out;
+}
+
 .popup {
     margin: 70px auto;
     padding: 20px;
@@ -2700,7 +2847,7 @@ header.masthead {
     position: relative;
     top: 5rem;
     right: 10rem;
-    transition: all 5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .popupjogar {
@@ -2713,28 +2860,15 @@ header.masthead {
     position: relative;
     top: 8.3rem;
     right: 0rem;
-    transition: all 5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
-#gosto {
+#btnG {
     cursor: pointer;
 }
 
-#naogosto {
+#btnNG {
     cursor: pointer;
-}
-
-.modalEstatisticasJogo {
-    position: relative;
-    margin: 90px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 80%;
-    position: relative;
-    top: 3rem;
-    right: 0rem;
-    transition: all 5s ease-in-out;
 }
 
 .btnJogar {
@@ -2795,7 +2929,7 @@ header.masthead {
     transition: all 200ms;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: rgb(0, 0, 0);
     font-size: 1.5rem;
     opacity: 0.5;
     transition: 0.4s;
@@ -2916,7 +3050,7 @@ header.masthead {
     .modalfoto-content {
         width: 90%;
     }
-    .closefoto {
+    .foto {
         position: absolute;
         top: 115px;
         right: 40px;
@@ -2935,6 +3069,9 @@ header.masthead {
         margin: auto;
         border-radius: 1rem;
         background: rgba(0, 0, 0, 0.7);
+    }
+    .btnEditado {
+        margin-bottom: 1rem;
     }
     .btnsUtilizador {
         background-color: #ffffff;
@@ -3024,6 +3161,5 @@ header.masthead {
         position: relative;
         top: 9rem;
         right: 0rem;
-        transition: all 5s ease-in-out;
     }
 }

@@ -125,6 +125,8 @@ function perfilDados() {
             document.getElementById("editarPasswordConf").value = editarPasswordConf
             document.getElementById("output").src = editarPerfil
             document.getElementById("editarfoto").src = editarPerfil
+            var lol = (("userList", JSON.stringify(utilizadores[i])))
+            console.log(lol)
             break
         }
     }
@@ -170,6 +172,25 @@ function perfilEditado() {
     }
 }
 
+function perfilApagar() {
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            utilizadores[i].username
+            utilizadores[i].name
+            utilizadores[i].email
+            utilizadores[i].data
+            utilizadores[i].genero
+            utilizadores[i].password
+            utilizadores[i].passwordConf
+            utilizadores[i].fotoperfil
+            localStorage.removeItem("userList", JSON.stringify(utilizadores[i]))
+            document.getElementById("editadoForm").onsubmit = function() {
+                window.location.replace("index.html")
+                return false
+            }
+        }
+    }
+}
 
 // JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
@@ -342,10 +363,16 @@ card.addEventListener("click", congratulations);
 for (var i = 0; i < utilizadores.length; i++) {
     if (utilizadores[i].username == usersNames[y]) {
         utilizadores[i].qtdJogados
+        utilizadores[i].tempoJogado
         utilizadores[i].umaEstrela
         utilizadores[i].duasEstrela
         utilizadores[i].tresEstrela
-        utilizadores[i].tempoJogado
+        utilizadores[i].totalXp
+        utilizadores[i].totalCoroa
+        utilizadores[i].totalPremio
+        utilizadores[i].xpBar
+        document.getElementById("xpBar").style.width = utilizadores[i].xpBar
+        document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
         utilizadores[i].react
         var qtdJogados0 = utilizadores[i].qtdJogados
     }
@@ -356,10 +383,15 @@ if (qtdJogados0 == undefined) {
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
             utilizadores[i].qtdJogados = document.getElementById("qtdJogados").innerHTML
+            utilizadores[i].tempoJogado = document.getElementById("tempoJogado").innerHTML
             utilizadores[i].umaEstrela = document.getElementById("umaEstrela").innerHTML
             utilizadores[i].duasEstrela = document.getElementById("duasEstrela").innerHTML
             utilizadores[i].tresEstrela = document.getElementById("tresEstrela").innerHTML
-            utilizadores[i].tempoJogado = document.getElementById("tempoJogado").innerHTML
+            utilizadores[i].totalXp = document.getElementById("totalXp").innerHTML
+            utilizadores[i].totalCoroa = document.getElementById("totalCoroa").innerHTML
+            utilizadores[i].totalPremio = document.getElementById("totalPremio").innerHTML
+            utilizadores[i].xpBar = document.getElementById("xpBar").innerHTML
+            document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
             utilizadores[i].react = document.getElementById("react").innerHTML
             localStorage.setItem("userList", JSON.stringify(utilizadores))
         }
@@ -390,28 +422,31 @@ function naogosto() {
 
 function congratulations() {
     if (matchedCard.length == 2) {
-        /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
+        modal.classList.add("show")
+            /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
         var tempoUltimoJogo = hour + ":" + minute + ":" + second
         var tempoTotal = document.getElementById("tempoJogado").innerHTML
-
         var split1 = tempoUltimoJogo.split(':');
         var split2 = tempoTotal.split(':');
-
         hora = parseInt(split1[0]) + parseInt(split2[0])
         minuto = parseInt(split1[1]) + parseInt(split2[1])
         segundo = parseInt(split1[2]) + parseInt(split2[2])
         hora = hora + minuto / 60;
         minuto = minuto + segundo / 60;
         segundo = segundo % 60;
-
         var tempoJogadoV = parseInt(hora) + 'h: ' + parseInt(minuto) + 'm: ' + parseInt(segundo) + 's'
 
         var qtdJogadosV = parseInt(document.getElementById("qtdJogados").innerHTML)
-        let umaEstrelaV = parseInt(document.getElementById("umaEstrela").innerHTML)
-        let duasEstrelaV = parseInt(document.getElementById("duasEstrela").innerHTML)
-        let tresEstrelaV = parseInt(document.getElementById("tresEstrela").innerHTML)
+        var umaEstrelaV = parseInt(document.getElementById("umaEstrela").innerHTML)
+        var duasEstrelaV = parseInt(document.getElementById("duasEstrela").innerHTML)
+        var tresEstrelaV = parseInt(document.getElementById("tresEstrela").innerHTML)
 
-        /* VAI CONTAR AS VEZES JOGADAS */
+        var xp1V = 5
+        var xp2V = 10
+        var xp3V = 15
+        var totalXpV = document.getElementById("totalXp").innerHTML
+        var totalCoroaV = parseInt(document.getElementById("totalCoroa").innerHTML)
+            /* VAI CONTAR AS VEZES JOGADAS */
         qtdJogadosV = parseInt(qtdJogadosV) + 1
 
         /* VAI CONTAR AS VEZES GANHADAS COM X ESTRELAS */
@@ -423,7 +458,21 @@ function congratulations() {
             tresEstrelaV++
         }
 
-        /* VAI GUARDAR OS DADOS NA LOCALSTORAGE */
+        var xp1 = xp1V *= umaEstrelaV
+        var xp2 = xp2V *= duasEstrelaV
+        var xp3 = xp3V *= tresEstrelaV
+        totalXpV = xp1 + xp2 + xp3
+
+        var totalCoroaV = totalXpV * (totalXpV / 100)
+        totalCoroaV = totalCoroaV / totalXpV
+        var totalCoroaVv = parseInt(totalCoroaV)
+        var xpBarV1 = totalCoroaV - totalCoroaVv
+        var xpBarV2 = xpBarV1 * 100
+        var xpBarV3 = Math.round(xpBarV2) + "%"
+
+        var totalPremioV = totalCoroaVv / 5
+
+        /* QUANDO APARECE A CONGRATULAÇÃO VAI GUARDAR/ATUALIZAR OS DADOS NA LOCALSTORAGE */
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].qtdJogados = qtdJogadosV
@@ -431,6 +480,10 @@ function congratulations() {
                 utilizadores[i].duasEstrela = duasEstrelaV
                 utilizadores[i].tresEstrela = tresEstrelaV
                 utilizadores[i].tempoJogado = tempoJogadoV
+                utilizadores[i].totalXp = totalXpV
+                utilizadores[i].totalCoroa = totalCoroaVv
+                utilizadores[i].totalPremio = Math.trunc(totalPremioV)
+                utilizadores[i].xpBar = xpBarV3
             }
         }
         localStorage.setItem("userList", JSON.stringify(utilizadores))
@@ -438,14 +491,13 @@ function congratulations() {
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
-        modal.classList.add("show")
-
         var starRating = document.querySelector(".stars").innerHTML;
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
     }
-    /* VAI LER OS DADOS QUE ESTÃO NA LOCALSTORAGE E IMPRIMI-LOS */
+
+    /* QUANDO APARECE A CONGRATULAÇÃO VAI LER/ATUALIZAR OS DADOS QUE ESTÃO NA LOCALSTORAGE E IMPRIMI-LOS */
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
             document.getElementById("qtdJogados").innerHTML = utilizadores[i].qtdJogados
@@ -453,9 +505,24 @@ function congratulations() {
             document.getElementById("duasEstrela").innerHTML = utilizadores[i].duasEstrela
             document.getElementById("tresEstrela").innerHTML = utilizadores[i].tresEstrela
             document.getElementById("tempoJogado").innerHTML = utilizadores[i].tempoJogado
+            document.getElementById("totalXp").innerHTML = utilizadores[i].totalXp
+            document.getElementById("totalCoroa").innerHTML = utilizadores[i].totalCoroa
+            document.getElementById("totalPremio").innerHTML = utilizadores[i].totalPremio
+            document.getElementById("xpBar").innerHTML = utilizadores[i].xpBar
+            document.getElementById("xpBar").style.width = xpBarV3
+            if (utilizadores[i].totalCoroa <= 5) {
+                document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
+            }
+            if (utilizadores[i].totalCoroa >= 5) {
+                document.getElementById("xpBar").style.width = "100%"
+                document.getElementById("xpBar").innerHTML = "100%"
+            }
+            document.getElementById("totalPremio").innerHTML = utilizadores[i].totalPremio
+            document.getElementById("react").innerHTML = utilizadores[i].react
         }
     }
 }
+
 
 /* ESTATISTICAS DO JOGO */
 function estatisticasJogo() {
@@ -466,13 +533,13 @@ function estatisticasJogo() {
     var rating3V = 0
     var reactGosto = 0
     var reactNaoGosto = 0
+
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
             document.getElementById("qtdJogados").innerHTML = utilizadores[i].qtdJogados
             document.getElementById("umaEstrela").innerHTML = utilizadores[i].umaEstrela
             document.getElementById("duasEstrela").innerHTML = utilizadores[i].duasEstrela
             document.getElementById("tresEstrela").innerHTML = utilizadores[i].tresEstrela
-            document.getElementById("react").innerHTML = utilizadores[i].react
         }
         var utilizadoresQtdJogos = utilizadores[i].qtdJogados
         totalJogadoUtiV += parseInt(utilizadoresQtdJogos)
@@ -489,19 +556,32 @@ function estatisticasJogo() {
         }
         if (reactVR == "Não gosto") {
             reactNaoGosto += 1
-        }
+        };
+    }
+
+    document.getElementById("totalQtdJogado").innerHTML = totalJogadoUtiV
+    let mrating1 = (rating1V * 100) / totalJogadoUtiV
+    let mrating2 = (rating2V * 100) / totalJogadoUtiV
+    let mrating3 = (rating3V * 100) / totalJogadoUtiV
+    if (mrating1 > mrating2 && mrating1 > mrating3) {
+        document.getElementById("mratingtotal").style.width = Math.round(mrating1) + "%"
+    } else if (mrating2 > mrating1 && mrating2 > mrating3) {
+        document.getElementById("mratingtotal").style.width = Math.round(mrating2) + "%"
+    } else if (mrating3 > mrating1 && mrating3 > mrating2) {
+        document.getElementById("mratingtotal").style.width = Math.round(mrating3) + "%"
+    } else if (mrating1 == mrating2) {
+        document.getElementById("mratingtotal").style.width = Math.round(mrating1) + "%"
+    } else if (mrating1 == mrating3) {
+        document.getElementById("mratingtotal").style.width = Math.round(mrating1) + "%"
+    } else if (mrating2 == mrating3) {
+        document.getElementById("mratingtotal").style.width = Math.round(mrating2) + "%"
+
     }
     document.getElementById("reactGosto").innerHTML = reactGosto
     document.getElementById("reactNaoGosto").innerHTML = reactNaoGosto
-    document.getElementById("totalQtdJogado").innerHTML = totalJogadoUtiV
-    if (rating1V > rating2V && rating1V > rating3V) {
-        document.getElementById("mediaRating").innerHTML = String.fromCodePoint(11088)
-    } else if (rating2V > rating1V && rating2V > rating3V) {
-        document.getElementById("mediaRating").innerHTML = String.fromCodePoint(11088, 11088)
-    } else if (rating3V > rating1V && rating3V > rating2V) {
-        document.getElementById("mediaRating").innerHTML = String.fromCodePoint(11088, 11088, 11088)
-    }
+    console.log(document.getElementById("mratingtotal").style.width);
 }
+
 
 /* BOTAO PARA COMEÇAR A JOGAR */
 function jogar() {

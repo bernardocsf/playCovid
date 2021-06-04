@@ -50,13 +50,12 @@
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                         </ul>
-                        <span class="moves">0</span> Jogadas
+                        <span class="moves">0 </span> Jogadas
                         <div class="timer"></div>
                         <div class="restart" onclick="startGame()">
                             <i class="fa fa-repeat"></i>
                         </div>
                     </section>
-
 
                     <ul class="deck" id="card-deck">
                         <li class="card" type="diamond">
@@ -128,7 +127,7 @@
                                 <p>Usas-te <span id=finalMove> </span> jogadas</p>
                                 <p>Em <span id=totalTime> </span></p>
                                 <p>Rating: <span id=starRating></span></p>
-                                <p><span onclick="gosto()">&#128077</span><span onclick="naogosto()">&#128078</span></p>
+                                <p><span id="btnG" onclick="gosto()">&#128077</span><span id="btnNG" onclick="naogosto()">&#128078</span></p>
                                 <p><span id="react"></span></p>
                             </div>
                             <button class="btnJogarNovamente" onclick="jogarNovamente()">
@@ -143,23 +142,19 @@
                             <a class="closeCongratulations" onclick="fecharJogoE()"><span>&times;</span></a>
                             <div class="content-2">
                                 <p>Já foi jogado <span id="totalQtdJogado"></span> vezes</p>
-                                <p>Média de rating: <span id="mediaRating"></span></p>
-                                <p> &#128077 <span id="reactGosto"></span> &#128078 <span id="reactNaoGosto"></span></p>
+                                Média rating
+                                <div class="stars-outer">
+                                    <div class="stars-inner" id="mratingtotal">
+
+                                    </div>
+                                </div>
+                                </span>
+                                <p>
+                                    <p> &#128077 <span id="reactGosto"></span> &#128078 <span id="reactNaoGosto"></span></p>
                             </div>
                             <button class="btnJogarNovamente" onclick="jogarE()">
                                 Jogar</a>
                             </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="p-5">
-                                <h2 class="display-4"><b>Hora do quiz</b></h2>
-                                <p>Estás com alguma dúvida? Se sim, deixa a tua pergunta no formulário e receberás uma resposta em breve!</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -175,7 +170,8 @@
                                 <span class="closefoto">&times;</span>
                                 <img class="modalfoto-content" id="img01">
                             </div>
-                            <button type="submit" href="#" id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
+
+                            <button id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
                             <div id="modalEditarPerfil" class="modalEditarPerfil">
                                 <div class="modalEditarPerfil-content">
                                     <form class="form-container" id="editadoForm">
@@ -229,10 +225,21 @@
                                                 <input type="password" id="editarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btnEditado" onclick="perfilEditado()">Editar Perfil</button>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <button type="submit" class="btnEditado" onclick="perfilEditado()">Editar Perfil</button>
+                                            </div>
+                                            <div class="col">
+                                                <button type="submit" class="btnApagarPerfil" onclick="perfilApagar()">Apagar Perfil</button>
+                                            </div>
+                                        </div>
+
                                     </form>
                                 </div>
                             </div>
+
+
+
                             <button id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
                             <div id="modalEstatisticas" class="modalEstatisticas">
                                 <div class="modalEstatisticas-content">
@@ -256,11 +263,11 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col">
-                                                <p class="estatisticasTxt">Vezes Jogadas</p>
+                                                <p class="estatisticasTxt">Vezes Jogadas</p>&#127918
                                                 <span class="estatisticasTxt" id="qtdJogados">0</span>
                                             </div>
                                             <div class="col">
-                                                <p class="estatisticasTxt">Tempo Jogado</p>
+                                                <p class="estatisticasTxt">Tempo Jogado</p>&#9202
                                                 <span class="estatisticasTxt" id="tempoJogado">0:0:0</span>
                                             </div>
                                         </div>
@@ -298,27 +305,25 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <hr>
                                         <div class="form-row">
                                             <div class="col">
-                                                <h3 class="estatisticasTxt">Quiz</h3>
-                                                <br>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <p class="estatisticasTxt">Vezes Jogadas</p>
-                                                <p class="estatisticasTxt">24</p>
+                                                <p class="estatisticasTxt">Total Xp</p>&#9889
+                                                <span class="estatisticasTxt" id="totalXp">0</span>
                                             </div>
                                             <div class="col">
-                                                <p class="estatisticasTxt">Tempo Jogado</p>
-                                                <p class="estatisticasTxt">34 minutos</p>
+                                                <p class="estatisticasTxt">Coroas</p>&#128081
+                                                <span class="estatisticasTxt" id="totalCoroa">0</span>
+                                            </div>
+                                            <div class="col">
+                                                <p class="estatisticasTxt">Conquistas</p>&#127942
+                                                <span class="estatisticasTxt" id="totalPremio">0</span>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <button type="submit" href="#" id="btnConquistas" class="btnsUtilizador">Conquistas</button>
+
+                            <button id="btnConquistas" class="btnsUtilizador">Conquistas</button>
                             <div id="modalConquistas" class="modalConquistas">
                                 <div class="modalConquistas-content">
                                     <form class="form-container">
@@ -334,27 +339,22 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <input type="text" id="registarUtilizador" placeholder="Nome de utilizador" name="utilizador" required>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <input type="text" id="registarEmail" placeholder="Email" name="email" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw" required> </div>
-                                            <div class="col">
-                                                <input type="password" id="registarPassowrdConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
+                                        <div class="rowBarT">
+                                            <div class="estatisticasTxt"><span id="metaxp"></span>/5 &#128081</div>
+                                            <div class="rowBar">
+                                                <div class="side">
+                                                    <div>0</div>
+                                                </div>
+                                                <div class="middle">
+                                                    <div class="bar-container">
+                                                        <div id="xpBar" class="bar-1">0%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="side right">
+                                                    <div> 100</div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btnEditado">Editar Perfil</button>
                                     </form>
                                 </div>
                             </div>
@@ -364,9 +364,6 @@
             </section>
         </div>
     </header>
-
-
-
 
     <footer>
         <div class="footer ">
