@@ -2213,7 +2213,7 @@ header.masthead {
 /* BOTAO DE APAGAR PERFIL NO MODAL */
 
 .btnApagarPerfil {
-    background-color: #d82424;
+    background-color: #ff0000f3;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -2380,7 +2380,7 @@ header.masthead {
     border-radius: 1rem 1rem 1rem 1rem;
     width: 60%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 6rem;
+    top: 9rem;
 }
 
 .estatisticasTxt {
@@ -2409,6 +2409,20 @@ header.masthead {
     right: 0;
     top: 0;
     opacity: 1;
+}
+
+
+/* MODAL CONTENT Conquistas */
+
+.modalConquistas-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 60%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+    top: 10rem;
 }
 
 .checked {
@@ -2495,20 +2509,6 @@ header.masthead {
     .right {
         display: none;
     }
-}
-
-
-/* MODAL CONTENT Conquistas */
-
-.modalConquistas-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border-radius: 1rem 1rem 1rem 1rem;
-    width: 60%;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 6rem;
 }
 
 
