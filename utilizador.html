@@ -42,8 +42,8 @@
                     </div>
                 </div>
 
+                <!--PARTE DOS JOGOS-->
                 <div class="containergame">
-
                     <section class="score-panel">
                         <ul class="stars">
                             <li><i class="fa fa-star"></i></li>
@@ -58,53 +58,53 @@
                     </section>
 
                     <ul class="deck" id="card-deck">
-                        <li class="card" type="diamond">
-                            <i class="fa fa-diamond"></i>
+                        <li class="card" type="syringe">
+                            <span>&#128137;</span>
                         </li>
-                        <li class="card" type="plane">
-                            <i class="fa fa-paper-plane-o"></i>
+                        <li class="card" type="mask">
+                            <span>&#128567;</span>
                         </li>
-                        <li class="card match" type="anchor">
-                            <i class="fa fa-anchor"></i>
+                        <li class="card match" type="nauseas">
+                            <span> &#129314;</span>
                         </li>
-                        <li class="card" type="bolt">
-                            <i class="fa fa-bolt"></i>
+                        <li class="card" type="house">
+                            <span>&#127968;</span>
                         </li>
-                        <li class="card" type="cube">
-                            <i class="fa fa-cube"></i>
+                        <li class="card" type="ambulancia">
+                            <span>&#128657;</span>
                         </li>
-                        <li class="card match" type="anchor">
-                            <i class="fa fa-anchor"></i>
+                        <li class="card match" type="nauseas">
+                            <span> &#129314;</span>
                         </li>
-                        <li class="card" type="leaf">
-                            <i class="fa fa-leaf"></i>
+                        <li class="card" type="microbe">
+                            <span>&#129440;</span>
                         </li>
-                        <li class="card" type="bicycle">
-                            <i class="fa fa-bicycle"></i>
+                        <li class="card" type="sneezing">
+                            <span>&#129319;</span>
                         </li>
-                        <li class="card" type="diamond">
-                            <i class="fa fa-diamond"></i>
+                        <li class="card" type="syringe">
+                            <span>&#128137;</span>
                         </li>
-                        <li class="card" type="bomb">
-                            <i class="fa fa-bomb"></i>
+                        <li class="card" type="saop">
+                            <span>&#129532;</span>
                         </li>
-                        <li class="card" type="leaf">
-                            <i class="fa fa-leaf"></i>
+                        <li class="card" type="microbe">
+                            <span>&#129440;</span>
                         </li>
-                        <li class="card" type="bomb">
-                            <i class="fa fa-bomb"></i>
+                        <li class="card" type="saop">
+                            <span>&#129532;</span>
                         </li>
-                        <li class="card open show" type="bolt">
-                            <i class="fa fa-bolt"></i>
+                        <li class="card open show" type="house">
+                            <span>&#127968;</span>
                         </li>
-                        <li class="card" type="bicycle">
-                            <i class="fa fa-bicycle"></i>
+                        <li class="card" type="sneezing">
+                            <span>&#129319;</span>
                         </li>
-                        <li class="card" type="plane">
-                            <i class="fa fa-paper-plane-o"></i>
+                        <li class="card" type="mask">
+                            <span>&#128567;</span>
                         </li>
-                        <li class="card" type="cube">
-                            <i class="fa fa-cube"></i>
+                        <li class="card" type="ambulancia">
+                            <span>&#128657;</span>
                         </li>
                     </ul>
 
@@ -157,10 +157,140 @@
                             </button>
                         </div>
                     </div>
+
+                    <ul class="deckExp">
+                        <li class="cardExp" id="cardNauseas" onclick="cardNauseas()">
+                            <span> &#129314;</span>
+                        </li>
+                        <li class="cardExp" id="cardHouse" onclick="cardHouse()">
+                            <span>&#127968;</span>
+                        </li>
+                        <li class="cardExp" id="cardMicrobe" onclick="cardMicrobe()">
+                            <span>&#129440;</span>
+                        </li>
+                        <li class="cardExp" id="cardSneezing" onclick="cardSneezing()">
+                            <span>&#129319;</span>
+                        </li>
+                        <li class="cardExp" id="cardMask" onclick="cardMask()">
+                            <span>&#128567;</span>
+                        </li>
+                        <li class="cardExp" id="cardSaop" onclick="cardSaop()">
+                            <span>&#129532;</span>
+                        </li>
+                        <li class="cardExp" id="cardSyring" onclick="cardSyring()">
+                            <span>&#128137;</span>
+                        </li>
+                        <li class="cardExp" id="cardAmbulancia" onclick="cardAmbulancia()">
+                            <span>&#128657;</span>
+                        </li>
+                    </ul>
+
+                    <div id="modalObterEmojiNauseas" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardNauseas()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharNauseas()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalObterEmojiHouse" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardHouse()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharHouse()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalObterEmojiMicrobe" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardMicrobe()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharMicrobe()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalObterEmojiSneezing" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardSneezing()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharSneezing()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalObterEmojiMask" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardMask()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharMask()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalObterEmojiSaop" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardSaop()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharSaop()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalObterEmojiSyring" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardSyring()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharSyring()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modalObterEmojiAmbulancia" class="overlayObterEmoji">
+                        <div class="modalObterEmoji">
+                            <div class="content-2">
+                                <p>Queres desbloquear este emoji?</p>
+                                <p>Preço: 150px</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="getcardAmbulancia()" class="btnSimEmoji">Sim</button>
+                                    <button type="button" onclick="fecharAmbulancia()" class="btnNaoEmoji">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
+
+                <div id="quiz"></div>
+                <button id="submitQuiz">Get Results</button>
+                <div id="results"></div>
             </section>
 
-
+            <!-- PARTE DOS BOTÕES LATERAIS-->
             <section>
                 <div class="backgroundBtns">
                     <div class="p-5">
@@ -238,8 +368,6 @@
                                 </div>
                             </div>
 
-
-
                             <button id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
                             <div id="modalEstatisticas" class="modalEstatisticas">
                                 <div class="modalEstatisticas-content">
@@ -316,7 +444,7 @@
                                             </div>
                                             <div class="col">
                                                 <p class="estatisticasTxt">Conquistas</p>&#127942
-                                                <span class="estatisticasTxt" id="totalPremio">0</span>
+                                                <span class="estatisticasTxt" id="totalConquistas">0</span>
                                             </div>
                                         </div>
                                     </form>
@@ -355,6 +483,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="rowBarT">
+                                            <div class="estatisticasTxt"><span id="metaEmoji">0</span>/8 Emojis</div>
+                                            <div class="rowBar">
+                                                <div class="side">
+                                                    <div>0</div>
+                                                </div>
+                                                <div class="middle">
+                                                    <div class="bar-container">
+                                                        <div id="emojiBar" class="bar-1">0%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="side right">
+                                                    <div> 100</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -366,7 +510,7 @@
     </header>
 
     <footer>
-        <div class="footer ">
+        <div class="footer">
             <p> Play Covid &copy; Bernardo 2021</p>
         </div>
     </footer>

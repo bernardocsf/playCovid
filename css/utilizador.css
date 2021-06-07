@@ -2101,7 +2101,6 @@ header.masthead {
     position: relative;
     right: 10rem;
     width: 50rem;
-    height: 130rem;
     margin: auto;
     margin-bottom: 3rem;
     border-radius: 1rem;
@@ -2422,7 +2421,7 @@ header.masthead {
     border-radius: 1rem 1rem 1rem 1rem;
     width: 60%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 10rem;
+    top: 8rem;
 }
 
 .checked {
@@ -2683,7 +2682,7 @@ header.masthead {
 }
 
 .card.show {
-    font-size: 33px;
+    font-size: 60px;
 }
 
 .card.match {
@@ -2707,6 +2706,85 @@ header.masthead {
 .deck .card.disabled {
     pointer-events: none;
     opacity: 0.9;
+}
+
+
+/* EMOJIS */
+
+.deckExp {
+    position: relative;
+    width: 550px;
+    height: 300px;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 8px 9px 10px 10px rgba(105, 124, 139, 0.322);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.cardExp {
+    background-color: #02b3e4;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 6.7rem;
+    width: 6.7rem;
+    margin: 0.1rem 0.1rem;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transition: 0.2s;
+}
+
+.cardExp:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+#cardNauseas {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
+}
+
+#cardHouse {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
+}
+
+#cardMicrobe {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
+}
+
+#cardSneezing {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
+}
+
+#cardMask {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
+}
+
+#cardSaop {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
+}
+
+#cardSyring {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
+}
+
+#cardAmbulancia {
+    background-image: url("/img/cardblock.jpg");
+    font-size: 0px;
 }
 
 
@@ -2770,6 +2848,33 @@ header.masthead {
 }
 
 
+/* JOGO DO QUIZ */
+
+.questionQuiz {
+    font-weight: 600;
+}
+
+.answersQuiz {
+    margin-bottom: 20px;
+}
+
+#submitQuiz {
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: #297;
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#submitQuiz:hover {
+    background-color: #3a8;
+}
+
+
 /*
  * Styles for congratulations modal
  */
@@ -2791,9 +2896,21 @@ header.masthead {
     opacity: 1;
 }
 
-.overlayjogar {
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 35%;
     position: relative;
-    top: -40.3rem;
+    top: 5rem;
+    right: 10rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.overlayjogar {
+    position: absolute;
+    top: 16.2rem;
     width: 34.3rem;
     height: 36.2rem;
     border-radius: 1.5rem;
@@ -2808,9 +2925,22 @@ header.masthead {
     opacity: 1;
 }
 
-.overlayEstatisticasJogo {
+.popupjogar {
     position: relative;
-    top: -76.7rem;
+    margin: 70px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 60%;
+    position: relative;
+    top: 8.3rem;
+    right: 0rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.overlayEstatisticasJogo {
+    position: absolute;
+    top: 16.3rem;
     width: 34.3rem;
     height: 36.2rem;
     border-radius: 1.5rem;
@@ -2838,27 +2968,32 @@ header.masthead {
     transition: all 0.5s ease-in-out;
 }
 
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #ffffff;
+.overlayObterEmoji {
+    position: absolute;
+    top: 58.5rem;
+    width: 34.4rem;
+    height: 19rem;
     border-radius: 1.5rem;
-    width: 35%;
-    position: relative;
-    top: 5rem;
-    right: 10rem;
-    transition: all 0.5s ease-in-out;
+    background: rgba(0, 0, 0, 0.877);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
 }
 
-.popupjogar {
+.overlayObterEmoji:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modalObterEmoji {
     position: relative;
-    margin: 70px auto;
+    margin: 90px auto;
     padding: 30px;
     background: #ffffff;
     border-radius: 1.5rem;
-    width: 60%;
+    width: 80%;
     position: relative;
-    top: 8.3rem;
+    top: -2.5rem;
     right: 0rem;
     transition: all 0.5s ease-in-out;
 }
@@ -2920,6 +3055,44 @@ header.masthead {
     transition: 0.6s;
     font-size: 1.3rem;
     font-weight: bold;
+}
+
+.btnSimEmoji {
+    background-color: #002b63;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 1;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.btnSimEmoji:hover {
+    opacity: 0.9;
+}
+
+.btnNaoEmoji {
+    background-color: #ff0000c7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 1;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.btnNaoEmoji:hover {
+    opacity: 0.9;
 }
 
 .closeCongratulations {

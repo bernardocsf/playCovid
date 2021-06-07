@@ -126,7 +126,6 @@ function perfilDados() {
             document.getElementById("output").src = editarPerfil
             document.getElementById("editarfoto").src = editarPerfil
             var lol = (("userList", JSON.stringify(utilizadores[i])))
-            console.log(lol)
             break
         }
     }
@@ -205,6 +204,14 @@ let modaljogar = document.getElementById("popupjogar")
 let modal = document.getElementById("popup1")
 let modalEstatisticasJogo = document.getElementById("modalEstatisticasJogo")
 var openedCards = [];
+let modalObterEmojiNauseas = document.getElementById("modalObterEmojiNauseas")
+let modalObterEmojiHouse = document.getElementById("modalObterEmojiHouse")
+let modalObterEmojiMicrobe = document.getElementById("modalObterEmojiMicrobe")
+let modalObterEmojiSneezing = document.getElementById("modalObterEmojiSneezing")
+let modalObterEmojiMask = document.getElementById("modalObterEmojiMask")
+let modalObterEmojiSaop = document.getElementById("modalObterEmojiSaop")
+let modalObterEmojiSyring = document.getElementById("modalObterEmojiSyring")
+let modalObterEmojiAmbulancia = document.getElementById("modalObterEmojiAmbulancia")
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -369,14 +376,18 @@ for (var i = 0; i < utilizadores.length; i++) {
         utilizadores[i].tresEstrela
         utilizadores[i].totalXp
         utilizadores[i].totalCoroa
-        utilizadores[i].totalPremio
+        utilizadores[i].totalConquistas
         utilizadores[i].xpBar
         document.getElementById("xpBar").style.width = utilizadores[i].xpBar
         document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
         utilizadores[i].react
+        if (document.getElementById("metaxp").innerHTML >= 5) {
+            quiz()
+        }
         var qtdJogados0 = utilizadores[i].qtdJogados
     }
 }
+
 
 /* IMPRIME OS VALORES INICIAIS CASO A QUANTIDADE DE JOGADORES FOR 0 = UNDEFINED */
 if (qtdJogados0 == undefined) {
@@ -389,7 +400,7 @@ if (qtdJogados0 == undefined) {
             utilizadores[i].tresEstrela = document.getElementById("tresEstrela").innerHTML
             utilizadores[i].totalXp = document.getElementById("totalXp").innerHTML
             utilizadores[i].totalCoroa = document.getElementById("totalCoroa").innerHTML
-            utilizadores[i].totalPremio = document.getElementById("totalPremio").innerHTML
+            utilizadores[i].totalConquistas = document.getElementById("totalConquistas").innerHTML
             utilizadores[i].xpBar = document.getElementById("xpBar").innerHTML
             document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
             utilizadores[i].react = document.getElementById("react").innerHTML
@@ -420,6 +431,8 @@ function naogosto() {
     localStorage.setItem("userList", JSON.stringify(utilizadores))
 }
 
+
+
 function congratulations() {
     if (matchedCard.length == 2) {
         modal.classList.add("show")
@@ -434,7 +447,7 @@ function congratulations() {
         hora = hora + minuto / 60;
         minuto = minuto + segundo / 60;
         segundo = segundo % 60;
-        var tempoJogadoV = parseInt(hora) + 'h: ' + parseInt(minuto) + 'm: ' + parseInt(segundo) + 's'
+        var tempoJogadoV = parseInt(hora) + 'h: ' + parseInt(minuto) + 'm: ' + parseInt(segundo - 1) + 's'
 
         var qtdJogadosV = parseInt(document.getElementById("qtdJogados").innerHTML)
         var umaEstrelaV = parseInt(document.getElementById("umaEstrela").innerHTML)
@@ -443,7 +456,7 @@ function congratulations() {
 
         var xp1V = 5
         var xp2V = 10
-        var xp3V = 15
+        var xp3V = 120
         var totalXpV = document.getElementById("totalXp").innerHTML
         var totalCoroaV = parseInt(document.getElementById("totalCoroa").innerHTML)
             /* VAI CONTAR AS VEZES JOGADAS */
@@ -470,7 +483,13 @@ function congratulations() {
         var xpBarV2 = xpBarV1 * 100
         var xpBarV3 = Math.round(xpBarV2) + "%"
 
-        var totalPremioV = totalCoroaVv / 5
+        var totalConquistasV = 0
+        if (totalCoroaV >= 5) {
+            totalConquistasV += 1
+            quiz()
+        }
+
+
 
         /* QUANDO APARECE A CONGRATULAÇÃO VAI GUARDAR/ATUALIZAR OS DADOS NA LOCALSTORAGE */
         for (var i = 0; i < utilizadores.length; i++) {
@@ -482,7 +501,7 @@ function congratulations() {
                 utilizadores[i].tempoJogado = tempoJogadoV
                 utilizadores[i].totalXp = totalXpV
                 utilizadores[i].totalCoroa = totalCoroaVv
-                utilizadores[i].totalPremio = Math.trunc(totalPremioV)
+                utilizadores[i].totalConquistas = totalConquistasV
                 utilizadores[i].xpBar = xpBarV3
             }
         }
@@ -507,17 +526,17 @@ function congratulations() {
             document.getElementById("tempoJogado").innerHTML = utilizadores[i].tempoJogado
             document.getElementById("totalXp").innerHTML = utilizadores[i].totalXp
             document.getElementById("totalCoroa").innerHTML = utilizadores[i].totalCoroa
-            document.getElementById("totalPremio").innerHTML = utilizadores[i].totalPremio
+            document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
             document.getElementById("xpBar").innerHTML = utilizadores[i].xpBar
             document.getElementById("xpBar").style.width = xpBarV3
-            if (utilizadores[i].totalCoroa <= 5) {
-                document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
-            }
+            document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
+            document.getElementById("metaxpEmoji").innerHTML = utilizadores[i].totalCoroa
             if (utilizadores[i].totalCoroa >= 5) {
                 document.getElementById("xpBar").style.width = "100%"
                 document.getElementById("xpBar").innerHTML = "100%"
+                document.getElementById("metaxp").innerHTML = 5
             }
-            document.getElementById("totalPremio").innerHTML = utilizadores[i].totalPremio
+            document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
             document.getElementById("react").innerHTML = utilizadores[i].react
         }
     }
@@ -582,6 +601,269 @@ function estatisticasJogo() {
     console.log(document.getElementById("mratingtotal").style.width);
 }
 
+/* PARTE DOS EMOJIS */
+for (var i = 0; i < utilizadores.length; i++) {
+    if (utilizadores[i].username == usersNames[y]) {
+        document.getElementById("totalXp").innerHTML = utilizadores[i].totalXp
+    }
+}
+var totalXp1V = document.getElementById("totalXp").innerHTML
+console.log(totalXp1V);
+
+/* EMOJI ("NAUSEAS") */
+function cardNauseas() {
+    if (document.getElementById("cardNauseas").style.fontSize == "60px") {
+        alert("este emoji é do hwwwwe")
+    } else {
+        modalObterEmojiNauseas.classList.add("show")
+    }
+}
+
+function getcardNauseas() {
+    if (totalXp1V < 115) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardNauseasBKV = document.getElementById("cardNauseas").style.backgroundImage = "url(' ')"
+        var cardNauseasFSV = document.getElementById("cardNauseas").style.fontSize = "60px"
+        totalXp1V -= 115
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardNauseasBK = cardNauseasBKV
+                utilizadores[i].cardNauseasFS = cardNauseasFSV
+                utilizadores[i].totalXp1 = totalXp1V
+            }
+        }
+        localStorage.setItem("userList", JSON.stringify(utilizadores))
+    }
+    modalObterEmojiNauseas.classList.remove("show")
+}
+
+/* EMOJI ("HOUSE") */
+
+function cardHouse() {
+    if (document.getElementById("cardHouse").style.fontSize == "60px") {
+        alert("este emoji é do house")
+    } else {
+        modalObterEmojiHouse.classList.add("show")
+    }
+}
+
+function getcardHouse() {
+    var cardHouseBKV = document.getElementById("cardHouse").style.backgroundImage = "url(' ')"
+    var cardHouseFSV = document.getElementById("cardHouse").style.fontSize = "60px"
+    totalXp1V -= 115
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == usersNames[y]) {
+            utilizadores[i].cardHouseBK = cardHouseBKV
+            utilizadores[i].cardHouseFS = cardHouseFSV
+            utilizadores[i].totalXp1 = totalXp1V
+        }
+    }
+    localStorage.setItem("userList", JSON.stringify(utilizadores))
+    modalObterEmojiHouse.classList.remove("show")
+}
+
+
+
+/* EMOJI ("MICROBE") */
+
+function cardMicrobe() {
+    if (document.getElementById("cardMicrobe").style.fontSize == "60px") {
+        alert("este emoji é do house")
+    } else {
+        modalObterEmojiMicrobe.classList.add("show")
+    }
+}
+
+function getcardMicrobe() {
+    if (totalXp1V < 115) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardMicrobeBKV = document.getElementById("cardMicrobe").style.backgroundImage = "url(' ')"
+        var cardMicrobeFSV = document.getElementById("cardMicrobe").style.fontSize = "60px"
+        totalXp1V -= 115
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardMicrobeBK = cardMicrobeBKV
+                utilizadores[i].cardMicrobeFS = cardMicrobeFSV
+                utilizadores[i].totalXp1 = totalXp1V
+            }
+        }
+        localStorage.setItem("userList", JSON.stringify(utilizadores))
+    }
+    modalObterEmojiMicrobe.classList.remove("show")
+}
+
+
+/* EMOJI ("SNEEZING") */
+
+function cardSneezing() {
+    if (document.getElementById("cardSneezing").style.fontSize == "60px") {
+        alert("este emoji é do house")
+    } else {
+        modalObterEmojiSneezing.classList.add("show")
+    }
+}
+
+function getcardSneezing() {
+    if (totalXp1V < 115) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardSneezingBKV = document.getElementById("cardSneezing").style.backgroundImage = "url(' ')"
+        var cardSneezingFSV = document.getElementById("cardSneezing").style.fontSize = "60px"
+        totalXp1V -= 115
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardSneezingBK = cardSneezingBKV
+                utilizadores[i].cardSneezingFS = cardSneezingFSV
+                utilizadores[i].totalXp1 = totalXp1V
+            }
+        }
+        localStorage.setItem("userList", JSON.stringify(utilizadores))
+    }
+    modalObterEmojiSneezing.classList.remove("show")
+}
+
+/* EMOJI ("MASK") */
+
+function cardMask() {
+    if (document.getElementById("cardMask").style.fontSize == "60px") {
+        alert("este emoji é do house")
+    } else {
+        modalObterEmojiMask.classList.add("show")
+    }
+}
+
+function getcardMask() {
+    if (totalXp1V < 115) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardMaskBKV = document.getElementById("cardMask").style.backgroundImage = "url(' ')"
+        var cardMaskFSV = document.getElementById("cardMask").style.fontSize = "60px"
+        totalXp1V -= 115
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardMaskBK = cardMaskBKV
+                utilizadores[i].cardMaskFS = cardMaskFSV
+                utilizadores[i].totalXp1 = totalXp1V
+            }
+        }
+        localStorage.setItem("userList", JSON.stringify(utilizadores))
+    }
+    modalObterEmojiMask.classList.remove("show")
+}
+
+/* EMOJI ("SAOP") */
+
+function cardSaop() {
+    if (document.getElementById("cardSaop").style.fontSize == "60px") {
+        alert("este emoji é do house")
+    } else {
+        modalObterEmojiSaop.classList.add("show")
+    }
+}
+
+function getcardSaop() {
+    if (totalXp1V < 115) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardSaopBKV = document.getElementById("cardSaop").style.backgroundImage = "url(' ')"
+        var cardSaopFSV = document.getElementById("cardSaop").style.fontSize = "60px"
+        totalXp1V -= 115
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardSaopBK = cardSaopBKV
+                utilizadores[i].cardSaopFS = cardSaopFSV
+                utilizadores[i].totalXp1 = totalXp1V
+            }
+        }
+        localStorage.setItem("userList", JSON.stringify(utilizadores))
+    }
+    modalObterEmojiSaop.classList.remove("show")
+}
+
+/* EMOJI ("SYRING") */
+
+function cardSyring() {
+    if (document.getElementById("cardSyring").style.fontSize == "60px") {
+        alert("este emoji é do house")
+    } else {
+        modalObterEmojiSyring.classList.add("show")
+    }
+}
+
+function getcardSyring() {
+    if (totalXp1V < 115) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardSyringBKV = document.getElementById("cardSyring").style.backgroundImage = "url(' ')"
+        var cardSyringFSV = document.getElementById("cardSyring").style.fontSize = "60px"
+        totalXp1V -= 115
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardSyringBK = cardSyringBKV
+                utilizadores[i].cardSyringFS = cardSyringFSV
+                utilizadores[i].totalXp1 = totalXp1V
+            }
+        }
+        localStorage.setItem("userList", JSON.stringify(utilizadores))
+    }
+    modalObterEmojiSyring.classList.remove("show")
+}
+
+/* EMOJI ("AMBULANCIA") */
+
+function cardAmbulancia() {
+    if (document.getElementById("cardAmbulancia").style.fontSize == "60px") {
+        alert("este emoji é do house")
+    } else {
+        modalObterEmojiAmbulancia.classList.add("show")
+    }
+}
+
+function getcardAmbulancia() {
+    if (totalXp1V < 115) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardAmbulanciaBKV = document.getElementById("cardAmbulancia").style.backgroundImage = "url(' ')"
+        var cardAmbulanciaFSV = document.getElementById("cardAmbulancia").style.fontSize = "60px"
+        totalXp1V -= 115
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardAmbulanciaBK = cardAmbulanciaBKV
+                utilizadores[i].cardAmbulanciaFS = cardAmbulanciaFSV
+                utilizadores[i].totalXp1 = totalXp1V
+            }
+        }
+        localStorage.setItem("userList", JSON.stringify(utilizadores))
+    }
+    modalObterEmojiAmbulancia.classList.remove("show")
+}
+
+
+
+
+
+for (var i = 0; i < utilizadores.length; i++) {
+    if (utilizadores[i].username == usersNames[y]) {
+        document.getElementById("cardNauseas").style.backgroundImage = utilizadores[i].cardNauseasBK
+        document.getElementById("cardNauseas").style.fontSize = utilizadores[i].cardNauseasFS
+        document.getElementById("cardHouse").style.backgroundImage = utilizadores[i].cardHouseBK
+        document.getElementById("cardHouse").style.fontSize = utilizadores[i].cardHouseFS
+        document.getElementById("cardMicrobe").style.backgroundImage = utilizadores[i].cardMicrobeBK
+        document.getElementById("cardMicrobe").style.fontSize = utilizadores[i].cardMicrobeFS
+        document.getElementById("cardSneezing").style.backgroundImage = utilizadores[i].cardSneezingBK
+        document.getElementById("cardSneezing").style.fontSize = utilizadores[i].cardSneezingFS
+        document.getElementById("cardMask").style.backgroundImage = utilizadores[i].cardMaskBK
+        document.getElementById("cardMask").style.fontSize = utilizadores[i].cardMaskFS
+        document.getElementById("cardSaop").style.backgroundImage = utilizadores[i].cardSaopBK
+        document.getElementById("cardSaop").style.fontSize = utilizadores[i].cardSaopFS
+        document.getElementById("cardSyring").style.backgroundImage = utilizadores[i].cardSyringBK
+        document.getElementById("cardSyring").style.fontSize = utilizadores[i].cardSyringFS
+        document.getElementById("cardAmbulancia").style.backgroundImage = utilizadores[i].cardAmbulanciaBK
+        document.getElementById("cardAmbulancia").style.fontSize = utilizadores[i].cardAmbulanciaFS
+    }
+}
 
 /* BOTAO PARA COMEÇAR A JOGAR */
 function jogar() {
@@ -611,4 +893,366 @@ function fecharJogoE() {
     modal.classList.remove("show")
     startGame();
     modaljogar.classList.add("show")
+}
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR EMOJI*/
+function fecharNauseas() {
+    modalObterEmojiNauseas.classList.remove("show")
+}
+
+function fecharHouse() {
+    modalObterEmojiHouse.classList.remove("show")
+}
+
+function fecharMicrobe() {
+    modalObterEmojiMicrobe.classList.remove("show")
+}
+
+function fecharSneezing() {
+    modalObterEmojiSneezing.classList.remove("show")
+}
+
+function fecharMask() {
+    modalObterEmojiMask.classList.remove("show")
+}
+
+function fecharSaop() {
+    modalObterEmojiSaop.classList.remove("show")
+}
+
+function fecharSyring() {
+    modalObterEmojiSyring.classList.remove("show")
+}
+
+function fecharAmbulancia() {
+    modalObterEmojiAmbulancia.classList.remove("show")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// QUIZ
+function quiz() {
+    var myQuestions = [{
+            question: "O que devo fazer se sentir sintomas de Covid-19?",
+            answers: {
+                A: 'Ficar em casa',
+                B: 'Continuar a sair de casa',
+                C: 'Ir para o hospital sem aviso'
+            },
+            correctAnswer: 'A'
+        },
+        {
+            question: "O que devo fazer se sentir sintomas de Covid-19?",
+            answers: {
+                A: 'Ficar em casa',
+                B: 'Continuar a sair de casa',
+                C: 'Ir para o hospital sem aviso'
+            },
+            correctAnswer: 'A'
+        }
+    ];
+
+    var quizContainer = document.getElementById('quiz');
+    var resultsContainer = document.getElementById('results');
+    var submitButton = document.getElementById('submitQuiz');
+
+    generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+    function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
+
+        function showQuestions(questions, quizContainer) {
+            // we'll need a place to store the output and the answer choices
+            var output = [];
+            var answers;
+
+            // for each question...
+            for (var i = 0; i < questions.length; i++) {
+
+                // first reset the list of answers
+                answers = [];
+
+                // for each available answer...
+                for (letter in questions[i].answers) {
+
+                    // ...add an html radio button
+                    answers.push(
+                        '<label>' +
+                        '<input type="radio" name="question' + i + '" value="' + letter + '">' +
+                        letter + ': ' +
+                        questions[i].answers[letter] +
+                        '</label>'
+                    );
+                }
+
+                // add this question and its answers to the output
+                output.push(
+                    '<div class="question">' + questions[i].question + '</div>' +
+                    '<div class="answers">' + answers.join('') + '</div>'
+                );
+            }
+
+            // finally combine our output list into one string of html and put it on the page
+            quizContainer.innerHTML = output.join('');
+        }
+
+
+        function showResults(questions, quizContainer, resultsContainer) {
+
+            // gather answer containers from our quiz
+            var answerContainers = quizContainer.querySelectorAll('.answers');
+
+            // keep track of user's answers
+            var userAnswer = '';
+            var numCorrect = 0;
+
+            // for each question...
+            for (var i = 0; i < questions.length; i++) {
+
+                // find selected answer
+                userAnswer = (answerContainers[i].querySelector('input[name=question' + i + ']:checked') || {}).value;
+
+                // if answer is correct
+                if (userAnswer === questions[i].correctAnswer) {
+                    // add to the number of correct answers
+                    numCorrect++;
+
+                    // color the answers green
+                    answerContainers[i].style.color = 'lightgreen';
+                }
+                // if answer is wrong or blank
+                else {
+                    // color the answers red
+                    answerContainers[i].style.color = 'red';
+                }
+            }
+
+            // show number of correct answers out of total
+            resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+        }
+
+        // show questions right away
+        showQuestions(questions, quizContainer);
+
+        // on submit, show results
+        submitButton.onclick = function() {
+            showResults(questions, quizContainer, resultsContainer);
+        }
+
+    }
 }
