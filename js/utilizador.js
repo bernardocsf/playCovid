@@ -191,6 +191,34 @@ function perfilApagar() {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
 let cards = [...card];
@@ -205,13 +233,63 @@ let modal = document.getElementById("popup1")
 let modalEstatisticasJogo = document.getElementById("modalEstatisticasJogo")
 var openedCards = [];
 let modalObterEmojiNauseas = document.getElementById("modalObterEmojiNauseas")
+let modalInfoEmojiNauseas = document.getElementById("modalInfoEmojiNauseas")
 let modalObterEmojiHouse = document.getElementById("modalObterEmojiHouse")
+let modalInfoEmojiHouse = document.getElementById("modalInfoEmojiHouse")
 let modalObterEmojiMicrobe = document.getElementById("modalObterEmojiMicrobe")
+let modalInfoEmojiMicrobe = document.getElementById("modalInfoEmojiMicrobe")
 let modalObterEmojiSneezing = document.getElementById("modalObterEmojiSneezing")
+let modalInfoEmojiSneezing = document.getElementById("modalInfoEmojiSneezing")
 let modalObterEmojiMask = document.getElementById("modalObterEmojiMask")
+let modalInfoEmojiMask = document.getElementById("modalInfoEmojiMask")
 let modalObterEmojiSaop = document.getElementById("modalObterEmojiSaop")
+let modalInfoEmojiSaop = document.getElementById("modalInfoEmojiSaop")
 let modalObterEmojiSyring = document.getElementById("modalObterEmojiSyring")
+let modalInfoEmojiSyring = document.getElementById("modalInfoEmojiSyring")
 let modalObterEmojiAmbulancia = document.getElementById("modalObterEmojiAmbulancia")
+let modalInfoEmojiAmbulancia = document.getElementById("modalInfoEmojiAmbulancia")
+
+modalInfoEmojiNauseas.onclick = function(event) {
+    if (event.target == modalInfoEmojiNauseas) {
+        modalInfoEmojiNauseas.classList.remove('show');
+    }
+}
+modalInfoEmojiHouse.onclick = function(event) {
+    if (event.target == modalInfoEmojiHouse) {
+        modalInfoEmojiHouse.classList.remove('show');
+    }
+}
+modalInfoEmojiMicrobe.onclick = function(event) {
+    if (event.target == modalInfoEmojiMicrobe) {
+        modalInfoEmojiMicrobe.classList.remove('show');
+    }
+}
+modalInfoEmojiSneezing.onclick = function(event) {
+    if (event.target == modalInfoEmojiSneezing) {
+        modalInfoEmojiSneezing.classList.remove('show');
+    }
+}
+modalInfoEmojiMask.onclick = function(event) {
+    if (event.target == modalInfoEmojiMask) {
+        modalInfoEmojiMask.classList.remove('show');
+    }
+}
+modalInfoEmojiSaop.onclick = function(event) {
+    if (event.target == modalInfoEmojiSaop) {
+        modalInfoEmojiSaop.classList.remove('show');
+    }
+}
+modalInfoEmojiSyring.onclick = function(event) {
+    if (event.target == modalInfoEmojiSyring) {
+        modalInfoEmojiSyring.classList.remove('show');
+    }
+}
+modalInfoEmojiAmbulancia.onclick = function(event) {
+    if (event.target == modalInfoEmojiAmbulancia) {
+        modalInfoEmojiAmbulancia.classList.remove('show');
+    }
+}
+
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -375,19 +453,20 @@ for (var i = 0; i < utilizadores.length; i++) {
         utilizadores[i].duasEstrela
         utilizadores[i].tresEstrela
         utilizadores[i].totalXp
+        utilizadores[i].totalXpEmoji
         utilizadores[i].totalCoroa
         utilizadores[i].totalConquistas
         utilizadores[i].xpBar
         document.getElementById("xpBar").style.width = utilizadores[i].xpBar
         document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
-        utilizadores[i].react
         if (document.getElementById("metaxp").innerHTML >= 5) {
             quiz()
         }
+        utilizadores[i].emojiBarN
+        utilizadores[i].react
         var qtdJogados0 = utilizadores[i].qtdJogados
     }
 }
-
 
 /* IMPRIME OS VALORES INICIAIS CASO A QUANTIDADE DE JOGADORES FOR 0 = UNDEFINED */
 if (qtdJogados0 == undefined) {
@@ -399,10 +478,16 @@ if (qtdJogados0 == undefined) {
             utilizadores[i].duasEstrela = document.getElementById("duasEstrela").innerHTML
             utilizadores[i].tresEstrela = document.getElementById("tresEstrela").innerHTML
             utilizadores[i].totalXp = document.getElementById("totalXp").innerHTML
+            utilizadores[i].totalXpEmoji = document.getElementById("totalXpEmoji").innerHTML
             utilizadores[i].totalCoroa = document.getElementById("totalCoroa").innerHTML
             utilizadores[i].totalConquistas = document.getElementById("totalConquistas").innerHTML
             utilizadores[i].xpBar = document.getElementById("xpBar").innerHTML
             document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
+            utilizadores[i].metaEmoji = document.getElementById("metaEmoji").innerHTML
+            var emojiBarInt = parseInt(document.getElementById("emojiBar").innerHTML)
+            utilizadores[i].emojiBarN = emojiBarInt
+            var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+            document.getElementById("emojiBar").style.width = emojiBar
             utilizadores[i].react = document.getElementById("react").innerHTML
             localStorage.setItem("userList", JSON.stringify(utilizadores))
         }
@@ -412,7 +497,7 @@ if (qtdJogados0 == undefined) {
 var reactV = document.getElementById("react").innerHTML
 
 function gosto() {
-    reactV = document.getElementById("react").innerHTML = "Gosto";
+    reactV = document.getElementById("react").innerHTML = "Gosto"
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
             utilizadores[i].react = reactV
@@ -431,12 +516,11 @@ function naogosto() {
     localStorage.setItem("userList", JSON.stringify(utilizadores))
 }
 
-
-
 function congratulations() {
     if (matchedCard.length == 2) {
         modal.classList.add("show")
-            /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
+
+        /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
         var tempoUltimoJogo = hour + ":" + minute + ":" + second
         var tempoTotal = document.getElementById("tempoJogado").innerHTML
         var split1 = tempoUltimoJogo.split(':');
@@ -449,47 +533,73 @@ function congratulations() {
         segundo = segundo % 60;
         var tempoJogadoV = parseInt(hora) + 'h: ' + parseInt(minuto) + 'm: ' + parseInt(segundo - 1) + 's'
 
+        /* VAI CONTAR AS VEZES JOGADAS */
         var qtdJogadosV = parseInt(document.getElementById("qtdJogados").innerHTML)
+        qtdJogadosV = parseInt(qtdJogadosV) + 1
+
+        /* VAI CONTAR A VEZES GANHAS COM X ESTRELAS */
         var umaEstrelaV = parseInt(document.getElementById("umaEstrela").innerHTML)
         var duasEstrelaV = parseInt(document.getElementById("duasEstrela").innerHTML)
         var tresEstrelaV = parseInt(document.getElementById("tresEstrela").innerHTML)
 
-        var xp1V = 5
-        var xp2V = 10
-        var xp3V = 120
-        var totalXpV = document.getElementById("totalXp").innerHTML
-        var totalCoroaV = parseInt(document.getElementById("totalCoroa").innerHTML)
-            /* VAI CONTAR AS VEZES JOGADAS */
-        qtdJogadosV = parseInt(qtdJogadosV) + 1
-
-        /* VAI CONTAR AS VEZES GANHADAS COM X ESTRELAS */
         if (moves >= 15) {
+            /* VAI CONTAR AS VEZES GANHAS COM UMA ESTRELA */
             umaEstrelaV++
         } else if (moves > 8 && moves <= 14) {
+            /* VAI CONTAR AS VEZES GANHADAS COM DUAS ESTRELAS */
             duasEstrelaV++
         } else if (moves <= 8) {
+            /* VAI CONTAR AS VEZES GANHADAS COM TRES ESTRELAS */
             tresEstrelaV++
         }
 
-        var xp1 = xp1V *= umaEstrelaV
-        var xp2 = xp2V *= duasEstrelaV
-        var xp3 = xp3V *= tresEstrelaV
+        /* VAI SOMAR A PONTUAÇÃO COM UMA ESTRELA */
+        var xp1V = 5
+        var xp1 = xp1V *= umaEstrelaV;
+        /* VAI SOMAR A PONTUAÇÃO COM DUAS ESTRELAS */
+        var xp2V = 10
+        var xp2 = xp2V *= duasEstrelaV;
+        /* VAI SOMAR A PONTUAÇÃO COM TRES ESTRELAS */
+        var xp3V = 15
+        var xp3 = xp3V *= tresEstrelaV;
+        /* VAI SOMAR A PONTUAÇÃO TOTAL */
+        var totalXpV = document.getElementById("totalXp").innerHTML
         totalXpV = xp1 + xp2 + xp3
 
+        /* VAI SOMAR A PONTUAÇÃO TOTAL PARA COMPRAR EMOJIS */
+        var totalXpEmojiV = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+        if (moves >= 15) {
+            /* VAI CONTAR AS VEZES GANHAS COM UMA ESTRELA */
+            totalXpEmojiV += 5
+        } else if (moves > 8 && moves <= 14) {
+            /* VAI CONTAR AS VEZES GANHADAS COM DUAS ESTRELAS */
+            totalXpEmojiV += 10
+        } else if (moves <= 8) {
+            /* VAI CONTAR AS VEZES GANHADAS COM TRES ESTRELAS */
+            totalXpEmojiV += 15
+        }
+
+        /* VAI CONVERTER A STRING PARA NUMERO DE INTEIRO DE COROAS */
+        var totalCoroaV = parseInt(document.getElementById("totalCoroa").innerHTML);
+        /* VAI SOMAR O TOTAL DE COROAS */
         var totalCoroaV = totalXpV * (totalXpV / 100)
         totalCoroaV = totalCoroaV / totalXpV
-        var totalCoroaVv = parseInt(totalCoroaV)
-        var xpBarV1 = totalCoroaV - totalCoroaVv
-        var xpBarV2 = xpBarV1 * 100
+
+        /* VAI CONVERTER O NUMERO DE COROAS EM NUMERO INTEIRO */
+        var totalCoroaVv = parseInt(totalCoroaV);
+        /* VAI DEIXAR O NUMERO SEM UNIDADES */
+        var xpBarV1 = totalCoroaV - totalCoroaVv;
+        /* VAI CONVERTER O NUMERO EM UNIDADE */
+        var xpBarV2 = xpBarV1 * 100;
+        /* VAI ARREDONDAR O NUMERO DE COROAS */
         var xpBarV3 = Math.round(xpBarV2) + "%"
 
+        /* VAI SOMAR O TOTAL DE CONQUISTAS */
         var totalConquistasV = 0
         if (totalCoroaV >= 5) {
             totalConquistasV += 1
             quiz()
         }
-
-
 
         /* QUANDO APARECE A CONGRATULAÇÃO VAI GUARDAR/ATUALIZAR OS DADOS NA LOCALSTORAGE */
         for (var i = 0; i < utilizadores.length; i++) {
@@ -500,12 +610,13 @@ function congratulations() {
                 utilizadores[i].tresEstrela = tresEstrelaV
                 utilizadores[i].tempoJogado = tempoJogadoV
                 utilizadores[i].totalXp = totalXpV
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
                 utilizadores[i].totalCoroa = totalCoroaVv
                 utilizadores[i].totalConquistas = totalConquistasV
                 utilizadores[i].xpBar = xpBarV3
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
 
         clearInterval(interval);
         finalTime = timer.innerHTML;
@@ -525,27 +636,30 @@ function congratulations() {
             document.getElementById("tresEstrela").innerHTML = utilizadores[i].tresEstrela
             document.getElementById("tempoJogado").innerHTML = utilizadores[i].tempoJogado
             document.getElementById("totalXp").innerHTML = utilizadores[i].totalXp
+            document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+            if (utilizadores[i].emojiBarN == 100) {
+                document.getElementById("xpD").innerHTML = ""
+                document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                document.getElementById("dd").innerHTML = ""
+            }
             document.getElementById("totalCoroa").innerHTML = utilizadores[i].totalCoroa
             document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
             document.getElementById("xpBar").innerHTML = utilizadores[i].xpBar
             document.getElementById("xpBar").style.width = xpBarV3
             document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
-            document.getElementById("metaxpEmoji").innerHTML = utilizadores[i].totalCoroa
             if (utilizadores[i].totalCoroa >= 5) {
                 document.getElementById("xpBar").style.width = "100%"
                 document.getElementById("xpBar").innerHTML = "100%"
                 document.getElementById("metaxp").innerHTML = 5
             }
-            document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
             document.getElementById("react").innerHTML = utilizadores[i].react
         }
     }
 }
-
-
 /* ESTATISTICAS DO JOGO */
 function estatisticasJogo() {
     modalEstatisticasJogo.classList.add("show")
+
     let totalJogadoUtiV = 0
     var rating1V = 0
     var rating2V = 0
@@ -553,6 +667,7 @@ function estatisticasJogo() {
     var reactGosto = 0
     var reactNaoGosto = 0
 
+    /* VAI BUSCAR OS DADOS DA QUANTIDADES DE JOGOS E ETC.. DE CADA UTILIZADOR PARA SOMAR */
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
             document.getElementById("qtdJogados").innerHTML = utilizadores[i].qtdJogados
@@ -560,15 +675,24 @@ function estatisticasJogo() {
             document.getElementById("duasEstrela").innerHTML = utilizadores[i].duasEstrela
             document.getElementById("tresEstrela").innerHTML = utilizadores[i].tresEstrela
         }
+
+        /* VAI SOMAR A QUANTIDADE DE JOGOS DE TODOS OS UTILIZADORES */
         var utilizadoresQtdJogos = utilizadores[i].qtdJogados
-        totalJogadoUtiV += parseInt(utilizadoresQtdJogos)
+        totalJogadoUtiV += parseInt(utilizadoresQtdJogos);
+
+        /* VAI SOMAR A QUANTIDADE DE JOGOS DE TODOS OS UTILIZADORES COM UMA ESTRELA */
         var rating1s = utilizadores[i].umaEstrela
-        rating1V += parseInt(rating1s)
+        rating1V += parseInt(rating1s);
+
+        /* VAI SOMAR A QUANTIDADE DE JOGOS DE TODOS OS UTILIZADORES COM DUAS ESTRELAS */
         var rating2s = utilizadores[i].duasEstrela
-        rating2V += parseInt(rating2s)
+        rating2V += parseInt(rating2s);
+
+        /* VAI SOMAR A QUANTIDADE DE JOGOS DE TODOS OS UTILIZADORES COM TRES ESTRELAS */
         var rating3s = utilizadores[i].tresEstrela
         rating3V += parseInt(rating3s)
 
+        /* VAI SOMAR A QUANTIDADE DE GOSTOS / NAO GOSTOS DE TODOS OS UTILIZADORES */
         var reactVR = utilizadores[i].react
         if (reactVR == "Gosto") {
             reactGosto += 1
@@ -578,7 +702,10 @@ function estatisticasJogo() {
         };
     }
 
+    /* VAI IMPRIMIR A QUANTIDADE DE JOGOS DE TODOS OS UTILIZADORES */
     document.getElementById("totalQtdJogado").innerHTML = totalJogadoUtiV
+
+    /* VAI CALCULAR A MÉDIA DE RATING */
     let mrating1 = (rating1V * 100) / totalJogadoUtiV
     let mrating2 = (rating2V * 100) / totalJogadoUtiV
     let mrating3 = (rating3V * 100) / totalJogadoUtiV
@@ -596,254 +723,430 @@ function estatisticasJogo() {
         document.getElementById("mratingtotal").style.width = Math.round(mrating2) + "%"
 
     }
-    document.getElementById("reactGosto").innerHTML = reactGosto
+    /* VAI IMPRIMIR A QUANTIDADE DE GOSTOS */
+    document.getElementById("reactGosto").innerHTML = reactGosto;
+    /* VAI IMPRIMIR A QUANTIDADE DE NAO GOSTOS */
     document.getElementById("reactNaoGosto").innerHTML = reactNaoGosto
-    console.log(document.getElementById("mratingtotal").style.width);
 }
 
-/* PARTE DOS EMOJIS */
 for (var i = 0; i < utilizadores.length; i++) {
     if (utilizadores[i].username == usersNames[y]) {
-        document.getElementById("totalXp").innerHTML = utilizadores[i].totalXp
+        document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+        document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+        document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+        var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+        document.getElementById("emojiBar").style.width = emojiBar
+        document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
     }
 }
-var totalXp1V = document.getElementById("totalXp").innerHTML
-console.log(totalXp1V);
+
+var totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+var totalXpEmojiV = totalXpEmojiVInt
+
 
 /* EMOJI ("NAUSEAS") */
 function cardNauseas() {
     if (document.getElementById("cardNauseas").style.fontSize == "60px") {
-        alert("este emoji é do hwwwwe")
+        modalInfoEmojiNauseas.classList.add("show")
     } else {
         modalObterEmojiNauseas.classList.add("show")
     }
 }
 
 function getcardNauseas() {
-    if (totalXp1V < 115) {
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
         alert("nao tens dinheiro")
     } else {
         var cardNauseasBKV = document.getElementById("cardNauseas").style.backgroundImage = "url(' ')"
         var cardNauseasFSV = document.getElementById("cardNauseas").style.fontSize = "60px"
-        totalXp1V -= 115
+        totalXpEmojiV -= 5
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardNauseasBK = cardNauseasBKV
                 utilizadores[i].cardNauseasFS = cardNauseasFSV
-                utilizadores[i].totalXp1 = totalXp1V
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
+
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
+        }
     }
     modalObterEmojiNauseas.classList.remove("show")
 }
 
 /* EMOJI ("HOUSE") */
-
 function cardHouse() {
     if (document.getElementById("cardHouse").style.fontSize == "60px") {
-        alert("este emoji é do house")
+        modalInfoEmojiHouse.classList.add("show")
     } else {
         modalObterEmojiHouse.classList.add("show")
     }
 }
 
 function getcardHouse() {
-    var cardHouseBKV = document.getElementById("cardHouse").style.backgroundImage = "url(' ')"
-    var cardHouseFSV = document.getElementById("cardHouse").style.fontSize = "60px"
-    totalXp1V -= 115
-    for (var i = 0; i < utilizadores.length; i++) {
-        if (utilizadores[i].username == usersNames[y]) {
-            utilizadores[i].cardHouseBK = cardHouseBKV
-            utilizadores[i].cardHouseFS = cardHouseFSV
-            utilizadores[i].totalXp1 = totalXp1V
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
+        alert("nao tens dinheiro")
+    } else {
+        var cardHouseBKV = document.getElementById("cardHouse").style.backgroundImage = "url(' ')"
+        var cardHouseFSV = document.getElementById("cardHouse").style.fontSize = "60px"
+        totalXpEmojiV -= 5
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                utilizadores[i].cardHouseBK = cardHouseBKV
+                utilizadores[i].cardHouseFS = cardHouseFSV
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
+            }
+        }
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
         }
     }
-    localStorage.setItem("userList", JSON.stringify(utilizadores))
     modalObterEmojiHouse.classList.remove("show")
 }
 
 
-
 /* EMOJI ("MICROBE") */
-
 function cardMicrobe() {
     if (document.getElementById("cardMicrobe").style.fontSize == "60px") {
-        alert("este emoji é do house")
+        modalInfoEmojiMicrobe.classList.add("show")
     } else {
         modalObterEmojiMicrobe.classList.add("show")
     }
 }
 
 function getcardMicrobe() {
-    if (totalXp1V < 115) {
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
         alert("nao tens dinheiro")
     } else {
         var cardMicrobeBKV = document.getElementById("cardMicrobe").style.backgroundImage = "url(' ')"
         var cardMicrobeFSV = document.getElementById("cardMicrobe").style.fontSize = "60px"
-        totalXp1V -= 115
+        totalXpEmojiV -= 5
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardMicrobeBK = cardMicrobeBKV
                 utilizadores[i].cardMicrobeFS = cardMicrobeFSV
-                utilizadores[i].totalXp1 = totalXp1V
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
+        }
     }
     modalObterEmojiMicrobe.classList.remove("show")
 }
 
 
 /* EMOJI ("SNEEZING") */
-
 function cardSneezing() {
     if (document.getElementById("cardSneezing").style.fontSize == "60px") {
-        alert("este emoji é do house")
+        modalInfoEmojiSneezing.classList.add("show")
     } else {
         modalObterEmojiSneezing.classList.add("show")
     }
 }
 
 function getcardSneezing() {
-    if (totalXp1V < 115) {
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
         alert("nao tens dinheiro")
     } else {
         var cardSneezingBKV = document.getElementById("cardSneezing").style.backgroundImage = "url(' ')"
         var cardSneezingFSV = document.getElementById("cardSneezing").style.fontSize = "60px"
-        totalXp1V -= 115
+        totalXpEmojiV -= 5
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardSneezingBK = cardSneezingBKV
                 utilizadores[i].cardSneezingFS = cardSneezingFSV
-                utilizadores[i].totalXp1 = totalXp1V
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
+        }
     }
     modalObterEmojiSneezing.classList.remove("show")
 }
 
 /* EMOJI ("MASK") */
-
 function cardMask() {
     if (document.getElementById("cardMask").style.fontSize == "60px") {
-        alert("este emoji é do house")
+        modalInfoEmojiMask.classList.add("show")
     } else {
         modalObterEmojiMask.classList.add("show")
     }
 }
 
 function getcardMask() {
-    if (totalXp1V < 115) {
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
         alert("nao tens dinheiro")
     } else {
         var cardMaskBKV = document.getElementById("cardMask").style.backgroundImage = "url(' ')"
         var cardMaskFSV = document.getElementById("cardMask").style.fontSize = "60px"
-        totalXp1V -= 115
+        totalXpEmojiV -= 5
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardMaskBK = cardMaskBKV
                 utilizadores[i].cardMaskFS = cardMaskFSV
-                utilizadores[i].totalXp1 = totalXp1V
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
+        }
     }
     modalObterEmojiMask.classList.remove("show")
 }
 
 /* EMOJI ("SAOP") */
-
 function cardSaop() {
     if (document.getElementById("cardSaop").style.fontSize == "60px") {
-        alert("este emoji é do house")
+        modalInfoEmojiSaop.classList.add("show")
     } else {
         modalObterEmojiSaop.classList.add("show")
     }
 }
 
 function getcardSaop() {
-    if (totalXp1V < 115) {
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
         alert("nao tens dinheiro")
     } else {
         var cardSaopBKV = document.getElementById("cardSaop").style.backgroundImage = "url(' ')"
         var cardSaopFSV = document.getElementById("cardSaop").style.fontSize = "60px"
-        totalXp1V -= 115
+        totalXpEmojiV -= 5
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardSaopBK = cardSaopBKV
                 utilizadores[i].cardSaopFS = cardSaopFSV
-                utilizadores[i].totalXp1 = totalXp1V
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
+        }
     }
     modalObterEmojiSaop.classList.remove("show")
 }
 
 /* EMOJI ("SYRING") */
-
 function cardSyring() {
     if (document.getElementById("cardSyring").style.fontSize == "60px") {
-        alert("este emoji é do house")
+        modalInfoEmojiSyring.classList.add("show")
     } else {
         modalObterEmojiSyring.classList.add("show")
     }
 }
 
 function getcardSyring() {
-    if (totalXp1V < 115) {
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
         alert("nao tens dinheiro")
     } else {
         var cardSyringBKV = document.getElementById("cardSyring").style.backgroundImage = "url(' ')"
         var cardSyringFSV = document.getElementById("cardSyring").style.fontSize = "60px"
-        totalXp1V -= 115
+        totalXpEmojiV -= 5
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardSyringBK = cardSyringBKV
                 utilizadores[i].cardSyringFS = cardSyringFSV
-                utilizadores[i].totalXp1 = totalXp1V
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
+        }
     }
     modalObterEmojiSyring.classList.remove("show")
 }
 
 /* EMOJI ("AMBULANCIA") */
-
 function cardAmbulancia() {
     if (document.getElementById("cardAmbulancia").style.fontSize == "60px") {
-        alert("este emoji é do house")
+        modalInfoEmojiAmbulancia.classList.add("show")
     } else {
         modalObterEmojiAmbulancia.classList.add("show")
     }
 }
 
 function getcardAmbulancia() {
-    if (totalXp1V < 115) {
+    totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
+    totalXpEmojiV = totalXpEmojiVInt
+    if (totalXpEmojiV < 5) {
         alert("nao tens dinheiro")
     } else {
         var cardAmbulanciaBKV = document.getElementById("cardAmbulancia").style.backgroundImage = "url(' ')"
         var cardAmbulanciaFSV = document.getElementById("cardAmbulancia").style.fontSize = "60px"
-        totalXp1V -= 115
+        totalXpEmojiV -= 5
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardAmbulanciaBK = cardAmbulanciaBKV
                 utilizadores[i].cardAmbulanciaFS = cardAmbulanciaFSV
-                utilizadores[i].totalXp1 = totalXp1V
+                utilizadores[i].totalXpEmoji = totalXpEmojiV
+                utilizadores[i].emojiBarN += 12.50
+                if (utilizadores[i].emojiBarN >= 100) {
+                    utilizadores[i].metaEmoji = 1
+                    utilizadores[i].totalConquistas++;
+                }
+                localStorage.setItem("userList", JSON.stringify(utilizadores))
             }
         }
-        localStorage.setItem("userList", JSON.stringify(utilizadores))
+        for (var i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i].username == usersNames[y]) {
+                document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
+                document.getElementById("emojiBar").innerHTML = utilizadores[i].emojiBarN + "%"
+                var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
+                document.getElementById("emojiBar").style.width = emojiBar
+                document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+                document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
+                if (utilizadores[i].emojiBarN == 100) {
+                    document.getElementById("xpD").innerHTML = ""
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("dd").innerHTML = ""
+                }
+            }
+        }
     }
     modalObterEmojiAmbulancia.classList.remove("show")
 }
 
-
-
-
-
+/* IMPRIME OS VALORES DOS EMOJIS GUARDADOS */
 for (var i = 0; i < utilizadores.length; i++) {
     if (utilizadores[i].username == usersNames[y]) {
         document.getElementById("cardNauseas").style.backgroundImage = utilizadores[i].cardNauseasBK
@@ -864,6 +1167,10 @@ for (var i = 0; i < utilizadores.length; i++) {
         document.getElementById("cardAmbulancia").style.fontSize = utilizadores[i].cardAmbulanciaFS
     }
 }
+
+
+
+
 
 /* BOTAO PARA COMEÇAR A JOGAR */
 function jogar() {
@@ -894,38 +1201,277 @@ function fecharJogoE() {
     startGame();
     modaljogar.classList.add("show")
 }
-/* BOTAO PARA FECHAR O MODAL DE COMPRAR EMOJI*/
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("NAUSEAS") */
 function fecharNauseas() {
     modalObterEmojiNauseas.classList.remove("show")
 }
-
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("HOUSE") */
 function fecharHouse() {
     modalObterEmojiHouse.classList.remove("show")
 }
-
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("MICROBE") */
 function fecharMicrobe() {
     modalObterEmojiMicrobe.classList.remove("show")
 }
-
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("SNEEZING") */
 function fecharSneezing() {
     modalObterEmojiSneezing.classList.remove("show")
 }
-
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("MASK") */
 function fecharMask() {
     modalObterEmojiMask.classList.remove("show")
 }
-
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("SAOP") */
 function fecharSaop() {
     modalObterEmojiSaop.classList.remove("show")
 }
-
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("SYRING") */
 function fecharSyring() {
     modalObterEmojiSyring.classList.remove("show")
 }
-
+/* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("AMBULANCIA") */
 function fecharAmbulancia() {
     modalObterEmojiAmbulancia.classList.remove("show")
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -45,6 +45,7 @@ class userName {
     }
 }
 
+
 function login() {
     let iniciarUtilizador = document.getElementById("iniciarUtilizador").value
     let iniciarPassword = document.getElementById("iniciarPassword").value
@@ -57,11 +58,9 @@ function login() {
         }
     }
     if (iniciarUtilizador == "") {
-        alert("Tem que inserir o seu username!")
         return false
     }
     if (iniciarPassword == "") {
-        alert("Falta inserir a sua palavra passe!")
         return false
     }
     if (contaRegistada == true) {
@@ -80,7 +79,7 @@ function login() {
             }
         }
     } else {
-        alert("Os dados que colocaste não estão corretos")
+        alert("jkre")
     }
 }
 

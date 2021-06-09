@@ -629,6 +629,16 @@ pre code {
     max-width: 100%;
 }
 
+.col2 {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
 .row-cols-1>* {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -2247,6 +2257,13 @@ header.masthead {
     font-weight: bold;
 }
 
+.h3Info {
+    text-align: center;
+    color: #002752;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
 .pform {
     display: flex;
     flex-direction: row;
@@ -2970,7 +2987,7 @@ header.masthead {
 
 .overlayObterEmoji {
     position: absolute;
-    top: 58.5rem;
+    top: 60.5rem;
     width: 34.4rem;
     height: 19rem;
     border-radius: 1.5rem;
@@ -2993,9 +3010,73 @@ header.masthead {
     border-radius: 1.5rem;
     width: 80%;
     position: relative;
-    top: -2.5rem;
+    top: -3rem;
     right: 0rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.overlayInfoEmoji {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlayInfoEmoji:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modalInfoEmoji {
+    margin: 70px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 59%;
+    position: relative;
+    top: 1.5rem;
+    right: 10rem;
     transition: all 0.5s ease-in-out;
+}
+
+#oqueeEmoji {
+    color: #002752;
+    font-weight: bold;
+    border-left-style: solid;
+    border-left-color: #02b3e4;
+    border-left-width: 7px;
+    background-color: rgba(71, 199, 193, 0.527);
+    font-size: 17px;
+    border-radius: 2rem 2rem 2rem 2rem;
+    box-shadow: 5px 0 20px 0 rgba(46, 61, 73, 0.5);
+    min-width: 82%;
+    padding: 30px;
+}
+
+#textoEmoji {
+    color: #002752;
+    font-weight: bold;
+    border-left-style: solid;
+    border-left-color: #02b3e4;
+    border-left-width: 7px;
+    background-color: rgba(71, 199, 193, 0.527);
+    border-radius: 2rem 2rem 2rem 2rem;
+    box-shadow: 5px 0 20px 0 rgba(46, 61, 73, 0.5);
+    min-width: 65%;
+    padding: 10px;
+}
+
+#imgEmoji {
+    padding: 50px;
+}
+
+.infoTbl li {
+    list-style: none;
 }
 
 #btnG {
