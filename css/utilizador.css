@@ -3015,6 +3015,19 @@ header.masthead {
     transition: all 0.1s ease-in-out;
 }
 
+.modalDinheiro {
+    position: relative;
+    margin: 90px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 80%;
+    position: relative;
+    top: -1rem;
+    right: 0rem;
+    transition: all 0.1s ease-in-out;
+}
+
 .overlayInfoEmoji {
     position: fixed;
     top: 0;
@@ -3042,6 +3055,32 @@ header.masthead {
     top: 1.5rem;
     right: 10rem;
     transition: all 0.5s ease-in-out;
+}
+
+.modalEmojiGeral {
+    margin: 70px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 59%;
+    position: relative;
+    top: 6.5rem;
+    right: 10rem;
+    transition: all 0.5s ease-in-out;
+}
+
+#emojiGeral {
+    color: #002752;
+    font-weight: bold;
+    border-left-style: solid;
+    border-left-color: #02b3e4;
+    border-left-width: 10px;
+    background-color: rgba(71, 199, 193, 0.527);
+    font-size: 25px;
+    border-radius: 2rem 2rem 2rem 2rem;
+    box-shadow: 5px 0 20px 0 rgba(46, 61, 73, 0.5);
+    min-width: 82%;
+    padding: 30px;
 }
 
 #oqueeEmoji {
@@ -3193,6 +3232,31 @@ header.masthead {
 }
 
 .closeCongratulations:hover {
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.4s;
+    transform: scale(2.0);
+    cursor: pointer;
+}
+
+.closeModalDinheiro {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    opacity: 0.5;
+    transition: 0.4s;
+    padding: 0;
+    background-color: transparent;
+    transform: scale(1.50);
+}
+
+.closeModalDinheiro:hover {
     color: rgb(255, 0, 0);
     text-decoration: none;
     opacity: 1;

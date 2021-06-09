@@ -133,6 +133,8 @@ function perfilDados() {
 
 let contaRegistada = false
 
+let modalPassDif = document.getElementById("modalPassDif")
+
 function perfilEditado() {
     let editadoUtilizador = document.getElementById("editarUtilizador").value
     let editadoNome = document.getElementById("editarNome").value
@@ -158,7 +160,9 @@ function perfilEditado() {
             utilizadores[i].passwordConf = editadoPasswordConf
             utilizadores[i].fotoperfil = editadoPerfil
             if (editadoPassword != editadoPasswordConf) {
-                alert("Passwords não coincidem!")
+
+                alert("jlfdfv")
+
             } else {
                 localStorage.setItem("userList", JSON.stringify(utilizadores))
                 alert("Vais ter que reinicar sessão!")
@@ -191,34 +195,6 @@ function perfilApagar() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
 let cards = [...card];
@@ -248,6 +224,7 @@ let modalObterEmojiSyring = document.getElementById("modalObterEmojiSyring")
 let modalInfoEmojiSyring = document.getElementById("modalInfoEmojiSyring")
 let modalObterEmojiAmbulancia = document.getElementById("modalObterEmojiAmbulancia")
 let modalInfoEmojiAmbulancia = document.getElementById("modalInfoEmojiAmbulancia")
+let modalInfoEmojiGeral = document.getElementById("modalInfoEmojiGeral")
 
 modalInfoEmojiNauseas.onclick = function(event) {
     if (event.target == modalInfoEmojiNauseas) {
@@ -290,6 +267,11 @@ modalInfoEmojiAmbulancia.onclick = function(event) {
     }
 }
 
+modalInfoEmojiGeral.onclick = function(event) {
+    if (event.target == modalInfoEmojiGeral) {
+        modalInfoEmojiGeral.classList.remove('show');
+    }
+}
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -459,9 +441,6 @@ for (var i = 0; i < utilizadores.length; i++) {
         utilizadores[i].xpBar
         document.getElementById("xpBar").style.width = utilizadores[i].xpBar
         document.getElementById("metaxp").innerHTML = utilizadores[i].totalCoroa
-        if (document.getElementById("metaxp").innerHTML >= 5) {
-            quiz()
-        }
         utilizadores[i].emojiBarN
         utilizadores[i].react
         var qtdJogados0 = utilizadores[i].qtdJogados
@@ -598,7 +577,6 @@ function congratulations() {
         var totalConquistasV = 0
         if (totalCoroaV >= 5) {
             totalConquistasV += 1
-            quiz()
         }
 
         /* QUANDO APARECE A CONGRATULAÇÃO VAI GUARDAR/ATUALIZAR OS DADOS NA LOCALSTORAGE */
@@ -639,7 +617,7 @@ function congratulations() {
             document.getElementById("totalXpEmoji").innerHTML = utilizadores[i].totalXpEmoji
             if (utilizadores[i].emojiBarN == 100) {
                 document.getElementById("xpD").innerHTML = ""
-                document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                 document.getElementById("dd").innerHTML = ""
             }
             document.getElementById("totalCoroa").innerHTML = utilizadores[i].totalCoroa
@@ -737,12 +715,20 @@ for (var i = 0; i < utilizadores.length; i++) {
         var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
         document.getElementById("emojiBar").style.width = emojiBar
         document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
+        if (document.getElementById("metaEmoji").innerHTML >= 1) {
+            quiz()
+        }
     }
 }
 
 var totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
 var totalXpEmojiV = totalXpEmojiVInt
-
+let modalDinheiro = document.getElementById("modalDinheiro")
+modalDinheiro.onclick = function(event) {
+    if (event.target == modalDinheiro) {
+        modalDinheiro.classList.remove('show');
+    }
+}
 
 /* EMOJI ("NAUSEAS") */
 function cardNauseas() {
@@ -757,7 +743,7 @@ function getcardNauseas() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardNauseasBKV = document.getElementById("cardNauseas").style.backgroundImage = "url(' ')"
         var cardNauseasFSV = document.getElementById("cardNauseas").style.fontSize = "60px"
@@ -786,8 +772,10 @@ function getcardNauseas() {
                 document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -808,7 +796,7 @@ function getcardHouse() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardHouseBKV = document.getElementById("cardHouse").style.backgroundImage = "url(' ')"
         var cardHouseFSV = document.getElementById("cardHouse").style.fontSize = "60px"
@@ -836,8 +824,10 @@ function getcardHouse() {
                 document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -859,7 +849,7 @@ function getcardMicrobe() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardMicrobeBKV = document.getElementById("cardMicrobe").style.backgroundImage = "url(' ')"
         var cardMicrobeFSV = document.getElementById("cardMicrobe").style.fontSize = "60px"
@@ -887,8 +877,10 @@ function getcardMicrobe() {
                 document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -910,7 +902,7 @@ function getcardSneezing() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardSneezingBKV = document.getElementById("cardSneezing").style.backgroundImage = "url(' ')"
         var cardSneezingFSV = document.getElementById("cardSneezing").style.fontSize = "60px"
@@ -938,8 +930,10 @@ function getcardSneezing() {
                 document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -960,7 +954,7 @@ function getcardMask() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardMaskBKV = document.getElementById("cardMask").style.backgroundImage = "url(' ')"
         var cardMaskFSV = document.getElementById("cardMask").style.fontSize = "60px"
@@ -987,8 +981,10 @@ function getcardMask() {
                 document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -1009,7 +1005,7 @@ function getcardSaop() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardSaopBKV = document.getElementById("cardSaop").style.backgroundImage = "url(' ')"
         var cardSaopFSV = document.getElementById("cardSaop").style.fontSize = "60px"
@@ -1037,8 +1033,10 @@ function getcardSaop() {
                 document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -1059,7 +1057,7 @@ function getcardSyring() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardSyringBKV = document.getElementById("cardSyring").style.backgroundImage = "url(' ')"
         var cardSyringFSV = document.getElementById("cardSyring").style.fontSize = "60px"
@@ -1087,8 +1085,10 @@ function getcardSyring() {
                 document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -1109,7 +1109,7 @@ function getcardAmbulancia() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
     if (totalXpEmojiV < 5) {
-        alert("nao tens dinheiro")
+        modalDinheiro.classList.add("show")
     } else {
         var cardAmbulanciaBKV = document.getElementById("cardAmbulancia").style.backgroundImage = "url(' ')"
         var cardAmbulanciaFSV = document.getElementById("cardAmbulancia").style.fontSize = "60px"
@@ -1137,8 +1137,10 @@ function getcardAmbulancia() {
                 document.getElementById("totalConquistas").innerHTML = utilizadores[i].totalConquistas
                 if (utilizadores[i].emojiBarN == 100) {
                     document.getElementById("xpD").innerHTML = ""
-                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns"
+                    document.getElementById("totalXpEmoji").innerHTML = "Parabéns, colecionas-te todos os Emojis!"
                     document.getElementById("dd").innerHTML = ""
+                    modalInfoEmojiGeral.classList.add("show")
+                    quiz()
                 }
             }
         }
@@ -1167,10 +1169,6 @@ for (var i = 0; i < utilizadores.length; i++) {
         document.getElementById("cardAmbulancia").style.fontSize = utilizadores[i].cardAmbulanciaFS
     }
 }
-
-
-
-
 
 /* BOTAO PARA COMEÇAR A JOGAR */
 function jogar() {
@@ -1232,6 +1230,10 @@ function fecharSyring() {
 /* BOTAO PARA FECHAR O MODAL DE COMPRAR O EMOJI ("AMBULANCIA") */
 function fecharAmbulancia() {
     modalObterEmojiAmbulancia.classList.remove("show")
+}
+
+function fecharModalDinheiro() {
+    modalDinheiro.classList.remove("show")
 }
 
 

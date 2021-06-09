@@ -146,23 +146,9 @@
                         </div>
                     </div>
 
-                    <!--MODAL DE CONGRATULAÇÃO QUANDO ACABAR O JOGO-->
-                    <div id="popup1" class="overlay">
-                        <div class="popup">
-                            <h2>Parabéns!!!</h2>
-                            <a class="closeCongratulations" onclick="fecharJogo()"><span>&times;</span></a>
-                            <div class="content-2">
-                                <p>Usas-te <span id=finalMove> </span> jogadas</p>
-                                <p>Em <span id=totalTime> </span></p>
-                                <p>Rating: <span id=starRating></span></p>
-                                <p><span id="btnG" onclick="gosto()">&#128077</span><span id="btnNG" onclick="naogosto()">&#128078</span></p>
-                                <p><span id="react"></span></p>
-                            </div>
-                            <button class="btnJogarNovamente" onclick="jogarNovamente()">
-                                Jogar novamente</a>
-                            </button>
-                        </div>
-                    </div>
+
+
+
 
                     <!--PARTE DOS CARDS COM EMOJIS PARA COMPRAR-->
                     <div>
@@ -305,6 +291,32 @@
                                     <button type="button" onclick="fecharAmbulancia()" class="btnNaoEmoji">Não</button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!--MODAL DE NÃO TER DINHEIRO-->
+                    <div id="modalDinheiro" class="overlayObterEmoji">
+                        <div class="modalDinheiro">
+                            <h2>Não tens pontos disponíveis! &#9888; </h2>
+                            <a class="closeModalDinheiro" onclick="fecharModalDinheiro()"><span>&times;</span></a>
+                        </div>
+                    </div>
+
+                    <!--MODAL DE CONGRATULAÇÃO QUANDO ACABAR O JOGO-->
+                    <div id="popup1" class="overlay">
+                        <div class="popup">
+                            <h2>Parabéns!!!</h2>
+                            <a class="closeCongratulations" onclick="fecharJogo()"><span>&times;</span></a>
+                            <div class="content-2">
+                                <p>Usas-te <span id=finalMove> </span> jogadas</p>
+                                <p>Em <span id=totalTime> </span></p>
+                                <p>Rating: <span id=starRating></span></p>
+                                <p><span id="btnG" onclick="gosto()">&#128077</span><span id="btnNG" onclick="naogosto()">&#128078</span></p>
+                                <p><span id="react"></span></p>
+                            </div>
+                            <button class="btnJogarNovamente" onclick="jogarNovamente()">
+                                Jogar novamente</a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -565,6 +577,15 @@
                     </div>
                 </div>
 
+                <div id="modalInfoEmojiGeral" class="overlayInfoEmoji">
+                    <div class="modalEmojiGeral">
+                        <div class="form-row">
+                            <div id="emojiGeral" class="col2">
+                                Parabéns, já colecionas-te todos os emojis, por isso tens um quiz à tua espera para testar os teus conhecimentos que aprendes-te com cada Emoji!
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div id="quiz"></div>
                 <button id="submitQuiz">Get Results</button>
@@ -646,7 +667,17 @@
                                         </div>
                                     </div>
 
+
                                 </form>
+                            </div>
+                        </div>
+                        <div id="modalPassDif" class="overlayInfoEmoji">
+                            <div class="modalEmojiGeral">
+                                <div class="form-row">
+                                    <div id="emojiGeral" class="col2">
+                                        Passwords não coincidem!
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
