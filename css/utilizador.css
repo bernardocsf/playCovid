@@ -2938,9 +2938,9 @@ header.masthead {
 
 .question {
     font-size: 24px;
-    color: black;
     padding: 15px 0;
     margin-bottom: 20px;
+    color: #002b63;
 }
 
 .options div {
@@ -3005,15 +3005,19 @@ header.masthead {
 }
 
 .buttonQuiz .btnQuiz {
-    padding: 10px 30px;
-    background-color: #009688;
-    font-size: 18px;
+    background-color: #002b63;
     color: white;
+    padding: 12px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    display: inline-block;
-    margin: 10px 0;
+    width: 50%;
+    opacity: 1;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .answers-tracker div {
@@ -3059,18 +3063,18 @@ header.masthead {
 }
 
 .quiz-overQuiz .box {
-    background-color: #009688;
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
     flex-basis: 700px;
     max-width: 700px;
-    color: white;
+    color: #002752;
     box-shadow: #009688;
 }
 
 .quiz-overQuiz .box h1 {
-    font-size: 36px;
+    font-size: 30px;
     margin: 0 0 20px
 }
 
@@ -3237,6 +3241,23 @@ header.masthead {
     opacity: 1;
 }
 
+.overlayResponderQuiz {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlayResponderQuiz:target {
+    visibility: visible;
+    opacity: 1;
+}
+
 .modalInfoEmoji {
     margin: 70px auto;
     padding: 25px;
@@ -3275,11 +3296,25 @@ header.masthead {
     padding: 30px;
 }
 
+#respQuiz {
+    color: #002752;
+    font-weight: bold;
+    border-left-style: solid;
+    border-left-color: #002752;
+    border-left-width: 10px;
+    background-color: rgba(71, 199, 193, 0.527);
+    font-size: 25px;
+    border-radius: 2rem 2rem 2rem 2rem;
+    box-shadow: 5px 0 20px 0 rgba(46, 61, 73, 0.5);
+    min-width: 82%;
+    padding: 30px;
+}
+
 #oqueeEmoji {
     color: #002752;
     font-weight: bold;
     border-left-style: solid;
-    border-left-color: #02b3e4;
+    border-left-color: #002752;
     border-left-width: 7px;
     background-color: rgba(71, 199, 193, 0.527);
     font-size: 17px;
@@ -3293,7 +3328,7 @@ header.masthead {
     color: #002752;
     font-weight: bold;
     border-left-style: solid;
-    border-left-color: #02b3e4;
+    border-left-color: #002752;
     border-left-width: 7px;
     background-color: rgba(71, 199, 193, 0.527);
     border-radius: 2rem 2rem 2rem 2rem;

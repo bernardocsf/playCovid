@@ -36,10 +36,6 @@
                     <div class="p-5">
                         <div class="masthead-content">
                             <img id="output">
-                            <div id="modalfoto" class="modalfoto">
-                                <span class="closefoto">&times;</span>
-                                <img class="modalfoto-content" id="img01">
-                            </div>
                             <button id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
                             <button id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
                             <button id="btnConquistas" class="btnsUtilizador">Conquistas</button>
@@ -362,8 +358,9 @@
 
                         <div class="quiz-overQuiz">
                             <div class="box">
-                                <h1>Bom trabalho! <br /> Conseguis-te acertar <span class="correct-answers"></span> perguntas de
-                                    <span class="total-questions2"></span>. That is <span class="percentage"></span>
+                                <h1>Bom trabalho! <br /> Conseguis-te acertar <span class="correct-answers"></span> de
+                                    <span class="total-questions2"></span> perguntas.
+                                    <p><span class="percentage"></span></p>
                                 </h1>
                                 <button type="button" class="btnJogarNovamente" onclick="quizNovamente()">Jogar Quiz novamente!</button>
                             </div>
@@ -371,11 +368,16 @@
 
                         <div id="overlayQuiz" class="overlayQuiz">
                             <div class="modalQuizBloq">
-                                <h3 class="h3Info">Ups... Quiz-Covid Bloqueado &#9940;</h3>
+                                <h3 class="h3Info">Ups... Bloqueado &#9940;</h3>
                                 <p id="pTxt">Para testares os teus conhecimentos no QuizCovid terás que desbloquear primeiro todos os Emojis para obteres informações para acertar as perguntas!</p>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div id="modalfoto" class="modalfoto">
+                    <span class="closefoto">&times;</span>
+                    <img class="modalfoto-content" id="img01">
                 </div>
 
                 <div id="modalEditarPerfil" class="modalEditarPerfil">
@@ -585,6 +587,16 @@
                     </div>
                 </div>
 
+                <div id="modalResponderQuiz" class="overlayInfoEmoji">
+                    <div class="modalEmojiGeral">
+                        <div class="form-row">
+                            <div id="respQuiz" class="col2">
+                                Tens que responder à pergunta primeiro!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!--MODAL DE INFORMAÇÃO DO EMOJI ("NAUSEAS")-->
                 <div id="modalInfoEmojiNauseas" class="overlayInfoEmoji">
                     <div class="modalInfoEmoji">
@@ -603,15 +615,14 @@
                             <div id="textoEmoji" class="col2">
                                 <h3 class="h3Info">Como aliviar as náuseas?</h3>
                                 <ul class="infoTbl">
-                                    <li>Evita comida frita, com muita gordura ou doce</li>
+                                    <li>Evita comida frita, com muita gordura</li>
                                     <li>Não mistures alimentos frios com quentes</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Apanhe ar fresco</li>
+                                    <li>Evita atividade física depois de comer</li>
+                                    <li>Apanha ar fresco</li>
                                 </ul>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="180" height="180" src="img/nauseas.png">
+                                <img width="180" height="180" src="img/nauseas.jpg">
                             </div>
                         </div>
                     </div>
@@ -627,20 +638,15 @@
                                 </li>
                             </div>
                             <div id="oqueeEmoji" class="col2">
-                                Este Emoji representa as naúseas e vómitos que são dos sintomas mais comuns da Covid-19.
+                                Este Emoji representa a quarentena.
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div id="textoEmoji" class="col2">
-                                <h3 class="h3Info">Como aliviar as náuseas?</h3>
-                                <ul class="infoTbl">
-                                    <li>Evita comida frita, com muita gordura ou doce</li>
-                                    <li>Não mistures alimentos frios com quentes</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Apanhe ar fresco</li>
-                                </ul>
+                                <p>Se tiveres com sintomas de Covid-19, fica em casa durante 14 dias para praticar o isolamento domiciliar.</p>
+                                <h3 class="h3Info">Porque devo ficar em casa e não ir para um hospital?</h3>
+                                <p>Há vários casos de Covid-19 por dia, se todos fossem para o hospital eles ficavam cheios e os que realmente precisam de cuidados intensivos ficavam sem vaga</p>
                             </div>
                             <div id="imgEmoji" class="col2">
                                 <img width="135" height="130" src="img/nauseas.png">
@@ -659,7 +665,7 @@
                                 </li>
                             </div>
                             <div id="oqueeEmoji" class="col2">
-                                Este Emoji representa as naúseas e vómitos que são dos sintomas mais comuns da Covid-19.
+                                Este Emoji representa o vírus.
                             </div>
                         </div>
 
@@ -675,7 +681,7 @@
                                 </ul>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="135" height="130" src="img/nauseas.png">
+                                <img width="135" height="130" src="img/microbe.png">
                             </div>
                         </div>
                     </div>
@@ -691,23 +697,18 @@
                                 </li>
                             </div>
                             <div id="oqueeEmoji" class="col2">
-                                Este Emoji representa as naúseas e vómitos que são dos sintomas mais comuns da Covid-19.
+                                Este Emoji representa as vacinas contra a Covid-19.
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div id="textoEmoji" class="col2">
-                                <h3 class="h3Info">Como aliviar as náuseas?</h3>
-                                <ul class="infoTbl">
-                                    <li>Evita comida frita, com muita gordura ou doce</li>
-                                    <li>Não mistures alimentos frios com quentes</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Apanhe ar fresco</li>
-                                </ul>
+                                <p>Deves cobrir a bocar e o nariz com o cotovelo ou com um papel quando tossires ou espirrares.</p>
+                                <h3 class="h3Info">Porque...</h3>
+                                <p>o vírus é transmissível pela saliva, e se espirrares ou tossires sem proteção podes contaminar os que estão ao teu redor.</p>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="135" height="130" src="img/nauseas.png">
+                                <img width="165" height="160" src="img/sneezing.jpg">
                             </div>
                         </div>
                     </div>
@@ -723,23 +724,17 @@
                                 </li>
                             </div>
                             <div id="oqueeEmoji" class="col2">
-                                Este Emoji representa as naúseas e vómitos que são dos sintomas mais comuns da Covid-19.
+                                Este Emoji representa a importância de usar máscara.
                             </div>
                         </div>
-
                         <div class="form-row">
                             <div id="textoEmoji" class="col2">
-                                <h3 class="h3Info">Como aliviar as náuseas?</h3>
-                                <ul class="infoTbl">
-                                    <li>Evita comida frita, com muita gordura ou doce</li>
-                                    <li>Não mistures alimentos frios com quentes</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Evite atividade física depois de comer</li>
-                                    <li>Apanhe ar fresco</li>
-                                </ul>
+                                <p>Deves usar máscara em espaços fechados e mesmo em espaços abertos.</p>
+                                <h3 class="h3Info">Porque...</h3>
+                                <p>o vírus é transmissível pela saliva, ao falares ou tossires sem máscara podes contaminar os que estão ao teu redor.</p>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="135" height="130" src="img/nauseas.png">
+                                <img width="175" height="90%" src="img/mask.jpg">
                             </div>
                         </div>
                     </div>
@@ -771,7 +766,7 @@
                                 </ul>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="135" height="130" src="img/nauseas.png">
+                                <img width="155" height="150" src="img/alcool.jpg">
                             </div>
                         </div>
                     </div>
@@ -787,7 +782,7 @@
                                 </li>
                             </div>
                             <div id="oqueeEmoji" class="col2">
-                                Este Emoji representa as naúseas e vómitos que são dos sintomas mais comuns da Covid-19.
+                                Este Emoji representa as vacinas contra a Covid-19.
                             </div>
                         </div>
 
@@ -803,7 +798,7 @@
                                 </ul>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="135" height="130" src="img/nauseas.png">
+                                <img width="165" height="160" src="img/vacine.png">
                             </div>
                         </div>
                     </div>
@@ -835,7 +830,7 @@
                                 </ul>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="135" height="130" src="img/nauseas.png">
+                                <img width="185" height="180" src="img/ambulace.jpg">
                             </div>
                         </div>
                     </div>

@@ -162,10 +162,8 @@ function perfilEditado() {
             utilizadores[i].fotoperfil = editadoPerfil
             if (editadoPassword != editadoPasswordConf) {
                 alert("Passwords não coincidem")
-
             } else {
                 localStorage.setItem("userList", JSON.stringify(utilizadores))
-                alert("Vais ter que reinicar sessão!")
                 document.getElementById("editadoForm").onsubmit = function() {
                     window.location.replace("index.html")
                     return false
@@ -496,7 +494,7 @@ function naogosto() {
 }
 
 function congratulations() {
-    if (matchedCard.length == 2) {
+    if (matchedCard.length == 16) {
         modal.classList.add("show")
 
         /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
@@ -745,12 +743,12 @@ function cardNauseas() {
 function getcardNauseas() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardNauseasBKV = document.getElementById("cardNauseas").style.backgroundImage = "url(' ')"
         var cardNauseasFSV = document.getElementById("cardNauseas").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardNauseasBK = cardNauseasBKV
@@ -798,12 +796,12 @@ function cardHouse() {
 function getcardHouse() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardHouseBKV = document.getElementById("cardHouse").style.backgroundImage = "url(' ')"
         var cardHouseFSV = document.getElementById("cardHouse").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardHouseBK = cardHouseBKV
@@ -851,12 +849,12 @@ function cardMicrobe() {
 function getcardMicrobe() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardMicrobeBKV = document.getElementById("cardMicrobe").style.backgroundImage = "url(' ')"
         var cardMicrobeFSV = document.getElementById("cardMicrobe").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardMicrobeBK = cardMicrobeBKV
@@ -904,12 +902,12 @@ function cardSneezing() {
 function getcardSneezing() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardSneezingBKV = document.getElementById("cardSneezing").style.backgroundImage = "url(' ')"
         var cardSneezingFSV = document.getElementById("cardSneezing").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardSneezingBK = cardSneezingBKV
@@ -956,12 +954,12 @@ function cardMask() {
 function getcardMask() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardMaskBKV = document.getElementById("cardMask").style.backgroundImage = "url(' ')"
         var cardMaskFSV = document.getElementById("cardMask").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardMaskBK = cardMaskBKV
@@ -1007,12 +1005,12 @@ function cardSaop() {
 function getcardSaop() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardSaopBKV = document.getElementById("cardSaop").style.backgroundImage = "url(' ')"
         var cardSaopFSV = document.getElementById("cardSaop").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardSaopBK = cardSaopBKV
@@ -1059,12 +1057,12 @@ function cardSyring() {
 function getcardSyring() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardSyringBKV = document.getElementById("cardSyring").style.backgroundImage = "url(' ')"
         var cardSyringFSV = document.getElementById("cardSyring").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardSyringBK = cardSyringBKV
@@ -1111,12 +1109,12 @@ function cardAmbulancia() {
 function getcardAmbulancia() {
     totalXpEmojiVInt = parseInt(document.getElementById("totalXpEmoji").innerHTML)
     totalXpEmojiV = totalXpEmojiVInt
-    if (totalXpEmojiV < 5) {
+    if (totalXpEmojiV < 15) {
         modalDinheiro.classList.add("show")
     } else {
         var cardAmbulanciaBKV = document.getElementById("cardAmbulancia").style.backgroundImage = "url(' ')"
         var cardAmbulanciaFSV = document.getElementById("cardAmbulancia").style.fontSize = "60px"
-        totalXpEmojiV -= 5
+        totalXpEmojiV -= 15
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].username == usersNames[y]) {
                 utilizadores[i].cardAmbulanciaBK = cardAmbulanciaBKV
@@ -1259,29 +1257,29 @@ const opt3 = document.querySelector(".option3")
 const opt4 = document.querySelector(".option4")
 
 const questions = [{
-        q: 'How do you call a function named "myFunction"?',
-        options: ['myFunction()', 'call myFunction()', 'call function myFunction()', 'all of the above'],
-        answer: 0
+        q: 'Deves partilhar os teus objetos com os teus amigos?',
+        options: ['Sim, sem desinfetar antes', 'Não, mesmo que estejam desinfetados', 'Sim, se desinfetar antes', 'Não'],
+        answer: 2
     },
     {
-        q: 'How to write an IF statemente in JavaScript?',
-        options: ['if i==5 then', 'if(i==5)', 'if i= 5', 'if i = 5 then'],
+        q: 'Náuseas ou vómitos é um sintoma...',
+        options: ['Grave', 'Ligeiro', 'Grave ao ponto de ir para o hospital', 'Não é sintoma Covid19'],
         answer: 1
     },
     {
-        q: 'How to you select an element based on its css class',
-        options: ['getElementById', 'getElementByClass', 'querySelector', 'getElementByCss'],
-        answer: 2
+        q: 'Qual é a importância de usar máscara?',
+        options: ['Não transmite o vírus pela saliva', 'Não serve para nada', 'Serve para conter o mau hálito', 'Para evitar cheirar os maus odores'],
+        answer: 0
     },
     {
-        q: 'How to you select an element based on its css class',
-        options: ['getElementById', 'getElementByClass', 'querySelector', 'getElementByCss'],
-        answer: 2
+        q: 'Devo lavar as mãos...',
+        options: ['antes de meter a máscara', 'depois de tirar a máscara', 'nunca', 'antes e depois de mexer na máscara'],
+        answer: 3
     },
     {
-        q: 'How to you select an element based on its css class',
-        options: ['getElementById', 'getElementByClass', 'querySelector', 'getElementByCss'],
-        answer: 2
+        q: 'Se sentir algum sintomo devo...',
+        options: ['ficar em casa', 'ir para o hospital', 'fingir que não tenho nada', 'ir para casa de amigos'],
+        answer: 0
     }
 
 ]
@@ -1312,15 +1310,24 @@ function check(element) {
     disableClick();
 }
 
+let modalResponderQuiz = document.getElementById("modalResponderQuiz")
+
 //Make sure the user selected an item before clicking on the Next button
 function validate() {
     if (!options[0].classList.contains("disabled")) {
-        alert("Tens que responder à pergunta")
+        modalResponderQuiz.classList.add("show")
     } else {
         randomQuestion();
         enableClick();
     }
 }
+
+modalResponderQuiz.onclick = function(event) {
+    if (event.target == modalResponderQuiz) {
+        modalResponderQuiz.classList.remove('show');
+    }
+}
+
 
 //Listener function for click event on Next button
 function next() {

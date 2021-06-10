@@ -401,7 +401,7 @@ mark,
 }
 
 .img-fluid {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     box-shadow: 0 0 40px -10px rgb(0, 0, 0);
 }
@@ -2095,7 +2095,7 @@ pre code {
 
 .h2sabiasque {
     position: relative;
-    margin-top: 3.5rem;
+    margin-top: 4rem;
     font-size: 1.7rem;
     margin-left: 2rem;
     margin-right: 2rem;
@@ -2502,6 +2502,49 @@ header.masthead {
 }
 
 
+/* Style the video: 100% width and height to cover the entire window */
+
+#myVideo {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 120%;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    left: -3rem;
+}
+
+
+/* Add some content at the bottom of the video/page */
+
+.content {
+    position: relative;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* Style the button used to pause/play the video */
+
+#myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+#myBtn:hover {
+    background: #ddd;
+    color: black;
+}
+
+
 /* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
@@ -2564,5 +2607,8 @@ header.masthead {
     }
     #registarFoto {
         left: 5rem;
+    }
+    #myVideo {
+        left: -1.5rem;
     }
 }
