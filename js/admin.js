@@ -45,51 +45,6 @@ class userName {
     }
 }
 
-
-function login() {
-    let iniciarUtilizador = document.getElementById("iniciarUtilizador").value
-    let iniciarPassword = document.getElementById("iniciarPassword").value
-
-    for (var i = 0; i < utilizadores.length; i++) {
-        if (utilizadores[i].username == iniciarUtilizador &&
-            utilizadores[i].password == iniciarPassword) {
-            contaRegistada = true
-            break
-        }
-    }
-    if (iniciarUtilizador == "") {
-        return false
-    }
-    if (iniciarPassword == "") {
-        return false
-    }
-    if (contaRegistada == true) {
-        if (iniciarUtilizador == "admin") {
-            document.getElementById("formis").onsubmit = function() {
-                window.location.replace("admin.html")
-                return false
-            }
-        } else {
-            let usernameIniciou = document.getElementById("iniciarUtilizador").value
-            usersNames.push(usernameIniciou)
-            localStorage.setItem("usernameList", JSON.stringify(usersNames))
-            document.getElementById("formis").onsubmit = function() {
-                window.location.replace("utilizador.html")
-                return false
-            }
-        }
-    } else {
-        alert("jkre")
-    }
-    if (iniciarUtilizador == "admin" && iniciarPassword == "admin") {
-        localStorage.setItem("usernameList", JSON.stringify(usersNames))
-        document.getElementById("formis").onsubmit = function() {
-            window.location.replace("admin.html")
-            return false
-        }
-    }
-}
-
 class User {
     constructor(username, name, email, data, genero, password, passwordConf, fotoperfil) {
         this.username = username
@@ -140,12 +95,29 @@ function registar() {
         utilizadores.push(utilizador)
         localStorage.setItem("userList", JSON.stringify(utilizadores))
         alert("Conta criada com sucesso")
-        document.getElementById("registarForm").onsubmit = function() {
-            window.location.replace("index.html")
-            return false
-        }
     } else {
         alert("Este username já existe")
         return false
     }
+}
+
+let x = usersNames.length
+let y = x - 1
+
+
+
+for (var i = 0; i < utilizadores.length; i++) {
+    if (utilizadores[i].username == usersNames[y]) {
+        let editarName = utilizadores[i].name
+        document.getElementById("nome").innerHTML = editarName
+        let email = utilizadores[i].email
+        document.getElementById("email").innerHTML = email
+        let tempoJogado = utilizadores[i].tempoJogado
+        document.getElementById("tempoJogado").innerHTML = tempoJogado
+        let totalCoquistas = utilizadores[i].totalConquistas
+        document.getElementById("totalConquistas").innerHTML = totalCoquistas
+        let foto = utilizadores[i].fotoperfil
+        document.getElementById("editarfoto").src = foto
+    }
+    console.log(utilizadores[i].username);
 }

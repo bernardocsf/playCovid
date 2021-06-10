@@ -127,7 +127,6 @@ function perfilDados() {
             document.getElementById("editarPasswordConf").value = editarPasswordConf
             document.getElementById("output").src = editarPerfil
             document.getElementById("editarfoto").src = editarPerfil
-            var lol = (("userList", JSON.stringify(utilizadores[i])))
             break
         }
     }
@@ -717,7 +716,6 @@ for (var i = 0; i < utilizadores.length; i++) {
         var emojiBar = document.getElementById("emojiBar").innerHTML.toString()
         document.getElementById("emojiBar").style.width = emojiBar
         document.getElementById("metaEmoji").innerHTML = utilizadores[i].metaEmoji
-        console.log(document.getElementById("metaEmoji").innerHTML);
         if (utilizadores[i].emojiBarN == 100) {
             overlayQuiz.classList.remove("show")
         } else {

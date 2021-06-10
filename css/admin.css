@@ -113,6 +113,7 @@ pre,
 code,
 kbd,
 samp {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1em;
 }
 
@@ -156,7 +157,6 @@ th {
 
 label {
     display: inline-block;
-    margin-bottom: 1.5rem;
 }
 
 button {
@@ -400,16 +400,6 @@ mark,
     font-size: 1.25rem;
 }
 
-.blockquote-footer {
-    display: block;
-    font-size: 80%;
-    color: #6c757d;
-}
-
-.blockquote-footer::before {
-    content: "\2014\00A0";
-}
-
 .img-fluid {
     max-width: 100%;
     height: auto;
@@ -627,16 +617,6 @@ pre code {
     -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%;
-}
-
-.col2 {
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 100%;
-    margin-bottom: 30px;
-    margin-top: 30px;
 }
 
 .row-cols-1>* {
@@ -2075,21 +2055,39 @@ pre code {
 }
 
 .p-5 {
-    padding: 2rem !important;
+    padding: 3rem !important;
 }
 
 .text-center {
     text-align: center !important;
 }
 
+#registarFoto {
+    border-radius: 50% !important;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 3rem;
+    cursor: pointer;
+}
 
-/* FORMATAÇÃO DA IMAGEM DE FUNDO */
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+/* esta parte gere a posição da imagem de fundo inicial */
 
 header.masthead {
     position: relative;
     overflow: hidden;
-    padding-top: calc(3rem + 72px);
-    background-image: url("/img/fundo2.jpg");
+    padding-top: calc(2rem + 72px);
+    background-image: url("/img/fundo.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: scroll;
@@ -2097,194 +2095,30 @@ header.masthead {
 }
 
 
-/* FORMATAÇÃO DO CARROSSEL E DA SECÇAO DE INICIAR SESSAO*/
+/* este css posiconar o carousel e parte de iniciar sessão */
 
 .masthead-content {
     position: relative;
-    bottom: 1.3rem;
+    bottom: 2rem;
 }
 
 
-/* FORMATAÇÃO DO TEXTO */
-
-.backgroundText {
-    position: relative;
-    right: 10rem;
-    width: 50rem;
-    margin: auto;
-    margin-bottom: 3rem;
-    border-radius: 1rem;
-    background: rgb(255, 255, 255);
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-    color: #000000;
-}
-
-
-/* FUNDO DOS BOTOES FIXOS DO TIPO MENU */
-
-.backgroundBtns {
-    position: fixed;
-    width: 20rem;
-    height: 26rem;
-    margin: auto;
-    border-radius: 1rem;
-    background: rgba(0, 0, 0, 0.6);
-    top: 9.5rem;
-    right: 3rem;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-}
-
-
-/* BOTOES FIXOS TIPO MENU */
-
-.btnsUtilizador {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    padding: 14px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-
-/* QUANDO O RATO ESTIVER EM CIMA DE ALGUM BOTAO FIXO */
-
-.btnsUtilizador:hover {
-    opacity: 0.9;
-    transition: 0.6s;
-}
-
-
-/* MODAL EDITAR PERFIL*/
-
-.modalEditarPerfil {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    right: -100%;
-    top: 0;
-    opacity: 0;
-    transition: 0.6s;
-}
-
-.modalEditarPerfil.show {
-    right: 0;
-    top: 0;
-    opacity: 1;
-}
-
-
-/* MODAL CONTENT Editar Perfil */
-
-.modalEditarPerfil-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border-radius: 1rem 1rem 1rem 1rem;
-    width: 60%;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 6rem;
-}
-
-
-/* BOTAO DE EDITAR PERFIL NO MODAL */
-
-.btnEditado {
-    background-color: #48bb4c;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.btnEditado:hover {
-    opacity: 1;
-    transition: 0.6s;
-}
-
-
-/* BOTAO DE APAGAR PERFIL NO MODAL */
-
-.btnApagarPerfil {
-    background-color: #ff0000f3;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.btnApagarPerfil:hover {
-    opacity: 1;
-    transition: 0.6s;
-}
-
-
-/* FORMULARIO - EDITAR PERFIL */
+/* CSS do formulário */
 
 .form-container {
     max-width: 700px;
     position: relative;
     margin: auto;
-    padding: 1.2rem;
+    padding: 2rem;
 }
 
 .h3form {
-    display: flex;
-    flex-direction: row;
-    color: #002752;
-    font-weight: bold;
-}
-
-.h3Info {
-    text-align: center;
-    color: #002752;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-.h3Txt {
-    position: relative;
     color: #002752;
     font-weight: bold;
 }
 
 .pform {
-    display: flex;
-    flex-direction: row;
-    position: relative;
     color: rgba(0, 0, 0, 0.8);
-}
-
-#pTxt {
-    font-size: 1.3rem;
-    color: #002752;
-}
-
-#xpD {
-    font-size: 1.3rem;
-    color: #002752;
 }
 
 .form-row {
@@ -2303,7 +2137,7 @@ header.masthead {
 }
 
 
-/* INPUTS */
+/* CSS dos inputs */
 
 .form-container input[type=text],
 .form-container input[type=password],
@@ -2311,7 +2145,7 @@ header.masthead {
 .form-container input[type=radio] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 15px 0;
+    margin: 5px 0 22px 0;
     border: none;
     background: #f1f1f1;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
@@ -2342,217 +2176,76 @@ header.masthead {
 }
 
 
-/* EDITAR FOTO DE PERFIL */
+/* MODAL DE REGISTAR CONTA */
 
-#editarfoto {
-    border-radius: 50% !important;
-    width: 100px;
-    height: 100px;
-    position: relative;
-    left: 0rem;
-    cursor: pointer;
-}
-
-.inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
-
-#output {
-    border-radius: 50% !important;
-    width: 100px;
-    height: 100px;
-    position: relative;
-    left: 0rem;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-#output:hover {
-    opacity: 0.7;
-}
-
-
-/* MODAL ESTATÍSTICAS*/
-
-.modalEstatisticas {
+.modal {
     position: fixed;
     z-index: 1;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    right: -100%;
-    top: 0;
-    opacity: 0;
-    transition: 0.6s;
-}
-
-.modalEstatisticas.show {
-    right: 0;
-    top: 0;
-    opacity: 1;
-}
-
-
-/* MODAL CONTENT Estatisticas */
-
-.modalEstatisticas-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border-radius: 1rem 1rem 1rem 1rem;
-    width: 60%;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 9rem;
-}
-
-.estatisticasTxt {
-    color: #002752;
-    font-weight: bold;
-}
-
-
-/* MODAL CONQUISTAS*/
-
-.modalConquistas {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    right: -100%;
-    top: 0;
-    opacity: 0;
-    transition: 0.6s;
-}
-
-.modalConquistas.show {
-    right: 0;
-    top: 0;
-    opacity: 1;
-}
-
-
-/* MODAL CONTENT Conquistas */
-
-.modalConquistas-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border-radius: 1rem 1rem 1rem 1rem;
-    width: 60%;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 8rem;
-}
-
-.checked {
-    color: orange;
-}
-
-
-/* Three column layout */
-
-.side {
-    color: #002b63;
-    font-weight: bold;
-    float: left;
-    width: 15%;
-    margin-top: 10px;
-}
-
-.middle {
-    margin-top: 10px;
-    float: left;
-    width: 70%;
-}
-
-#metaxp {
-    margin-top: 10px;
-}
-
-
-/* Place text to the right */
-
-.right {
-    text-align: center;
-}
-
-.rowBarT {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #0000002d;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    height: 6.5rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    padding-top: 1rem;
-}
-
-
-/* Clear floats after the columns */
-
-.rowBar:after {
-    content: "";
-    display: table;
-    clear: both;
-    color: #000000;
-}
-
-
-/* The bar container */
-
-.bar-container {
-    width: 100%;
-    background-color: #002b6338;
-    text-align: center;
-    color: rgb(226, 226, 226);
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-}
-
-
-/* Individual bars */
-
-.bar-1 {
     width: 0%;
-    height: 25px;
+    height: 0%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    right: 10%;
+    top: 0%;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.modal.show {
+    right: 0;
+    top: 0;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 60%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+    top: 2rem;
+}
+
+
+/* CSS DO BOTAO DE REGISTAR CONTA DO MODAL */
+
+.btnRegistar {
+    background-color: #48bb4c;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.9;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    background-color: #002b63;
+    transition: 0.6s;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.btnRegistar:hover {
+    opacity: 1;
+    transition: 0.6s;
 }
 
 
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-
-@media (max-width: 400px) {
-    .side,
-    .middle {
-        width: 100%;
-    }
-    .right {
-        display: none;
-    }
-}
-
-
-/* BOTAO DE FECHAR O MODAL GERAL*/
+/* CSS DO BOTAO DE FECHAR O MODAL */
 
 .btnClose {
     float: right;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
-    text-shadow: 0 1px 0 rgb(0, 0, 0);
+    text-shadow: 0 1px 0 #fff;
     opacity: 0.5;
     transition: 0.4s;
     transform: scale(1.10);
@@ -2576,1158 +2269,144 @@ header.masthead {
 }
 
 
-/* MODAL DA FOTO DE PERFIL*/
-
-.modalfoto {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-}
+/* FLIP CARD */
 
 
-/* MODAL CONTENT DA FOTO DE PERFIL*/
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 
-.modalfoto-content {
-    margin: auto;
-    display: block;
-    width: 35%;
-    max-width: 700px;
-    border-radius: 2rem;
-}
-
-.modalfoto-content {
-    margin: auto;
-    display: block;
-    width: 35%;
-    max-width: 700px;
-    border-radius: 2rem;
-    animation-name: zoom;
-    animation-duration: 0.5s;
-    transition: opacity 500ms;
-}
-
-@keyframes zoom {
-    from {
-        transform: scale(0)
-    }
-    to {
-        transform: scale(1)
-    }
-}
-
-
-/* FECHAR O MODAL DA FOTO DE PERFIL*/
-
-.closefoto {
-    position: absolute;
-    top: 115px;
-    right: 460px;
-    color: #000000;
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 1;
-    opacity: 0.5;
-    transition: 0.4s;
-    padding: 0;
+.flip-card {
     background-color: transparent;
-    transform: scale(1.50);
-}
-
-.closefoto:hover,
-.closefoto:focus {
-    color: rgb(255, 0, 0);
-    text-decoration: none;
-    opacity: 1;
-    transition: 0.4s;
-    transform: scale(2.0);
-    cursor: pointer;
-}
-
-
-/* CSS DO JOGO DA MEMÓRIA */
-
-.containergame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 22px;
-}
-
-
-/*
- * Styles for the deck of cards
- */
-
-.deck {
-    position: relative;
-    width: 550px;
-    height: 580px;
-    background-image: url("/img/fundo2.jpg");
-    padding: 1rem;
-    border-radius: 1.5rem;
-    box-shadow: 8px 9px 10px 10px rgba(105, 124, 139, 0.322);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 0 3em;
-}
-
-.card {
-    background-color: white;
-    background-image: url("/img/logo.png");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    margin: 0.1rem 0.1rem;
-    font-size: 0;
-    color: #ffffff;
+    width: 300px;
+    height: 300px;
     border-radius: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    transition: 0.2s;
-    height: 110px;
-    width: 110px;
+    margin-bottom: 5rem;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
 }
 
-.card:hover {
-    opacity: 0.9;
-    transition: 0.3s;
-}
-
-.card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
-    animation-name: flipInY;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-    animation-duration: .75s;
-}
-
-.card.show {
+.flip-card.show {
     font-size: 60px;
 }
 
-.card.match {
-    cursor: default;
-    background: #E5F720;
-    font-size: 33px;
-    animation-name: rubberBand;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-    animation-duration: .75s;
-}
 
-.deck .card.unmatched {
-    animation-name: pulse;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-    animation-duration: .75s;
-    background: #e2043b;
-}
+/* This container is needed to position the front and back side */
 
-.deck .card.disabled {
-    pointer-events: none;
-    opacity: 0.9;
-}
-
-
-/* EMOJIS */
-
-.deckExp {
+.flip-card-inner {
     position: relative;
-    width: 550px;
+    width: 300px;
     height: 300px;
-    padding: 1rem;
-    border-radius: 1.5rem;
-    box-shadow: 8px 9px 10px 10px rgba(105, 124, 139, 0.322);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 0 3em;
-}
-
-.cardExp {
-    background-color: #02b3e4;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    height: 6.7rem;
-    width: 6.7rem;
-    margin: 0.1rem 0.1rem;
-    border-radius: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    transition: 0.2s;
-}
-
-.cardExp:hover {
-    opacity: 0.8;
-    transition: 0.3s;
-}
-
-#cardNauseas {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-#cardHouse {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-#cardMicrobe {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-#cardSneezing {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-#cardMask {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-#cardSaop {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-#cardSyring {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-#cardAmbulancia {
-    background-image: url("/img/cardblock.jpg");
-    font-size: 0px;
-}
-
-
-/*
- * Styles for the Score Panel
- */
-
-.score-panel {
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-.stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.stars li {
-    list-style: none;
-    display: inline-block;
-}
-
-.restart {
-    float: right;
-    cursor: pointer;
-}
-
-.fa-star {
-    color: #FFD700;
-}
-
-.stars-outer {
-    display: inline-block;
-    position: relative;
-    font-family: FontAwesome;
-}
-
-.stars-outer::before {
-    content: "\f006     \f006     \f006";
-}
-
-.stars-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-}
-
-.stars-inner::before {
-    content: "\f005     \f005     \f005";
-    color: #f8ce0b;
-}
-
-.timer {
-    display: inline-block;
-    margin: 0 1rem;
-}
-
-
-/* JOGO DO QUIZ */
-
-.overlayQuiz {
-    position: absolute;
-    top: 82.5rem;
-    left: 7.5rem;
-    width: 35rem;
-    height: 36.2rem;
-    border-radius: 1.5rem;
-    background: rgba(0, 0, 0, 0.85);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-    box-shadow: 8px 9px 10px 10px rgba(105, 124, 139, 0.322);
-}
-
-.overlayQuiz:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.modalQuizBloq {
-    position: relative;
-    margin: 70px auto;
-    padding: 30px;
-    color: #002752;
-    background-color: #ffffff;
-    font-size: 1.1rem;
-    border-radius: 1.5rem;
-    width: 70%;
-    position: relative;
-    top: 5rem;
-    right: 0rem;
-    transition: all 0.5s ease-in-out;
-}
-
-.quiz-container {
-    max-width: 700px;
-    background-color: white;
-    margin: 30px auto;
-    border-radius: 8px;
-    padding: 40px;
-}
-
-.question-number h3 {
-    color: #002752;
-    font-size: 1.7rem;
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    margin: 0;
-    padding-bottom: 10px;
-}
-
-.question {
-    font-size: 24px;
-    color: black;
-    padding: 15px 0;
-    margin-bottom: 20px;
-}
-
-.options div {
-    background-color: #ccc;
-    font-size: 16px;
-    color: black;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    padding: 15px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.options div.disabled {
-    pointer-events: none;
-}
-
-.options div.correct {
-    z-index: 1;
-    color: white;
-}
-
-.options div.correct::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: green;
-    z-index: -1;
-    animation: animateBackground 1s ease;
-    animation-fill-mode: forwards;
-}
-
-@keyframes animateBackground {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
-}
-
-.options div.wrong {
-    z-index: 1;
-    color: white;
-}
-
-.options div.wrong::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    z-index: -1;
-    animation: animateBackground 1s ease;
-    animation-fill-mode: forwards;
-}
-
-.buttonQuiz .btnQuiz {
-    padding: 10px 30px;
-    background-color: #009688;
-    font-size: 18px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    display: inline-block;
-    margin: 10px 0;
-}
-
-.answers-tracker div {
-    height: 40px;
-    width: 40px;
-    background-color: #ccc;
-    display: inline-block;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-
-.answers-tracker div.correct {
-    background-color: green;
-    background-image: url('img/correct.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50%;
-}
-
-.answers-tracker div.wrong {
-    background-color: red;
-    background-image: url('img/wrong.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50%;
-}
-
-.quiz-overQuiz {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 10;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.showQuiz {
-    display: flex;
-}
-
-.quiz-overQuiz .box {
-    background-color: #009688;
-    padding: 30px;
-    border-radius: 10px;
     text-align: center;
-    flex-basis: 700px;
-    max-width: 700px;
-    color: white;
-    box-shadow: #009688;
-}
-
-.quiz-overQuiz .box h1 {
-    font-size: 36px;
-    margin: 0 0 20px
-}
-
-.quiz-overQuiz .box .buttonQuiz {
-    padding: 15px 50px;
-    border: none;
-    background-color: #f7b53c;
-    border-radius: 5px;
-    font-size: 16px;
-    margin: 15px 0 20px;
-    color: white;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 
-/*
- * Styles for congratulations modal
- */
+/* Do an horizontal flip when you move the mouse over the flip box container */
 
-.overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
-.overlay:target {
-    visibility: visible;
-    opacity: 1;
-}
 
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 35%;
-    position: relative;
-    top: 5rem;
-    right: 10rem;
-    transition: all 0.5s ease-in-out;
-}
+/* Position the front and back side */
 
-.overlayjogar {
+.flip-card-front,
+.flip-card-back {
     position: absolute;
-    top: 10.2rem;
-    width: 34.3rem;
-    height: 36.2rem;
-    border-radius: 1.5rem;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
+    width: 300px;
+    height: 300px;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
 }
 
-.overlayjogar:target {
-    visibility: visible;
-    opacity: 1;
+
+/* Style the front side (fallback if image is missing) */
+
+.flip-card-front {
+    color: black;
 }
 
-.popupjogar {
-    position: relative;
-    margin: 70px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 60%;
-    position: relative;
-    top: 8.3rem;
-    right: 0rem;
-    transition: all 0.5s ease-in-out;
-}
 
-.overlayEstatisticasJogo {
-    position: absolute;
-    top: 10.2rem;
-    width: 34.3rem;
-    height: 36.2rem;
-    border-radius: 1.5rem;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-}
+/* Style the back side */
 
-.overlayEstatisticasJogo:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.modalEstatisticasJogo {
-    position: relative;
-    margin: 90px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 80%;
-    position: relative;
-    top: 3rem;
-    right: 0rem;
-    transition: all 0.5s ease-in-out;
-}
-
-.overlayObterEmoji {
-    position: absolute;
-    top: 54.5rem;
-    width: 34.4rem;
-    height: 19rem;
-    border-radius: 1.5rem;
-    background: rgba(0, 0, 0, 0.877);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.overlayObterEmoji:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.modalObterEmoji {
-    position: relative;
-    margin: 90px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 80%;
-    top: -3rem;
-    right: 0rem;
-    transition: all 0.1s ease-in-out;
-}
-
-.modalDinheiro {
-    position: relative;
-    margin: 90px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 80%;
-    position: relative;
-    top: -1rem;
-    right: 0rem;
-    transition: all 0.1s ease-in-out;
-}
-
-.overlayInfoEmoji {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.overlayInfoEmoji:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.modalInfoEmoji {
-    margin: 70px auto;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 59%;
-    position: relative;
-    top: 1.5rem;
-    right: 10rem;
-    transition: all 0.5s ease-in-out;
-}
-
-.modalEmojiGeral {
-    margin: 70px auto;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 1.5rem;
-    width: 55%;
-    position: relative;
-    top: 6.5rem;
-    right: 10rem;
-    transition: all 0.5s ease-in-out;
-}
-
-#emojiGeral {
-    color: #002752;
-    font-weight: bold;
-    border-left-style: solid;
-    border-left-color: #02b3e4;
-    border-left-width: 10px;
-    background-color: rgba(71, 199, 193, 0.527);
-    font-size: 25px;
-    border-radius: 2rem 2rem 2rem 2rem;
-    box-shadow: 5px 0 20px 0 rgba(46, 61, 73, 0.5);
-    min-width: 82%;
-    padding: 30px;
-}
-
-#oqueeEmoji {
-    color: #002752;
-    font-weight: bold;
-    border-left-style: solid;
-    border-left-color: #02b3e4;
-    border-left-width: 7px;
-    background-color: rgba(71, 199, 193, 0.527);
-    font-size: 17px;
-    border-radius: 2rem 2rem 2rem 2rem;
-    box-shadow: 5px 0 20px 0 rgba(46, 61, 73, 0.5);
-    min-width: 82%;
-    padding: 30px;
-}
-
-#textoEmoji {
-    color: #002752;
-    font-weight: bold;
-    border-left-style: solid;
-    border-left-color: #02b3e4;
-    border-left-width: 7px;
-    background-color: rgba(71, 199, 193, 0.527);
-    border-radius: 2rem 2rem 2rem 2rem;
-    box-shadow: 5px 0 20px 0 rgba(46, 61, 73, 0.5);
-    min-width: 65%;
-    padding: 10px;
-}
-
-#imgEmoji {
-    padding: 30px;
-}
-
-.infoTbl li {
-    list-style: upper-roman;
-}
-
-#btnG {
-    cursor: pointer;
-}
-
-#btnNG {
-    cursor: pointer;
-}
-
-.btnJogar {
-    background-color: #002b63;
+.flip-card-back {
+    background-color: dodgerblue;
     color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 1;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 5px;
+    transform: rotateY(180deg);
+    border-radius: 1rem;
 }
 
-.btnJogar:hover {
-    opacity: 0.9;
+.imgProfil {
+    width: 300px;
+    height: 300px;
+    border-radius: 1rem;
 }
 
-.btnJogarNovamente {
-    background-color: #002b63;
+
+/* BOTAO DE APAGAR PERFIL NO MODAL */
+
+.btnApagarPerfil {
+    background-color: #e20202f3;
     color: white;
     padding: 12px 20px;
     border: none;
     cursor: pointer;
     width: 60%;
-    opacity: 1;
+    opacity: 0.9;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
     transition: 0.6s;
     font-size: 1.3rem;
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
-.btnJogarNovamente:hover {
-    opacity: 0.9;
-}
-
-.btnEstatisticasJogo {
-    background-color: #ffffff00;
-    padding: 12px 20px;
-    border: black;
-    width: 100%;
-    opacity: 0.9;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+.btnApagarPerfil:hover {
+    opacity: 1;
     transition: 0.6s;
-    color: #00367e;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.btnSimEmoji {
-    background-color: #002b63;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 30%;
-    opacity: 1;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.btnSimEmoji:hover {
-    opacity: 0.9;
-}
-
-.btnNaoEmoji {
-    background-color: #ff0000c7;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 30%;
-    opacity: 1;
-    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-    transition: 0.6s;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.btnNaoEmoji:hover {
-    opacity: 0.9;
-}
-
-.closeCongratulations {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-weight: bold;
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 1.5rem;
-    opacity: 0.5;
-    transition: 0.4s;
-    padding: 0;
-    background-color: transparent;
-    transform: scale(1.50);
-}
-
-.closeCongratulations:hover {
-    color: rgb(255, 0, 0);
-    text-decoration: none;
-    opacity: 1;
-    transition: 0.4s;
-    transform: scale(2.0);
-    cursor: pointer;
-}
-
-.closeModalDinheiro {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-weight: bold;
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 1.5rem;
-    opacity: 0.5;
-    transition: 0.4s;
-    padding: 0;
-    background-color: transparent;
-    transform: scale(1.50);
-}
-
-.closeModalDinheiro:hover {
-    color: rgb(255, 0, 0);
-    text-decoration: none;
-    opacity: 1;
-    transition: 0.4s;
-    transform: scale(2.0);
-    cursor: pointer;
-}
-
-.popup .content-1,
-.content-2 {
-    max-height: 30%;
-    overflow: auto;
-    text-align: center;
-}
-
-.show {
-    visibility: visible !important;
-    opacity: 100 !important;
-}
-
-#starRating li {
-    display: inline-block;
-}
-
-
-/* animations */
-
-@keyframes flipInY {
-    from {
-        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
-        animation-timing-function: ease-in;
-        opacity: 0;
-    }
-    40% {
-        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
-        animation-timing-function: ease-in;
-    }
-    60% {
-        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
-        opacity: 1;
-    }
-    80% {
-        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
-    }
-    to {
-        transform: perspective(400px);
-    }
-}
-
-@keyframes rubberBand {
-    from {
-        transform: scale3d(1, 1, 1);
-    }
-    30% {
-        transform: scale3d(1.25, 0.75, 1);
-    }
-    40% {
-        transform: scale3d(0.75, 1.25, 1);
-    }
-    50% {
-        transform: scale3d(1.15, 0.85, 1);
-    }
-    65% {
-        transform: scale3d(.95, 1.05, 1);
-    }
-    75% {
-        transform: scale3d(1.05, .95, 1);
-    }
-    to {
-        transform: scale3d(1, 1, 1);
-    }
-}
-
-@keyframes pulse {
-    from {
-        transform: scale3d(1, 1, 1);
-    }
-    50% {
-        transform: scale3d(1.2, 1.2, 1.2);
-    }
-    to {
-        transform: scale3d(1, 1, 1);
-    }
-}
-
-
-/* For Tablets and larger screens
-****************/
-
-@media (max-width: 1250px) {
-    .backgroundBtns {
-        position: relative;
-        width: 100%;
-        height: 26rem;
-        top: 0rem;
-        right: 0rem;
-        margin-bottom: 2rem;
-    }
-    .backgroundText {
-        position: relative;
-        right: 0rem;
-        width: 100%;
-        margin: auto;
-        margin-bottom: 3rem;
-        border-radius: 1rem;
-        background: rgb(255, 255, 255);
-        box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-        color: #000000;
-    }
-    .overlayQuiz {
-        top: 83rem;
-        left: 3rem;
-        width: 37rem;
-        height: 35rem;
-    }
-    .popup {
-        width: 70%;
-        position: relative;
-        top: 9rem;
-        right: 0rem;
-    }
 }
 
 
 /* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
-    .h3Txt {
-        font-size: 1.6rem;
-    }
-    .estatisticasTxt {
-        color: #002752;
-        font-weight: bold;
-        font-size: 1.4rem;
-    }
-    #pTxt {
-        font-size: 0.9rem;
-    }
-    #xpD {
-        font-size: 0.9rem;
-    }
-    .btnJogarNovamente {
-        width: 73%;
-        padding: 12px 15px;
-        font-size: 1rem;
-    }
-    .overlayjogar {
-        top: 8.5rem;
-        width: 18.8rem;
-        height: 21.9rem;
-    }
-    .popupjogar {
-        width: 70%;
-        top: 2.3rem;
-        right: 0rem;
-    }
-    .overlayEstatisticasJogo {
-        top: 8.5rem;
-        width: 19rem;
-        height: 22rem;
-    }
-    .modalEstatisticasJogo {
-        width: 80%;
-        top: -4rem;
-    }
-    .overlayQuiz {
-        top: 57rem;
-        left: 0.5rem;
-        width: 21rem;
-        height: 40rem;
-    }
-    .overlayObterEmoji {
-        position: absolute;
-        top: 37rem;
-        width: 19rem;
-        height: 15rem;
-    }
-    .modalObterEmoji {
-        width: 85%;
-        top: -5rem;
-    }
-    .btnSimEmoji {
-        width: 40%;
-    }
-    .btnNaoEmoji {
-        width: 40%;
-    }
-    .modalDinheiro {
-        width: 85%;
-        top: -5rem;
-    }
-    .modalInfoEmoji {
-        width: 90%;
-        top: 1.5rem;
-        left: 0rem;
-    }
-    #oqueeEmoji {
-        min-width: 22%;
-        padding: 30px;
-    }
-    #imgEmoji {
-        padding: 30px;
-    }
-    .deckExp {
-        width: 300px;
-        height: 200px;
-    }
-    .cardExp {
-        height: 3.5rem;
-        width: 3.5rem;
-    }
-    .modalfoto {
-        top: 60px;
+    .animation {
         width: 100%;
-        height: 100%;
+        height: 18rem;
+        display: block;
+        margin-bottom: 20px;
     }
-    .modalfoto-content {
-        width: 90%;
-    }
-    .foto {
-        position: absolute;
-        top: 115px;
-        right: 40px;
-        transform: scale(1.30);
-    }
-    .container {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-    .backgroundBtns {
+    .carousel {
         position: relative;
-        width: 100%;
-        right: 0rem;
-        top: -2.2rem;
-        height: 26rem;
-        margin: auto;
-        border-radius: 0 0 1rem 1rem;
-        background: rgba(0, 0, 0, 0.7);
+        padding-top: 100%;
+        filter: drop-shadow(0 0 10px #0003);
+        perspective: 100px;
     }
-    .btnEditado {
-        margin-bottom: 1rem;
-    }
-    .btnsUtilizador {
-        background-color: #ffffff;
-        color: rgb(0, 0, 0);
-        padding: 14px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        margin-bottom: 15px;
-        border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
-        transition: 0.6s;
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-    .backgroundText {
-        width: 95%;
-        right: 0rem;
-        top: 2rem;
-        margin: auto;
-        margin-bottom: 6rem;
-        border-radius: 1rem;
-        background: rgb(255, 255, 255);
-        box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-        color: #000000;
+    .h2sabiasque {
+        position: relative;
+        margin-top: 3.5rem;
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
     .masthead-content {
         width: 100%;
         display: block;
-        margin-bottom: 2rem;
+        margin-bottom: 20px;
     }
-    .modalEditarPerfil-content {
+    .column {
         width: 80%;
+        display: block;
+        margin-bottom: 20px;
     }
-    .modalEstatisticas-content {
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border-radius: 1rem 1rem 1rem 1rem;
         width: 80%;
-    }
-    .modalConquistas-content {
-        width: 80%;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+        margin-bottom: 10rem;
     }
     .form-container {
         max-width: 700px;
@@ -3747,33 +2426,7 @@ header.masthead {
         font-weight: bold;
         font-size: 1.72rem;
     }
-    #output {
-        position: relative;
-        left: 0rem;
-        margin-bottom: 30px;
-        margin-top: 20px;
-    }
-    #editarfoto {
-        border-radius: 50% !important;
-        width: 100px;
-        height: 100px;
-        position: relative;
-        left: 0rem;
-        cursor: pointer;
-    }
-    .deck {
-        border-radius: 1rem;
-        width: 300px;
-        height: 350px;
-    }
-    .card {
-        height: 61px;
-        width: 61px;
-    }
-    .popup {
-        width: 70%;
-        position: relative;
-        top: 9rem;
-        right: 0rem;
+    #registarFoto {
+        left: 5rem;
     }
 }
