@@ -29,13 +29,31 @@
 
     <header class="masthead text-center text-white">
         <div class="container">
+
+            <!-- PARTE DOS BOTÕES LATERAIS-->
+            <section>
+                <div class="backgroundBtns">
+                    <div class="p-5">
+                        <div class="masthead-content">
+                            <img id="output">
+                            <div id="modalfoto" class="modalfoto">
+                                <span class="closefoto">&times;</span>
+                                <img class="modalfoto-content" id="img01">
+                            </div>
+                            <button id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
+                            <button id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
+                            <button id="btnConquistas" class="btnsUtilizador">Conquistas</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="backgroundText">
                 <div class="container">
                     <div class="form-row">
                         <div class="col">
                             <div class="p-5">
-                                <h1><b>Hora de jogar</b></h1>
-                                <p>Este jogo foi especialmente preparado para ti, aqui vais te divertir enquanto aprendes várias informações sobre a Covid-19.</p>
+                                <h1 class="h3Txt"><b>MatchCovid</b></h1>
                             </div>
                         </div>
                     </div>
@@ -53,8 +71,8 @@
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                         </ul>
-                        <span class="moves">0 </span> Jogadas
-                        <div class="timer"></div>
+                        <span id="pTxt" class="moves">0 </span><span id="pTxt"> Jogadas</span>
+                        <div id="pTxt" class="timer"></div>
                         <div class="restart" onclick="startGame()">
                             <i class="fa fa-repeat"></i>
                         </div>
@@ -127,17 +145,17 @@
                     <!--MODAL DAS ESTATISTICAS DO JOGO-->
                     <div id="modalEstatisticasJogo" class="overlayEstatisticasJogo">
                         <div class="modalEstatisticasJogo">
-                            <h2>Jogo da Memória</h2>
+                            <h2 class="estatisticasTxt">Jogo da Memória</h2>
                             <a class="closeCongratulations" onclick="fecharJogoE()"><span>&times;</span></a>
                             <div class="content-2">
-                                <p>Já foi jogado <span id="totalQtdJogado"></span> vezes</p>
-                                Média rating
+                                <p id="pTxt">Já foi jogado <span style="font-weight: bold;" id="totalQtdJogado"></span> vezes</p>
+                                <span id="pTxt">Média rating</span>
                                 <div class="stars-outer">
                                     <div class="stars-inner" id="mratingtotal"></div>
                                 </div>
                                 </span>
                                 <p>
-                                    <p> &#128077 <span id="reactGosto"></span> &#128078 <span id="reactNaoGosto"></span></p>
+                                    <p> &#128077 <span style="color: #002752" id="reactGosto"></span> &#128078 <span style="color: #002752" id="reactNaoGosto"></span></p>
                                     <p>
                             </div>
                             <button class="btnJogarNovamente" onclick="jogarE()">
@@ -146,13 +164,9 @@
                         </div>
                     </div>
 
-
-
-
-
                     <!--PARTE DOS CARDS COM EMOJIS PARA COMPRAR-->
                     <div>
-                        <p><span id="xpD">Pontos disponíveis:</span> <span id="totalXpEmoji">0</span><span id="dd">&#9889</span></p>
+                        <p><span id="xpD">Pontos disponíveis:</span> <span style="color: #002752" id="totalXpEmoji">0</span><span id="dd">&#9889</span></p>
                     </div>
                     <p></p>
                     <ul class="deckExp">
@@ -186,8 +200,8 @@
                     <div id="modalObterEmojiNauseas" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardNauseas()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharNauseas()" class="btnNaoEmoji">Não</button>
@@ -200,8 +214,8 @@
                     <div id="modalObterEmojiHouse" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardHouse()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharHouse()" class="btnNaoEmoji">Não</button>
@@ -214,8 +228,8 @@
                     <div id="modalObterEmojiMicrobe" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardMicrobe()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharMicrobe()" class="btnNaoEmoji">Não</button>
@@ -228,8 +242,8 @@
                     <div id="modalObterEmojiSneezing" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardSneezing()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharSneezing()" class="btnNaoEmoji">Não</button>
@@ -242,8 +256,8 @@
                     <div id="modalObterEmojiMask" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardMask()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharMask()" class="btnNaoEmoji">Não</button>
@@ -256,8 +270,8 @@
                     <div id="modalObterEmojiSaop" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardSaop()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharSaop()" class="btnNaoEmoji">Não</button>
@@ -270,8 +284,8 @@
                     <div id="modalObterEmojiSyring" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardSyring()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharSyring()" class="btnNaoEmoji">Não</button>
@@ -284,8 +298,8 @@
                     <div id="modalObterEmojiAmbulancia" class="overlayObterEmoji">
                         <div class="modalObterEmoji">
                             <div class="content-2">
-                                <p>Queres desbloquear este emoji?</p>
-                                <p>Preço: 150px</p>
+                                <p style="color: #002752">Queres desbloquear este emoji?</p>
+                                <p style="color: #002752">Preço: 15 &#9889</p>
                                 <div class="clearfix">
                                     <button type="button" onclick="getcardAmbulancia()" class="btnSimEmoji">Sim</button>
                                     <button type="button" onclick="fecharAmbulancia()" class="btnNaoEmoji">Não</button>
@@ -297,7 +311,7 @@
                     <!--MODAL DE NÃO TER DINHEIRO-->
                     <div id="modalDinheiro" class="overlayObterEmoji">
                         <div class="modalDinheiro">
-                            <h2>Não tens pontos disponíveis! &#9888; </h2>
+                            <h2 style="color: #002752">Não tens pontos disponíveis! &#9888; </h2>
                             <a class="closeModalDinheiro" onclick="fecharModalDinheiro()"><span>&times;</span></a>
                         </div>
                     </div>
@@ -305,18 +319,268 @@
                     <!--MODAL DE CONGRATULAÇÃO QUANDO ACABAR O JOGO-->
                     <div id="popup1" class="overlay">
                         <div class="popup">
-                            <h2>Parabéns!!!</h2>
+                            <h2 id="pTxt" style="font-weight: bold; font-size: 30px;">Parabéns!!!</h2>
                             <a class="closeCongratulations" onclick="fecharJogo()"><span>&times;</span></a>
                             <div class="content-2">
-                                <p>Usas-te <span id=finalMove> </span> jogadas</p>
-                                <p>Em <span id=totalTime> </span></p>
-                                <p>Rating: <span id=starRating></span></p>
+                                <p id="pTxt">Usas-te <span id=finalMove> </span> jogadas</p>
+                                <p id="pTxt">Em <span id=totalTime> </span></p>
+                                <p id="pTxt">Rating: <span id=starRating></span></p>
                                 <p><span id="btnG" onclick="gosto()">&#128077</span><span id="btnNG" onclick="naogosto()">&#128078</span></p>
                                 <p><span id="react"></span></p>
                             </div>
                             <button class="btnJogarNovamente" onclick="jogarNovamente()">
                                 Jogar novamente</a>
                             </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h1 class="h3Txt"><b>QuizCovid</b></h1>
+                    </div>
+
+
+                    <div class="quiz-container">
+                        <div class="question-number">
+                            <h3>Questão <span class="question-num-value"></span> de
+                                <span class="total-questions"></span>
+                            </h3>
+                        </div>
+                        <div class="question">
+                        </div>
+                        <div class="options">
+                            <div id="0" class="option1" onclick="check(this)"></div>
+                            <div id="1" class="option2" onclick="check(this)"></div>
+                            <div id="2" class="option3" onclick="check(this)"></div>
+                            <div id="3" class="option4" onclick="check(this)"></div>
+                        </div>
+                        <div class="buttonQuiz btnQuiz">
+                            <button type="button" onclick="next()" class="btnQuiz">Próxima</button>
+                        </div>
+                        <div class="answers-tracker">
+
+                        </div>
+
+                        <div class="quiz-overQuiz">
+                            <div class="box">
+                                <h1>Bom trabalho! <br /> Conseguis-te acertar <span class="correct-answers"></span> perguntas de
+                                    <span class="total-questions2"></span>. That is <span class="percentage"></span>
+                                </h1>
+                                <button type="button" class="btnJogarNovamente" onclick="quizNovamente()">Jogar Quiz novamente!</button>
+                            </div>
+                        </div>
+
+                        <div id="overlayQuiz" class="overlayQuiz">
+                            <div class="modalQuizBloq">
+                                <h3 class="h3Info">Ups... Quiz-Covid Bloqueado &#9940;</h3>
+                                <p id="pTxt">Para testares os teus conhecimentos no QuizCovid terás que desbloquear primeiro todos os Emojis para obteres informações para acertar as perguntas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modalEditarPerfil" class="modalEditarPerfil">
+                    <div class="modalEditarPerfil-content">
+                        <form class="form-container" id="editadoForm">
+                            <div class="form-row">
+                                <div class="col">
+                                    <h3 class="h3form">Editar Pefil</h3>
+                                    <p class="pform">Altera os teus dados.</p>
+                                </div>
+                                <div class="col">
+                                    <label><img id="editarfoto" src=""><input type="file" class="inputfile" onchange="editarFotoPerfil()"></label>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btnClose" aria-label="Close">
+                                    <span id="closeEditarPerfil" aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" id="editarUtilizador" placeholder="Nome de utilizador" name="utilizador" disabled>
+                                </div>
+                                <div class="col">
+                                    <input type="text" id="editarNome" placeholder="Nome próprio" name="nome" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" id="editarEmail" placeholder="Email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" id="editarData" placeholder="Data de Nascimento" class="textbox-n" onfocus="(this.type='date')">
+                                </div>
+                                <div class="col">
+                                    <div class="controls">
+                                        <label class="radio"></label>
+                                        <input type="radio" id="editarMasculino" name="gender" value="Masculino">Masculino
+
+                                        <label class="radio"></label>
+                                        <input type="radio" id="editarFeminino" name="gender" value="Feminino">Feminino
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="password" id="editarPassword" placeholder="Palavra-passe" name="psw" required>
+                                </div>
+                                <div class="col">
+                                    <input type="password" id="editarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <button type="submit" class="btnEditado" onclick="perfilEditado()">Editar Perfil</button>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btnApagarPerfil" onclick="perfilApagar()">Apagar Perfil</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="modalEstatisticas" class="modalEstatisticas">
+                    <div class="modalEstatisticas-content">
+                        <form class="form-container">
+                            <div class="form-row">
+                                <div class="col">
+                                    <h3 class="h3form">Estatísticas</h3>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btnClose" aria-label="Close">
+                                                    <span id="closeEstatisticas" aria-hidden="true">&times;</span>
+                                                </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-row">
+                                <div class="col">
+                                    <h3 class="estatisticasTxt">MatchCovid</h3>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <p class="estatisticasTxt">Vezes Jogadas</p>&#127918
+                                    <span class="estatisticasTxt" id="qtdJogados">0</span>
+                                </div>
+                                <div class="col">
+                                    <p class="estatisticasTxt">Tempo Jogado</p>&#9202
+                                    <span class="estatisticasTxt" id="tempoJogado">0:0:0</span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <p class="estatisticasTxt">Jogos ganhos com </p>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li>
+                                            <span class="estatisticasTxt" id="umaEstrela">0</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <p class="estatisticasTxt">Jogos ganhos com
+                                        <ul class="stars">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li>
+                                                <span class="estatisticasTxt" id="duasEstrela">0</span>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <p class="estatisticasTxt">Jogos ganhos com
+                                        <ul class="stars">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li>
+                                                <span class="estatisticasTxt" id="tresEstrela">0</span>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <p class="estatisticasTxt">Total Xp</p>&#9889
+                                    <span class="estatisticasTxt" id="totalXp">0</span>
+                                </div>
+                                <div class="col">
+                                    <p class="estatisticasTxt">Coroas</p>&#128081
+                                    <span class="estatisticasTxt" id="totalCoroa">0</span>
+                                </div>
+                                <div class="col">
+                                    <p class="estatisticasTxt">Conquistas</p>&#127942
+                                    <span class="estatisticasTxt" id="totalConquistas">0</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="modalConquistas" class="modalConquistas">
+                    <div class="modalConquistas-content">
+                        <form class="form-container">
+                            <div class="form-row">
+                                <div class="col">
+                                    <h3 class="h3form">Conquistas</h3>
+                                    <p class="pform">Vê quais são as conquistas que te faltam.</p>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btnClose" aria-label="Close">
+                                        <span id="closeConquistas" aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="rowBarT">
+                                <div class="estatisticasTxt"><span id="metaxp"></span>/5 &#128081</div>
+                                <div class="rowBar">
+                                    <div class="side">
+                                        <div>0</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div id="xpBar" class="bar-1">0%</div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div> 100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rowBarT">
+                                <div class="estatisticasTxt"><span id="metaEmoji">0</span>/1 Emojis</div>
+                                <div class="rowBar">
+                                    <div class="side">
+                                        <div>0</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div id="emojiBar" class="bar-1">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div> 100</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div id="modalPassDif" class="overlayInfoEmoji">
+                    <div class="modalEmojiGeral">
+                        <div class="form-row">
+                            <div id="emojiGeral" class="col2">
+                                Passwords não coincidem!
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -347,7 +611,7 @@
                                 </ul>
                             </div>
                             <div id="imgEmoji" class="col2">
-                                <img width="135" height="130" src="img/nauseas.png">
+                                <img width="180" height="180" src="img/nauseas.png">
                             </div>
                         </div>
                     </div>
@@ -586,239 +850,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div id="quiz"></div>
-                <button id="submitQuiz">Get Results</button>
-                <div id="results"></div>
             </section>
         </div>
-
-        <!-- PARTE DOS BOTÕES LATERAIS-->
-        <section>
-            <div class="backgroundBtns">
-                <div class="p-5">
-                    <div class="masthead-content">
-                        <img id="output">
-                        <div id="modalfoto" class="modalfoto">
-                            <span class="closefoto">&times;</span>
-                            <img class="modalfoto-content" id="img01">
-                        </div>
-
-                        <button id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
-                        <div id="modalEditarPerfil" class="modalEditarPerfil">
-                            <div class="modalEditarPerfil-content">
-                                <form class="form-container" id="editadoForm">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <h3 class="h3form">Editar Pefil</h3>
-                                            <p class="pform">Altera os teus dados.</p>
-                                        </div>
-                                        <div class="col">
-                                            <label><img id="editarfoto" src=""><input type="file" class="inputfile" onchange="editarFotoPerfil()"></label>
-                                        </div>
-                                        <div class="col">
-                                            <button type="button" class="btnClose" aria-label="Close">
-                                            <span id="closeEditarPerfil" aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="editarUtilizador" placeholder="Nome de utilizador" name="utilizador" disabled>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" id="editarNome" placeholder="Nome próprio" name="nome" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="editarEmail" placeholder="Email" name="email" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="editarData" placeholder="Data de Nascimento" class="textbox-n" onfocus="(this.type='date')">
-                                        </div>
-                                        <div class="col">
-                                            <div class="controls">
-                                                <label class="radio"></label>
-                                                <input type="radio" id="editarMasculino" name="gender" value="Masculino">Masculino
-
-                                                <label class="radio"></label>
-                                                <input type="radio" id="editarFeminino" name="gender" value="Feminino">Feminino
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="password" id="editarPassword" placeholder="Palavra-passe" name="psw" required>
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" id="editarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <button type="submit" class="btnEditado" onclick="perfilEditado()">Editar Perfil</button>
-                                        </div>
-                                        <div class="col">
-                                            <button type="submit" class="btnApagarPerfil" onclick="perfilApagar()">Apagar Perfil</button>
-                                        </div>
-                                    </div>
-
-
-                                </form>
-                            </div>
-                        </div>
-                        <div id="modalPassDif" class="overlayInfoEmoji">
-                            <div class="modalEmojiGeral">
-                                <div class="form-row">
-                                    <div id="emojiGeral" class="col2">
-                                        Passwords não coincidem!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
-                        <div id="modalEstatisticas" class="modalEstatisticas">
-                            <div class="modalEstatisticas-content">
-                                <form class="form-container">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <h3 class="h3form">Estatísticas</h3>
-                                        </div>
-                                        <div class="col">
-                                            <button type="button" class="btnClose" aria-label="Close">
-                                                            <span id="closeEstatisticas" aria-hidden="true">&times;</span>
-                                                        </button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <h3 class="estatisticasTxt">Jogo da Memória</h3>
-                                            <br>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Vezes Jogadas</p>&#127918
-                                            <span class="estatisticasTxt" id="qtdJogados">0</span>
-                                        </div>
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Tempo Jogado</p>&#9202
-                                            <span class="estatisticasTxt" id="tempoJogado">0:0:0</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Jogos ganhos com </p>
-                                            <ul class="stars">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li>
-                                                    <span class="estatisticasTxt" id="umaEstrela">0</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Jogos ganhos com
-                                                <ul class="stars">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li>
-                                                        <span class="estatisticasTxt" id="duasEstrela">0</span>
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Jogos ganhos com
-                                                <ul class="stars">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li>
-                                                        <span class="estatisticasTxt" id="tresEstrela">0</span>
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Total Xp</p>&#9889
-                                            <span class="estatisticasTxt" id="totalXp">0</span>
-                                        </div>
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Coroas</p>&#128081
-                                            <span class="estatisticasTxt" id="totalCoroa">0</span>
-                                        </div>
-                                        <div class="col">
-                                            <p class="estatisticasTxt">Conquistas</p>&#127942
-                                            <span class="estatisticasTxt" id="totalConquistas">0</span>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <button id="btnConquistas" class="btnsUtilizador">Conquistas</button>
-                        <div id="modalConquistas" class="modalConquistas">
-                            <div class="modalConquistas-content">
-                                <form class="form-container">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <h3 class="h3form">Conquistas</h3>
-                                            <p class="pform">Vê quais são as conquistas que te faltam.</p>
-                                        </div>
-                                        <div class="col">
-                                            <button type="button" class="btnClose" aria-label="Close">
-                                                <span id="closeConquistas" aria-hidden="true">&times;</span>
-                                                </button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="rowBarT">
-                                        <div class="estatisticasTxt"><span id="metaxp"></span>/5 &#128081</div>
-                                        <div class="rowBar">
-                                            <div class="side">
-                                                <div>0</div>
-                                            </div>
-                                            <div class="middle">
-                                                <div class="bar-container">
-                                                    <div id="xpBar" class="bar-1">0%</div>
-                                                </div>
-                                            </div>
-                                            <div class="side right">
-                                                <div> 100</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="rowBarT">
-                                        <div class="estatisticasTxt"><span id="metaEmoji">0</span>/1 Emojis</div>
-                                        <div class="rowBar">
-                                            <div class="side">
-                                                <div>0</div>
-                                            </div>
-                                            <div class="middle">
-                                                <div class="bar-container">
-                                                    <div id="emojiBar" class="bar-1">0</div>
-                                                </div>
-                                            </div>
-                                            <div class="side right">
-                                                <div> 100</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         </div>
     </header>
 

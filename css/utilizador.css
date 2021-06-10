@@ -2075,7 +2075,7 @@ pre code {
 }
 
 .p-5 {
-    padding: 3rem !important;
+    padding: 2rem !important;
 }
 
 .text-center {
@@ -2264,11 +2264,27 @@ header.masthead {
     margin-bottom: 30px;
 }
 
+.h3Txt {
+    position: relative;
+    color: #002752;
+    font-weight: bold;
+}
+
 .pform {
     display: flex;
     flex-direction: row;
     position: relative;
     color: rgba(0, 0, 0, 0.8);
+}
+
+#pTxt {
+    font-size: 1.3rem;
+    color: #002752;
+}
+
+#xpD {
+    font-size: 1.3rem;
+    color: #002752;
 }
 
 .form-row {
@@ -2480,6 +2496,7 @@ header.masthead {
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
     height: 6.5rem;
     margin-top: 3rem;
+    margin-bottom: 2rem;
     padding-top: 1rem;
 }
 
@@ -2641,6 +2658,7 @@ header.masthead {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-size: 22px;
 }
 
 
@@ -2669,8 +2687,6 @@ header.masthead {
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-    height: 3.7rem;
-    width: 3.7rem;
     margin: 0.1rem 0.1rem;
     font-size: 0;
     color: #ffffff;
@@ -2681,6 +2697,8 @@ header.masthead {
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
     transition: 0.2s;
+    height: 110px;
+    width: 110px;
 }
 
 .card:hover {
@@ -2867,28 +2885,204 @@ header.masthead {
 
 /* JOGO DO QUIZ */
 
-.questionQuiz {
-    font-weight: 600;
+.overlayQuiz {
+    position: absolute;
+    top: 82.5rem;
+    left: 7.5rem;
+    width: 35rem;
+    height: 36.2rem;
+    border-radius: 1.5rem;
+    background: rgba(0, 0, 0, 0.85);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 8px 9px 10px 10px rgba(105, 124, 139, 0.322);
 }
 
-.answersQuiz {
+.overlayQuiz:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modalQuizBloq {
+    position: relative;
+    margin: 70px auto;
+    padding: 30px;
+    color: #002752;
+    background-color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    width: 70%;
+    position: relative;
+    top: 5rem;
+    right: 0rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.quiz-container {
+    max-width: 700px;
+    background-color: white;
+    margin: 30px auto;
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.question-number h3 {
+    color: #002752;
+    font-size: 1.7rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.question {
+    font-size: 24px;
+    color: black;
+    padding: 15px 0;
     margin-bottom: 20px;
 }
 
-#submitQuiz {
-    font-family: sans-serif;
-    font-size: 20px;
-    background-color: #297;
-    color: #fff;
-    border: 0px;
-    border-radius: 3px;
-    padding: 20px;
+.options div {
+    background-color: #ccc;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
-    margin-bottom: 20px;
 }
 
-#submitQuiz:hover {
-    background-color: #3a8;
+.options div.disabled {
+    pointer-events: none;
+}
+
+.options div.correct {
+    z-index: 1;
+    color: white;
+}
+
+.options div.correct::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    z-index: -1;
+    animation: animateBackground 1s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateBackground {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.options div.wrong {
+    z-index: 1;
+    color: white;
+}
+
+.options div.wrong::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    z-index: -1;
+    animation: animateBackground 1s ease;
+    animation-fill-mode: forwards;
+}
+
+.buttonQuiz .btnQuiz {
+    padding: 10px 30px;
+    background-color: #009688;
+    font-size: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.answers-tracker div {
+    height: 40px;
+    width: 40px;
+    background-color: #ccc;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.answers-tracker div.correct {
+    background-color: green;
+    background-image: url('img/correct.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.answers-tracker div.wrong {
+    background-color: red;
+    background-image: url('img/wrong.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.quiz-overQuiz {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.showQuiz {
+    display: flex;
+}
+
+.quiz-overQuiz .box {
+    background-color: #009688;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    flex-basis: 700px;
+    max-width: 700px;
+    color: white;
+    box-shadow: #009688;
+}
+
+.quiz-overQuiz .box h1 {
+    font-size: 36px;
+    margin: 0 0 20px
+}
+
+.quiz-overQuiz .box .buttonQuiz {
+    padding: 15px 50px;
+    border: none;
+    background-color: #f7b53c;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 15px 0 20px;
+    color: white;
 }
 
 
@@ -2927,7 +3121,7 @@ header.masthead {
 
 .overlayjogar {
     position: absolute;
-    top: 16.2rem;
+    top: 10.2rem;
     width: 34.3rem;
     height: 36.2rem;
     border-radius: 1.5rem;
@@ -2957,7 +3151,7 @@ header.masthead {
 
 .overlayEstatisticasJogo {
     position: absolute;
-    top: 16.3rem;
+    top: 10.2rem;
     width: 34.3rem;
     height: 36.2rem;
     border-radius: 1.5rem;
@@ -2987,7 +3181,7 @@ header.masthead {
 
 .overlayObterEmoji {
     position: absolute;
-    top: 60.5rem;
+    top: 54.5rem;
     width: 34.4rem;
     height: 19rem;
     border-radius: 1.5rem;
@@ -3009,7 +3203,6 @@ header.masthead {
     background: #ffffff;
     border-radius: 1.5rem;
     width: 80%;
-    position: relative;
     top: -3rem;
     right: 0rem;
     transition: all 0.1s ease-in-out;
@@ -3062,7 +3255,7 @@ header.masthead {
     padding: 25px;
     background: #ffffff;
     border-radius: 1.5rem;
-    width: 59%;
+    width: 55%;
     position: relative;
     top: 6.5rem;
     right: 10rem;
@@ -3111,11 +3304,11 @@ header.masthead {
 }
 
 #imgEmoji {
-    padding: 50px;
+    padding: 30px;
 }
 
 .infoTbl li {
-    list-style: none;
+    list-style: upper-roman;
 }
 
 #btnG {
@@ -3166,13 +3359,13 @@ header.masthead {
 
 .btnEstatisticasJogo {
     background-color: #ffffff00;
-    color: #00367e;
     padding: 12px 20px;
     border: black;
     width: 100%;
     opacity: 0.9;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
     transition: 0.6s;
+    color: #00367e;
     font-size: 1.3rem;
     font-weight: bold;
 }
@@ -3346,13 +3539,37 @@ header.masthead {
 /* For Tablets and larger screens
 ****************/
 
-@media (min-width: 768px) {
-    .containergame {
-        font-size: 22px;
+@media (max-width: 1250px) {
+    .backgroundBtns {
+        position: relative;
+        width: 100%;
+        height: 26rem;
+        top: 0rem;
+        right: 0rem;
+        margin-bottom: 2rem;
     }
-    .card {
-        height: 110px;
-        width: 110px;
+    .backgroundText {
+        position: relative;
+        right: 0rem;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 3rem;
+        border-radius: 1rem;
+        background: rgb(255, 255, 255);
+        box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
+        color: #000000;
+    }
+    .overlayQuiz {
+        top: 83rem;
+        left: 3rem;
+        width: 37rem;
+        height: 35rem;
+    }
+    .popup {
+        width: 70%;
+        position: relative;
+        top: 9rem;
+        right: 0rem;
     }
 }
 
@@ -3360,6 +3577,90 @@ header.masthead {
 /* conversão em tamanho de telemovel */
 
 @media screen and (max-width: 600px) {
+    .h3Txt {
+        font-size: 1.6rem;
+    }
+    .estatisticasTxt {
+        color: #002752;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+    #pTxt {
+        font-size: 0.9rem;
+    }
+    #xpD {
+        font-size: 0.9rem;
+    }
+    .btnJogarNovamente {
+        width: 73%;
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    .overlayjogar {
+        top: 8.5rem;
+        width: 18.8rem;
+        height: 21.9rem;
+    }
+    .popupjogar {
+        width: 70%;
+        top: 2.3rem;
+        right: 0rem;
+    }
+    .overlayEstatisticasJogo {
+        top: 8.5rem;
+        width: 19rem;
+        height: 22rem;
+    }
+    .modalEstatisticasJogo {
+        width: 80%;
+        top: -4rem;
+    }
+    .overlayQuiz {
+        top: 57rem;
+        left: 0.5rem;
+        width: 21rem;
+        height: 40rem;
+    }
+    .overlayObterEmoji {
+        position: absolute;
+        top: 37rem;
+        width: 19rem;
+        height: 15rem;
+    }
+    .modalObterEmoji {
+        width: 85%;
+        top: -5rem;
+    }
+    .btnSimEmoji {
+        width: 40%;
+    }
+    .btnNaoEmoji {
+        width: 40%;
+    }
+    .modalDinheiro {
+        width: 85%;
+        top: -5rem;
+    }
+    .modalInfoEmoji {
+        width: 90%;
+        top: 1.5rem;
+        left: 0rem;
+    }
+    #oqueeEmoji {
+        min-width: 22%;
+        padding: 30px;
+    }
+    #imgEmoji {
+        padding: 30px;
+    }
+    .deckExp {
+        width: 300px;
+        height: 200px;
+    }
+    .cardExp {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
     .modalfoto {
         top: 60px;
         width: 100%;
@@ -3380,12 +3681,12 @@ header.masthead {
     }
     .backgroundBtns {
         position: relative;
-        width: 95%;
+        width: 100%;
         right: 0rem;
         top: -2.2rem;
         height: 26rem;
         margin: auto;
-        border-radius: 1rem;
+        border-radius: 0 0 1rem 1rem;
         background: rgba(0, 0, 0, 0.7);
     }
     .btnEditado {
@@ -3420,15 +3721,14 @@ header.masthead {
         display: block;
         margin-bottom: 2rem;
     }
-    .modal-content {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 0;
-        border-radius: 1rem 1rem 1rem 1rem;
+    .modalEditarPerfil-content {
         width: 80%;
-        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-        margin-bottom: 10rem;
+    }
+    .modalEstatisticas-content {
+        width: 80%;
+    }
+    .modalConquistas-content {
+        width: 80%;
     }
     .form-container {
         max-width: 700px;
@@ -3468,13 +3768,10 @@ header.masthead {
         height: 350px;
     }
     .card {
-        border-radius: 0.5rem;
+        height: 61px;
+        width: 61px;
     }
     .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #ffffff;
-        border-radius: 1.5rem;
         width: 70%;
         position: relative;
         top: 9rem;
