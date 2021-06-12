@@ -104,20 +104,65 @@ function registar() {
 let x = usersNames.length
 let y = x - 1
 
-
-
-for (var i = 0; i < utilizadores.length; i++) {
-    if (utilizadores[i].username == usersNames[y]) {
-        let editarName = utilizadores[i].name
-        document.getElementById("nome").innerHTML = editarName
-        let email = utilizadores[i].email
-        document.getElementById("email").innerHTML = email
-        let tempoJogado = utilizadores[i].tempoJogado
-        document.getElementById("tempoJogado").innerHTML = tempoJogado
-        let totalCoquistas = utilizadores[i].totalConquistas
-        document.getElementById("totalConquistas").innerHTML = totalCoquistas
-        let foto = utilizadores[i].fotoperfil
-        document.getElementById("editarfoto").src = foto
+let linha = 0;
+var table = document.getElementById("tabela");
+let j = 0;
+for (var i = utilizadores.length - 1; i >= 0; i--) {
+    if (j % 3 == 0) {
+        j = 0;
+        var row = table.insertRow(linha);
+        linha++;
     }
-    console.log(utilizadores[i].username);
+    j++;
+
+    let foto = utilizadores[i].fotoperfil;
+    let nome = utilizadores[i].name;
+    let email = utilizadores[i].email;
+    let tempoJogado = utilizadores[i].tempoJogado;
+    let totalConquistas = utilizadores[i].totalConquistas;
+    let username = utilizadores[i].username
+
+    var cell = row.insertCell(-1);
+
+    cell.innerHTML =
+        '<div class="flip-card">' +
+        '<div class="flip-card-inner">' +
+        '<div class="flip-card-front">' +
+        "<img src=" +
+        foto +
+        ' class="imgProfil">' +
+        "</div>" +
+        '<div class="flip-card-back">' +
+        "<br>" +
+        '<h2 class="nome" id="nome">' +
+        nome +
+        "</h2>" +
+        '<p id="email">' +
+        email +
+        "</p>" +
+        '<div>Tempo Jogado: <strong id="tempoJogado">' +
+        tempoJogado +
+        "</strong>" +
+        "<p>" +
+        'Conquistas: <strong id="totalConquistas">' +
+        totalConquistas +
+        "</strong>" +
+        "<p>" +
+        "</div>" +
+        '<button type="submit" value="Remover" class="btnApagarPerfil" onclick="remover( ' + username +
+        '), window.location.reload()">Apagar</button>' +
+        "</div>" +
+        "</div>" +
+        "</div>";
+}
+
+
+function remover(nome) {
+    for (var i = 0; i < utilizadores.length; i++) {
+        if (utilizadores[i].username == nome) {
+            utilizadores.splice(i, 1)
+            localStorage.setItem("userList", JSON.stringify(utilizadores))
+            break;
+        }
+    }
 }

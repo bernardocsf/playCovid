@@ -494,7 +494,7 @@ function naogosto() {
 }
 
 function congratulations() {
-    if (matchedCard.length == 16) {
+    if (matchedCard.length == 2) {
         modal.classList.add("show")
 
         /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
@@ -553,7 +553,7 @@ function congratulations() {
             totalXpEmojiV += 10
         } else if (moves <= 8) {
             /* VAI CONTAR AS VEZES GANHADAS COM TRES ESTRELAS */
-            totalXpEmojiV += 15
+            totalXpEmojiV += 150
         }
 
         /* VAI CONVERTER A STRING PARA NUMERO DE INTEIRO DE COROAS */
@@ -631,6 +631,7 @@ function congratulations() {
         }
     }
 }
+
 /* ESTATISTICAS DO JOGO */
 function estatisticasJogo() {
     modalEstatisticasJogo.classList.add("show")

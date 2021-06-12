@@ -2087,6 +2087,7 @@ header.masthead {
     position: relative;
     overflow: hidden;
     padding-top: calc(2rem + 72px);
+    height: 100%;
     background-image: url("/img/fundo.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -2281,6 +2282,7 @@ header.masthead {
     border-radius: 1rem;
     margin-bottom: 5rem;
     perspective: 1000px;
+    margin: 1.5rem;
     /* Remove this if you don't want the 3D effect */
 }
 
@@ -2331,7 +2333,7 @@ header.masthead {
 /* Style the back side */
 
 .flip-card-back {
-    background-color: dodgerblue;
+    background-color: rgba(92, 173, 255, 0.9);
     color: white;
     transform: rotateY(180deg);
     border-radius: 1rem;

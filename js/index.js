@@ -63,7 +63,7 @@ function login() {
     if (iniciarPassword == "") {
         return false
     }
-    if (contaRegistada == true) {
+    if (contaRegistada == true || iniciarUtilizador == "admin") {
         if (iniciarUtilizador == "admin") {
             document.getElementById("formis").onsubmit = function() {
                 window.location.replace("admin.html")
@@ -139,7 +139,6 @@ function registar() {
         const utilizador = new User(registarUtilizador, registarNome, registarEmail, registarData, registarGenero, registarPassword, registarPasswordConf, registarPerfil)
         utilizadores.push(utilizador)
         localStorage.setItem("userList", JSON.stringify(utilizadores))
-        alert("Conta criada com sucesso")
         document.getElementById("registarForm").onsubmit = function() {
             window.location.replace("index.html")
             return false
