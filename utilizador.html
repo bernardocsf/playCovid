@@ -382,7 +382,7 @@
 
                 <div id="modalEditarPerfil" class="modalEditarPerfil">
                     <div class="modalEditarPerfil-content">
-                        <form class="form-container" id="editadoForm">
+                        <div class="form-container" id="editadoForm">
                             <div class="form-row">
                                 <div class="col">
                                     <h3 class="h3form">Editar Pefil</h3>
@@ -435,15 +435,36 @@
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <button type="submit" class="btnEditado" onclick="perfilEditado()">Editar Perfil</button>
+                                    <button class="btnEditado" onclick="perfilEditado()">Editar Perfil</button>
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btnApagarPerfil" onclick="perfilApagar()">Apagar Perfil</button>
+                                    <button class="btnApagarPerfil" onclick="apagarPerfil()">Apagar Perfil</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
+
+                <div id="modalConfirm" class="modalEditarPerfil">
+                    <div class="modalConfirm-content">
+                        <div class="content-2">
+                            <p style="color: #002752;  font-size: 1.2rem;">Tens a certeza que queres apagar o teu perfil?</p>
+                            <div class="clearfix">
+                                <button type="button" onclick="apagar()" class="btnSimEmoji">Sim</button>
+                                <button type="button" onclick="naoApagar()" class="btnNaoEmoji">Não</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modalPassDif" class="modalEditarPerfil">
+                    <div class="modalConfirm-content">
+                        <div class="content-2">
+                            <p style="color: #002752;  font-size: 1.4rem;">Palavras-passe não coincidem</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="modalEstatisticas" class="modalEstatisticas">
                     <div class="modalEstatisticas-content">
                         <form class="form-container">
@@ -460,7 +481,7 @@
                             <hr>
                             <div class="form-row">
                                 <div class="col">
-                                    <h3 class="estatisticasTxt">MatchCovid</h3>
+                                    <h3 class="h3Info" style="margin-bottom: 0px;">MatchCovid</h3>
                                     <br>
                                 </div>
                             </div>
@@ -573,17 +594,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
-
-
-                <div id="modalPassDif" class="overlayInfoEmoji">
-                    <div class="modalEmojiGeral">
-                        <div class="form-row">
-                            <div id="emojiGeral" class="col2">
-                                Passwords não coincidem!
-                            </div>
-                        </div>
                     </div>
                 </div>
 

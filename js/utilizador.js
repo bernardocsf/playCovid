@@ -132,9 +132,13 @@ function perfilDados() {
     }
 }
 
-let contaRegistada = false
 
 let modalPassDif = document.getElementById("modalPassDif")
+modalPassDif.onclick = function(event) {
+    if (event.target == modalPassDif) {
+        modalPassDif.classList.remove('show');
+    }
+}
 
 function perfilEditado() {
     let editadoUtilizador = document.getElementById("editarUtilizador").value
@@ -161,36 +165,35 @@ function perfilEditado() {
             utilizadores[i].passwordConf = editadoPasswordConf
             utilizadores[i].fotoperfil = editadoPerfil
             if (editadoPassword != editadoPasswordConf) {
-                alert("Passwords não coincidem")
+                modalPassDif.classList.add("show")
             } else {
                 localStorage.setItem("userList", JSON.stringify(utilizadores))
-                document.getElementById("editadoForm").onsubmit = function() {
-                    window.location.replace("index.html")
-                    return false
-                }
+                window.location.reload()
+                return false
             }
         }
     }
 }
 
-function perfilApagar() {
+let modalConfirm = document.getElementById("modalConfirm")
+
+function apagarPerfil() {
+    modalConfirm.classList.add("show")
+}
+
+function apagar() {
     for (var i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i].username == usersNames[y]) {
-            utilizadores[i].username
-            utilizadores[i].name
-            utilizadores[i].email
-            utilizadores[i].data
-            utilizadores[i].genero
-            utilizadores[i].password
-            utilizadores[i].passwordConf
-            utilizadores[i].fotoperfil
-            localStorage.removeItem("userList", JSON.stringify(utilizadores[i]))
-            document.getElementById("editadoForm").onsubmit = function() {
-                window.location.replace("index.html")
-                return false
-            }
+            utilizadores.splice(i, 1)
+            localStorage.setItem("userList", JSON.stringify(utilizadores))
+            window.location.replace("index.html")
+            break;
         }
     }
+}
+
+function naoApagar() {
+    modalConfirm.classList.remove("show")
 }
 
 // JOGO DA MEMÓRIA

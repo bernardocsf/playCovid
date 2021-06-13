@@ -45,6 +45,40 @@ class userName {
     }
 }
 
+let modalDadosErrados = document.getElementById("modalDadosErrados")
+modalDadosErrados.onclick = function(event) {
+    if (event.target == modalDadosErrados) {
+        modalDadosErrados.classList.remove('show');
+    }
+}
+
+let modalPreencher = document.getElementById("modalPreencher")
+modalPreencher.onclick = function(event) {
+    if (event.target == modalPreencher) {
+        modalPreencher.classList.remove('show');
+    }
+}
+
+let modalUserExiste = document.getElementById("modalUserExiste")
+modalUserExiste.onclick = function(event) {
+    if (event.target == modalUserExiste) {
+        modalUserExiste.classList.remove('show');
+    }
+}
+
+let modalPassDif = document.getElementById("modalPassDif")
+modalPassDif.onclick = function(event) {
+    if (event.target == modalPassDif) {
+        modalPassDif.classList.remove('show');
+    }
+}
+
+let modalPassCurta = document.getElementById("modalPassCurta")
+modalPassCurta.onclick = function(event) {
+    if (event.target == modalPassCurta) {
+        modalPassCurta.classList.remove('show');
+    }
+}
 
 function login() {
     let iniciarUtilizador = document.getElementById("iniciarUtilizador").value
@@ -79,7 +113,7 @@ function login() {
             }
         }
     } else {
-        alert("jkre")
+        modalDadosErrados.classList.add("show")
     }
     if (iniciarUtilizador == "admin" && iniciarPassword == "admin") {
         localStorage.setItem("usernameList", JSON.stringify(usersNames))
@@ -123,15 +157,15 @@ function registar() {
             break
         }
         if (registarUtilizador == "" || registarNome == "" || registarEmail == "" || registarPassword == "" || registarPasswordConf == "") {
-            alert("Tem que preencher todos os campos")
+            modalPreencher.classList.add("show")
             return false;
         }
         if (registarPassword != registarPasswordConf) {
-            alert("Passwords não coincidem!")
+            modalPassDif.classList.add("show")
             return false
         }
         if (registarPassword.length < 4 && registarPasswordConf.length < 4) {
-            alert("Passwords muito curtas!")
+            modalPassCurta.classList.add("show")
             return false
         }
     }
@@ -139,12 +173,13 @@ function registar() {
         const utilizador = new User(registarUtilizador, registarNome, registarEmail, registarData, registarGenero, registarPassword, registarPasswordConf, registarPerfil)
         utilizadores.push(utilizador)
         localStorage.setItem("userList", JSON.stringify(utilizadores))
+        window.location.reload()
         document.getElementById("registarForm").onsubmit = function() {
             window.location.replace("index.html")
             return false
         }
     } else {
-        alert("Este username já existe")
+        modalUserExiste.classList.add("show")
         return false
     }
 }

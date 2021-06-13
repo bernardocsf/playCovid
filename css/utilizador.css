@@ -2197,6 +2197,21 @@ header.masthead {
 }
 
 
+/* MODAL CONTENT Confirmar */
+
+.modalConfirm-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 40%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+    top: 16rem;
+    font-weight: bold;
+}
+
+
 /* BOTAO DE EDITAR PERFIL NO MODAL */
 
 .btnEditado {
@@ -2408,7 +2423,6 @@ header.masthead {
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 0;
     border-radius: 1rem 1rem 1rem 1rem;
     width: 60%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
@@ -2418,6 +2432,7 @@ header.masthead {
 .estatisticasTxt {
     color: #002752;
     font-weight: bold;
+    padding: 10px;
 }
 
 
@@ -3405,7 +3420,7 @@ header.masthead {
 }
 
 .btnSimEmoji {
-    background-color: #002b63;
+    background-color: #48bb4c;
     color: white;
     padding: 12px 20px;
     border: none;

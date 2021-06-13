@@ -21,7 +21,35 @@
                     <a class="navbar-brand" id="btnNavRegistate" href="#">Regista-te</a>
                     <div id="modal" class="modal">
                         <div class="modal-content">
-                            <form class="form-container" id="registarForm">
+                            <div id="modalPreencher" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.3rem;">Tens que preencher todos os campos!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="modalUserExiste" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.3rem;">Este username já existe!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="modalPassDif" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.4rem;">Palavras-passe não coincidem!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="modalPassCurta" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.4rem;">Palavras-passe demasiado curta!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-container" id="registarForm">
                                 <div class="form-row">
                                     <div class="col">
                                         <h3 class="h3form">Regista-te</h3>
@@ -72,15 +100,22 @@
                                         <input type="password" id="registarPasswordConf" placeholder="Confirmar Palavra-passe" name="pswconfirm" minlength="4" required>
                                     </div>
                                 </div>
-                                <button type="submit" class="btnRegistar" onclick="registar()">Registar</button>
-                            </form>
+                                <button class="btnRegistar" onclick="registar()">Registar</button>
+                            </div>
                         </div>
                     </div>
-
                 </li>
             </ul>
         </div>
     </nav>
+
+    <div id="modalDadosErrados" class="modalEditarPerfil">
+        <div class="modalConfirm-content">
+            <div class="content-2">
+                <p style="color: #002752;  font-size: 1.2rem;">Dados Incorretos</p>
+            </div>
+        </div>
+    </div>
 
 
     <header class="masthead text-center text-white">
@@ -101,11 +136,11 @@
                                         <div class="col">
                                             <input type="password" id="iniciarPassword" placeholder="Palavra-passe" name="psw" required> </div>
                                     </div>
-                                    <button type="submit" href="utilizador.html" class="btnIniciarSessao" onclick="login()">Iniciar sessão</button>
+                                    <button href="utilizador.html" type="submit" class="btnIniciarSessao" onclick="login()">Iniciar sessão</button>
                                 </form>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-2">
