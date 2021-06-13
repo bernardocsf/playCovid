@@ -113,7 +113,7 @@ function login() {
             }
         }
     } else {
-        modalDadosErrados.classList.add("show")
+        alert("Dados errados!")
     }
     if (iniciarUtilizador == "admin" && iniciarPassword == "admin") {
         localStorage.setItem("usernameList", JSON.stringify(usersNames))
