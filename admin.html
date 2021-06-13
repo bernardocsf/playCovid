@@ -22,7 +22,35 @@
                     <a class="navbar-brand" id="btnNavRegistate" href="index.html">Sair</a>
                     <div id="modal" class="modal">
                         <div class="modal-content">
-                            <form class="form-container" id="registarForm">
+                            <div id="modalPreencher" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.3rem;">Tens que preencher todos os campos!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="modalPassDif" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.4rem;">Palavras-passe não coincidem!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="modalPassCurta" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.4rem;">Palavras-passe demasiado curta!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="modalUserExiste" class="modalEditarPerfil">
+                                <div class="modalConfirm-content">
+                                    <div class="content-2">
+                                        <p style="color: #002752;  font-size: 1.3rem;">Este username já existe!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-container" id="registarForm">
                                 <div class="form-row">
                                     <div class="col">
                                         <h3 class="h3form">Registar uma conta</h3>
@@ -73,7 +101,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btnRegistar" onclick="registar()">Registar</button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </li>
