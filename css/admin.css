@@ -2269,6 +2269,20 @@ header.masthead {
     text-align: center;
 }
 
+.barraUtilizador {
+    position: relative;
+    left: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    padding: 18px 20px;
+    border: none;
+    width: 90%;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
 
 /* FLIP CARD */
 

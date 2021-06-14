@@ -193,3 +193,5 @@ function remover(nome) {
         }
     }
 }
+
+document.getElementById("nUtilizadores").innerHTML = utilizadores.length

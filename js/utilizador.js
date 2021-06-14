@@ -212,24 +212,6 @@ function naoApagar() {
     modalConfirm.classList.remove("show")
 }
 
-maior = 0
-for (var i = 0; i < utilizadores.length; i++) {
-    var totalXp = utilizadores[i].totalXp
-    if (maior < totalXp) {
-        maior = totalXp
-    }
-}
-for (var j = maior; j > utilizadores.length; j--) {
-    console.log(j);
-}
-
-
-var numUser = 0
-var tableClassi = document.getElementById('tableClassi');
-for (var i = 0; i < utilizadores.length; i++) {
-    numUser++
-    tableClassi.innerHTML += '<tr><td>' + numUser + 'º' + '</td><td>' + utilizadores[i].name + '</td><td>' + utilizadores[i].totalXp + '</td></tr>';
-}
 
 
 
@@ -593,7 +575,7 @@ function congratulations() {
             totalXpEmojiV += 10
         } else if (moves <= 8) {
             /* VAI CONTAR AS VEZES GANHADAS COM TRES ESTRELAS */
-            totalXpEmojiV += 15
+            totalXpEmojiV += 90
         }
 
         /* VAI CONVERTER A STRING PARA NUMERO DE INTEIRO DE COROAS */
@@ -671,6 +653,19 @@ function congratulations() {
         }
     }
 }
+
+
+var numUser = 0
+var tableClassi = document.getElementById('tableClassi');
+for (var i = 0; i < utilizadores.length; i++) {
+    numUser++
+    utilizadores.sort((a, b) => {
+        return b.totalXp - a.totalXp;
+    });
+    let foto = utilizadores[i].fotoperfil
+    tableClassi.innerHTML += '<tr><th>' + numUser + '<strong>º </strong> ' + '</th><td>' + "<img src=" + foto + ' class="imgProfil">' + " " + utilizadores[i].name + '</td><td>' + utilizadores[i].totalXp + '</td></tr>';
+}
+
 
 /* ESTATISTICAS DO JOGO */
 function estatisticasJogo() {

@@ -2129,7 +2129,7 @@ header.masthead {
     margin: auto;
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.6);
-    top: 8rem;
+    top: 7.6rem;
     right: 3rem;
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
 }
@@ -2139,7 +2139,7 @@ header.masthead {
 
 .btnsUtilizador {
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    color: #002752;
     padding: 14px 20px;
     border: none;
     cursor: pointer;
@@ -2166,7 +2166,6 @@ header.masthead {
     border: #ffffff solid 2px;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 15px;
     border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
     transition: 0.6s;
     font-size: 1.2rem;
@@ -2525,12 +2524,18 @@ header.masthead {
     border-radius: 1rem 1rem 1rem 1rem;
     width: 60%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 8rem;
+    top: 6.5rem;
 }
 
 .tableClassi {
     border-collapse: collapse;
     width: 100%;
+}
+
+.imgProfil {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
 }
 
 td,
@@ -2550,7 +2555,7 @@ tr:nth-child(even) {
 }
 
 #table-scroll {
-    height: 300px;
+    height: 330px;
     overflow: auto;
     margin-bottom: 20px;
 }
@@ -3436,7 +3441,7 @@ tr:nth-child(even) {
 }
 
 .infoTbl li {
-    list-style: upper-roman;
+    list-style: none;
 }
 
 #btnG {
