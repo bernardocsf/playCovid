@@ -39,6 +39,7 @@
                             <button id="btnEditarPerfil" class="btnsUtilizador">Editar Perfil</button>
                             <button id="btnEstatisticas" class="btnsUtilizador">Estatísticas</button>
                             <button id="btnConquistas" class="btnsUtilizador">Conquistas</button>
+                            <button id="btnClassificacao" class="btnsUtilizadorClassi">Tabela de Classificação</button>
                         </div>
                     </div>
                 </div>
@@ -141,7 +142,7 @@
                     <!--MODAL DAS ESTATISTICAS DO JOGO-->
                     <div id="modalEstatisticasJogo" class="overlayEstatisticasJogo">
                         <div class="modalEstatisticasJogo">
-                            <h2 class="estatisticasTxt">Jogo da Memória</h2>
+                            <h2 class="estatisticasTxt">MatchCovid</h2>
                             <a class="closeCongratulations" onclick="fecharJogoE()"><span>&times;</span></a>
                             <div class="content-2">
                                 <p id="pTxt">Já foi jogado <span style="font-weight: bold;" id="totalQtdJogado"></span> vezes</p>
@@ -356,7 +357,7 @@
 
                         </div>
 
-                        <div class="quiz-overQuiz">
+                        <div id="overlayQuizRes" class="quiz-overQuiz">
                             <div class="box">
                                 <h1>Bom trabalho! <br /> Conseguis-te acertar <span class="correct-answers"></span> de
                                     <span class="total-questions2"></span> perguntas.
@@ -591,6 +592,35 @@
                                     <div class="side right">
                                         <div> 100</div>
                                     </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="modalClassificacao" class="modalClassificacao">
+                    <div class="modalClassificacao-content">
+                        <form class="form-container">
+                            <div class="form-row">
+                                <div class="col">
+                                    <h3 class="h3form">Tabela de classificação</h3>
+                                    <p class="pform">Aqui podes ver a posição dos outros jogadores.</p>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btnClose" aria-label="Close">
+                                        <span id="closeClassificacao" aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div id="table-wrapper">
+                                <div id="table-scroll">
+                                    <table id="tableClassi" class="tableClassi">
+                                        <tr>
+                                            <th>Posição</th>
+                                            <th>Nome</th>
+                                            <th>Total Xp</th>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </form>

@@ -54,6 +54,22 @@ modalConquistas.onclick = function(event) {
     }
 }
 
+// MODAL DE VER A TABELA DE CLASSIFCAÇÃO
+var modalClassificacao = document.getElementById("modalClassificacao");
+var btnClassificacao = document.getElementById("btnClassificacao");
+var closeClassificacao = document.getElementById("closeClassificacao")
+btnClassificacao.onclick = function() {
+    modalClassificacao.classList.add('show');
+}
+closeClassificacao.onclick = function() {
+    modalClassificacao.classList.remove('show');
+}
+modalClassificacao.onclick = function(event) {
+    if (event.target == modalClassificacao) {
+        modalClassificacao.classList.remove('show');
+    }
+}
+
 // MODAL DA FOTO
 var modalfoto = document.getElementById("modalfoto");
 var img = document.getElementById("output");
@@ -195,6 +211,27 @@ function apagar() {
 function naoApagar() {
     modalConfirm.classList.remove("show")
 }
+
+maior = 0
+for (var i = 0; i < utilizadores.length; i++) {
+    var totalXp = utilizadores[i].totalXp
+    if (maior < totalXp) {
+        maior = totalXp
+    }
+}
+for (var j = maior; j > utilizadores.length; j--) {
+    console.log(j);
+}
+
+
+var numUser = 0
+var tableClassi = document.getElementById('tableClassi');
+for (var i = 0; i < utilizadores.length; i++) {
+    numUser++
+    tableClassi.innerHTML += '<tr><td>' + numUser + 'º' + '</td><td>' + utilizadores[i].name + '</td><td>' + utilizadores[i].totalXp + '</td></tr>';
+}
+
+
 
 // JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
@@ -556,7 +593,7 @@ function congratulations() {
             totalXpEmojiV += 10
         } else if (moves <= 8) {
             /* VAI CONTAR AS VEZES GANHADAS COM TRES ESTRELAS */
-            totalXpEmojiV += 150
+            totalXpEmojiV += 15
         }
 
         /* VAI CONVERTER A STRING PARA NUMERO DE INTEIRO DE COROAS */

@@ -2125,11 +2125,11 @@ header.masthead {
 .backgroundBtns {
     position: fixed;
     width: 20rem;
-    height: 26rem;
+    height: 29rem;
     margin: auto;
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.6);
-    top: 9.5rem;
+    top: 8rem;
     right: 3rem;
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
 }
@@ -2155,7 +2155,26 @@ header.masthead {
 /* QUANDO O RATO ESTIVER EM CIMA DE ALGUM BOTAO FIXO */
 
 .btnsUtilizador:hover {
-    opacity: 0.9;
+    opacity: 0.8;
+    transition: 0.6s;
+}
+
+.btnsUtilizadorClassi {
+    background-color: #ffffff00;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: #ffffff solid 2px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+    transition: 0.6s;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btnsUtilizadorClassi:hover {
+    opacity: 0.7;
     transition: 0.6s;
 }
 
@@ -2472,8 +2491,68 @@ header.masthead {
     top: 8rem;
 }
 
-.checked {
-    color: orange;
+
+/* MODAL CLASSIFICAÇÃO*/
+
+.modalClassificacao {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    right: -100%;
+    top: 0;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.modalClassificacao.show {
+    right: 0;
+    top: 0;
+    opacity: 1;
+}
+
+
+/* MODAL CONTENT CLASSIFICAÇÃO */
+
+.modalClassificacao-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 60%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+    top: 8rem;
+}
+
+.tableClassi {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    color: #002b63;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#table-wrapper {
+    position: relative;
+}
+
+#table-scroll {
+    height: 300px;
+    overflow: auto;
+    margin-bottom: 20px;
 }
 
 
@@ -3592,7 +3671,7 @@ header.masthead {
     .backgroundBtns {
         position: relative;
         width: 100%;
-        height: 26rem;
+        height: 30rem;
         top: 0rem;
         right: 0rem;
         margin-bottom: 2rem;
@@ -3733,7 +3812,7 @@ header.masthead {
         width: 100%;
         right: 0rem;
         top: -2.2rem;
-        height: 26rem;
+        height: 30rem;
         margin: auto;
         border-radius: 0 0 1rem 1rem;
         background: rgba(0, 0, 0, 0.7);
