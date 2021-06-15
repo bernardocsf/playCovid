@@ -17,34 +17,27 @@ function registarFotoPerfil() {
     const preview = document.getElementById('registarFoto');
     const file = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
-
     reader.addEventListener("load", function() {
         preview.src = reader.result;
     }, false);
-
     if (file) {
         reader.readAsDataURL(file);
     }
 }
-
 let usersNames = []
 if (localStorage.getItem("usernameList")) {
     usersNames = JSON.parse(localStorage.getItem("usernameList"))
 }
-
 let utilizadores = []
 if (localStorage.getItem("userList")) {
     utilizadores = JSON.parse(localStorage.getItem("userList"))
 }
-
 let contaRegistada = false
-
 class userName {
     constructor(username) {
         this.username = username
     }
 }
-
 class User {
     constructor(username, name, email, data, genero, password, passwordConf, fotoperfil) {
         this.username = username
@@ -129,8 +122,6 @@ function registar() {
     }
 }
 
-let x = usersNames.length
-let y = x - 1
 
 let linha = 0;
 var table = document.getElementById("tabela");
@@ -141,6 +132,7 @@ for (var i = utilizadores.length - 1; i >= 0; i--) {
         var row = table.insertRow(linha);
         linha++;
     }
+
     j++;
 
     let foto = utilizadores[i].fotoperfil;
@@ -148,10 +140,9 @@ for (var i = utilizadores.length - 1; i >= 0; i--) {
     let email = utilizadores[i].email;
     let tempoJogado = utilizadores[i].tempoJogado;
     let totalConquistas = utilizadores[i].totalConquistas;
-    let username = utilizadores[i].username
+    let username = utilizadores[i].username;
 
     var cell = row.insertCell(-1);
-
     cell.innerHTML =
         '<div class="flip-card">' +
         '<div class="flip-card-inner">' +
@@ -159,9 +150,9 @@ for (var i = utilizadores.length - 1; i >= 0; i--) {
         "<img src=" +
         foto +
         ' class="imgProfil">' +
-        "</div>" +
+        '</div>' +
         '<div class="flip-card-back">' +
-        "<br>" +
+        '<br>' +
         '<h2 class="nome" id="nome">' +
         nome +
         "</h2>" +
@@ -183,6 +174,7 @@ for (var i = utilizadores.length - 1; i >= 0; i--) {
         "</div>" +
         "</div>";
 }
+
 
 function remover(nome) {
     for (var i = 0; i < utilizadores.length; i++) {
