@@ -13,7 +13,7 @@ html {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Franklin Gothic Medium';
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -113,7 +113,6 @@ pre,
 code,
 kbd,
 samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1em;
 }
 
@@ -169,7 +168,6 @@ select,
 optgroup,
 textarea {
     margin: 0;
-    font-family: inherit;
     font-size: inherit;
     line-height: inherit;
 }
