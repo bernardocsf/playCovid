@@ -45,12 +45,6 @@ class userName {
     }
 }
 
-let modalDadosErrados = document.getElementById("modalDadosErrados")
-modalDadosErrados.onclick = function(event) {
-    if (event.target == modalDadosErrados) {
-        modalDadosErrados.classList.remove('show');
-    }
-}
 
 let modalPreencher = document.getElementById("modalPreencher")
 modalPreencher.onclick = function(event) {

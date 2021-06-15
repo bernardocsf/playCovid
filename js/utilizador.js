@@ -515,6 +515,19 @@ function naogosto() {
     localStorage.setItem("userList", JSON.stringify(utilizadores))
 }
 
+var numUser = 0
+var tableClassi = document.getElementById('tableClassi');
+for (var i = 0; i < utilizadores.length; i++) {
+    numUser++
+    utilizadores.sort((a, b) => {
+        return b.totalXp - a.totalXp;
+    });
+    let foto = utilizadores[i].fotoperfil
+    tableClassi.innerHTML += '<tr><th>' + numUser + '<strong>º </strong> ' + '</th><td>' + "<img src=" + foto + ' class="imgProfil">' + " " + utilizadores[i].name + '</td><td>' + utilizadores[i].totalXp + '</td></tr>';
+}
+
+
+
 function congratulations() {
     if (matchedCard.length == 2) {
         modal.classList.add("show")
@@ -575,7 +588,7 @@ function congratulations() {
             totalXpEmojiV += 10
         } else if (moves <= 8) {
             /* VAI CONTAR AS VEZES GANHADAS COM TRES ESTRELAS */
-            totalXpEmojiV += 90
+            totalXpEmojiV += 15
         }
 
         /* VAI CONVERTER A STRING PARA NUMERO DE INTEIRO DE COROAS */
@@ -622,6 +635,7 @@ function congratulations() {
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
+
     }
 
     /* QUANDO APARECE A CONGRATULAÇÃO VAI LER/ATUALIZAR OS DADOS QUE ESTÃO NA LOCALSTORAGE E IMPRIMI-LOS */
@@ -655,16 +669,7 @@ function congratulations() {
 }
 
 
-var numUser = 0
-var tableClassi = document.getElementById('tableClassi');
-for (var i = 0; i < utilizadores.length; i++) {
-    numUser++
-    utilizadores.sort((a, b) => {
-        return b.totalXp - a.totalXp;
-    });
-    let foto = utilizadores[i].fotoperfil
-    tableClassi.innerHTML += '<tr><th>' + numUser + '<strong>º </strong> ' + '</th><td>' + "<img src=" + foto + ' class="imgProfil">' + " " + utilizadores[i].name + '</td><td>' + utilizadores[i].totalXp + '</td></tr>';
-}
+
 
 
 /* ESTATISTICAS DO JOGO */
