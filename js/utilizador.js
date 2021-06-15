@@ -1322,7 +1322,6 @@ const questions = [{
         options: ['ficar em casa', 'ir para o hospital', 'fingir que não tenho nada', 'ir para casa de amigos'],
         answer: 0
     }
-
 ]
 
 totalQuestionsSpan.innerHTML = questions.length
