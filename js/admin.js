@@ -168,13 +168,12 @@ for (var i = utilizadores.length - 1; i >= 0; i--) {
         "</strong>" +
         "<p>" +
         "</div>" +
-        '<button type="submit" value="Remover" class="btnApagarPerfil" onclick="remover( ' + username +
-        '), window.location.reload()">Apagar</button>' +
+        '<button type="submit" value="Remover" class="btnApagarPerfil" onclick="remover(\'' + username +
+        '\'), window.location.reload()">Apagar</button>' +
         "</div>" +
         "</div>" +
         "</div>";
 }
-
 
 function remover(nome) {
     for (var i = 0; i < utilizadores.length; i++) {
@@ -186,4 +185,8 @@ function remover(nome) {
     }
 }
 
-document.getElementById("nUtilizadores").innerHTML = utilizadores.length
+if (utilizadores.length == 1) {
+    document.getElementById("nUtilizadores").innerHTML = utilizadores.length + " utilizador registado"
+} else {
+    document.getElementById("nUtilizadores").innerHTML = utilizadores.length + " utilizadores registados"
+}
