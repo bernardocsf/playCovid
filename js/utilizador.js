@@ -529,7 +529,7 @@ for (var i = 0; i < utilizadores.length; i++) {
 
 
 function congratulations() {
-    if (matchedCard.length == 2) {
+    if (matchedCard.length == 16) {
         modal.classList.add("show")
 
         /* VAI CONTAR O TEMPO QUE JÁ FOI JOGADO */
