@@ -26,7 +26,7 @@ aside,
 figcaption,
 figure,
 footer,
-header,
+main,
 hgroup,
 main,
 nav,
@@ -2085,11 +2085,11 @@ pre code {
 
 /* FORMATAÇÃO DA IMAGEM DE FUNDO */
 
-header.masthead {
+main.masthead {
     position: relative;
     overflow: hidden;
     padding-top: calc(3rem + 72px);
-    background-image: url("/img/fundo2.jpg");
+    background-image: url("/imagens/fundo2.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: scroll;
@@ -2769,7 +2769,7 @@ tr:nth-child(even) {
     position: relative;
     width: 550px;
     height: 580px;
-    background-image: url("/img/fundo2.jpg");
+    background-image: url("/imagens/fundo2.jpg");
     padding: 1rem;
     border-radius: 1.5rem;
     box-shadow: 8px 9px 10px 10px rgba(105, 124, 139, 0.322);
@@ -2782,7 +2782,7 @@ tr:nth-child(even) {
 
 .card {
     background-color: white;
-    background-image: url("/img/logo.png");
+    background-image: url("/imagens/logo.png");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -2882,42 +2882,42 @@ tr:nth-child(even) {
 }
 
 #cardNauseas {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
 #cardHouse {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
 #cardMicrobe {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
 #cardSneezing {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
 #cardMask {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
 #cardSaop {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
 #cardSyring {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
 #cardAmbulancia {
-    background-image: url("/img/cardblock.jpg");
+    background-image: url("/imagens/cardblock.jpg");
     font-size: 0px;
 }
 
@@ -3130,7 +3130,7 @@ tr:nth-child(even) {
 
 .answers-tracker div.correct {
     background-color: green;
-    background-image: url('img/correct.png');
+    background-image: url('imagens/correct.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -3138,7 +3138,7 @@ tr:nth-child(even) {
 
 .answers-tracker div.wrong {
     background-color: red;
-    background-image: url('img/wrong.png');
+    background-image: url('imagens/wrong.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;

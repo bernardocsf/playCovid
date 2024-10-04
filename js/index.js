@@ -1,6 +1,7 @@
 var modal = document.getElementById('modal');
-var btn = document.getElementById("btnNavRegistate");
+var btn = document.getElementById("btnNBR");
 var span = document.getElementsByClassName("close")[0];
+
 btn.onclick = function() {
     modal.classList.add('show');
 }

@@ -26,7 +26,7 @@ aside,
 figcaption,
 figure,
 footer,
-header,
+main,
 hgroup,
 main,
 nav,
@@ -2083,12 +2083,12 @@ pre code {
 
 /* esta parte gere a posição da imagem de fundo inicial */
 
-header.masthead {
+main.masthead {
     position: relative;
     overflow: hidden;
     padding-top: calc(2rem + 72px);
     height: 100%;
-    background-image: url("/img/fundo.jpg");
+    background-image: url("/imagens/fundo.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: scroll;
