@@ -672,6 +672,8 @@ function congratulations() {
 
 
 
+
+
 /* ESTATISTICAS DO JOGO */
 function estatisticasJogo() {
     modalEstatisticasJogo.classList.add("show")
