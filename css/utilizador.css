@@ -690,8 +690,9 @@ a#btnSair {
     padding: 25px;
     background: #ffffff;
     border-radius: 1rem;
-    width: 60%;
+    width: 70%;
     transition: all 0.5s ease-in-out;
+    z-index: -1;
 }
 
 .form-row {
@@ -778,7 +779,6 @@ a#btnSair {
     top: 50%;
     width: 20rem;
     height: 29rem;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza os itens horizontalmente */
@@ -1095,14 +1095,16 @@ a#btnSair {
 }
 
 .modalClassificacao-content {
-    position: relative;
+    position: absolute;
+    top: 50%;  /* Coloca a parte superior no meio da tela */
+    left: 50%; /* Coloca a parte esquerda no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta a posição para que o centro fique alinhado */
     background-color: #fefefe;
     margin: auto;
     padding: 0;
     border-radius: 1rem 1rem 1rem 1rem;
-    width: 60%;
+    width: 70%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 6.5rem;
 }
 
 .tableClassi {
@@ -1157,14 +1159,14 @@ a#btnSair {
 }
 
 .modalConquistas-content {
-    position: relative;
+    position: absolute;
+    top: 50%;  /* Coloca a parte superior no meio da tela */
+    left: 50%; /* Coloca a parte esquerda no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta a posição para que o centro fique alinhado */
     background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border-radius: 1rem 1rem 1rem 1rem;
-    width: 60%;
+    border-radius:  1rem;
+    width: 70%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 8rem;
 }
 
 #editarfoto {
@@ -2036,14 +2038,16 @@ pre code {
 /* MODAL CONTENT Editar Perfil */
 
 .modalEditarPerfil-content {
-    position: relative;
+    position: absolute;
+    top: 50%;  /* Coloca a parte superior no meio da tela */
+    left: 50%; /* Coloca a parte esquerda no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta a posição para que o centro fique alinhado */
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    border-radius: 1rem 1rem 1rem 1rem;
-    width: 60%;
+    border-radius: 1rem;
+    width: 70%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.9);
-    top: 6rem;
 }
 
 
