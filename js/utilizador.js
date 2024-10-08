@@ -213,8 +213,6 @@ function naoApagar() {
 }
 
 
-
-
 // JOGO DA MEMÓRIA
 let card = document.getElementsByClassName("card");
 let cards = [...card];
