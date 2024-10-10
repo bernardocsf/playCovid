@@ -161,18 +161,18 @@ function registar() {
     registarGenero = "Feminino"; // Gênero feminino
   }
 
-  // Obtém os valores das senhas do usuário
+  // Obtém os valores das senhas do utilizador
   let registarPassword = document.getElementById("registarPassword").value;
   let registarPasswordConf = document.getElementById(
     "registarPasswordConf"
   ).value;
   let registarPerfil = document.getElementById("registarFoto").src;
 
-  // Verifica se o nome de usuário já existe na lista de usuários
+  // Verifica se o nome de utilizador já existe na lista de utilizadores
   for (var i = 0; i < utilizadores.length; i++) {
     if (utilizadores[i].username == registarUtilizador) {
-      contaRegistada = true; // Nome de usuário já registrado
-      break; // Sai do loop, pois já encontramos um usuário com o mesmo nome
+      contaRegistada = true; // Nome de utilizador já registrado
+      break; // Sai do loop, pois já encontramos um utilizador com o mesmo nome
     }
   }
 
@@ -188,9 +188,9 @@ function registar() {
     return false; // Interrompe a execução da função
   }
 
-  // Valida se o nome de usuário já existe
+  // Valida se o nome de utilizador já existe
   if (contaRegistada) {
-    modalUserExiste.classList.add("show"); // Mostra o modal informando que o nome de usuário já está em uso
+    modalUserExiste.classList.add("show"); // Mostra o modal informando que o nome de utilizador já está em uso
     return false; // Interrompe a execução da função
   }
 
@@ -206,7 +206,7 @@ function registar() {
     return false; // Interrompe a execução da função
   }
 
-  // Se o nome de usuário não estiver registrado, cria um novo usuário
+  // Se o nome de utilizador não estiver registrado, cria um novo utilizador
   const utilizador = new User(
     registarUtilizador,
     registarNome,
@@ -218,10 +218,10 @@ function registar() {
     registarPerfil
   );
 
-  // Adiciona o novo usuário à lista de usuários
+  // Adiciona o novo utilizador à lista de utilizadors
   utilizadores.push(utilizador);
 
-  // Armazena a lista atualizada de usuários no localStorage
+  // Armazena a lista atualizada de utilizadors no localStorage
   localStorage.setItem("userList", JSON.stringify(utilizadores));
 
   // Atualiza a página para refletir o registro
