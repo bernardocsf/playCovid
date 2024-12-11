@@ -2,241 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Um jogo interativo para aprender sobre medidas de prevenção contra a Covid-19.">
-    <meta name="author" content="Bernardo Ferreira">
-    <title>Play Covid</title>
-    <link rel="shortcut icon" href="imagens/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bernardo Ferreira - PlayCovid">
+    <title>PlayCovid</title>
+    <link rel="icon" type="image/png" href="images/favIcon.png">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <header>
-        <!--Começa o menu-->
-        <nav class="navbar">
-            <div>
-                <a href="#"><img id="imgNB" src="imagens/logo.png" alt="Logo"></a>
-            </div>
-            <h2><a id="btnNBR" href="#">Registar</a></h2>
+        <nav class="menu-nav">
+            <a href="index.html">
+                <img src="images/favIcon.png" alt="Logo">
+            </a>
+            <button id="openModalButton" aria-haspopup="dialog">Registar</button>
         </nav>
-        <!--Começa o modal-->
-        <div class="modal" id="modal">
+
+        <div id="modal" class="modal" role="dialog" aria-hidden="true">
             <div class="modal-content">
-                <div class="modalEP" id="modalPreencher">
-                    <div class="modalAlert">
-                        <div class="contentAlert">
-                            <p>Todos os campos devem ser preenchidos!</p>
-                        </div>
-                    </div>
+                <div class="modalHeader">
+                    <h1>Registar conta</h1>
+                    <button id="closeModalButton" aria-label="CloseModal">&times;</button>
                 </div>
-                <div class="modalEP" id="modalUserExiste">
-                    <div class="modalAlert">
-                        <div class="contentAlert">
-                            <p>Este username já existe!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modalEP" id="modalPassDif">
-                    <div class="modalAlert">
-                        <div class="contentAlert">
-                            <p>Palavras-passe não coincidem!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modalEP" id="modalPassCurta">
-                    <div class="modalAlert">
-                        <div class="contentAlert">
-                            <p>Palavras-passe demasiado curta!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-container" id="registarForm">
-                    <button type="button" id="btnClose" aria-label="Close">
-                        <span class="close" aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="form-row">
-                        <div class="firstCol">
-                            <h1>Regista-te</h1>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <label class="col-small">
-                            <img id="registarFoto" src="imagens/p1.png">
-                            <input type="file" id="inputfile" onchange="registarFotoPerfil()">
+
+                <form id="registarForm" class="form-container" onsubmit="return registar(event)">
+                    <div>
+                        <label class="registarFoto">
+                            <img src="images/p1.png" id="mostrarFoto" alt="Foto de Perfil">
+                            <input type="file" id="registarFotoPerfil" name="foto" onChange="handleFotoPerfil(event)">
                         </label>
-                        <div class="col">
-                            <input type="text" id="registarUtilizador" placeholder="Nome de utilizador"
-                                name="utilizador" onkeyup="this.value = this.value.toLowerCase();" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" id="registarNome" placeholder="Nome próprio" name="nome" required>
-                        </div>
+                        <input type="text" id="registarUserName" name="utilizador"
+                            placeholder="Nome de utilizador" required>
+                        <input type="text" id="registarNome" name="nome" placeholder="Nome próprio" required>
                     </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="email" id="registarEmail" placeholder="Email" name="email" required>
-                        </div>
+                    <div>
+                        <input type="email" id="registarEmail" name="email" placeholder="Email" required>
                     </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="date" id="registarData" placeholder="Data de Nascimento"
-                                onfocus="(this.type='date')">
-                        </div>
-                        <div class="col">
-                            <div class="controls">
-                                <div class="radio-group">
-                                    <input type="radio" id="registarMasculino" name="gender" value="Masculino">
-                                    <label for="registarMasculino">Masculino</label>
-                                </div>
-                                <div class="radio-group">
-                                    <input type="radio" id="registarFeminino" name="gender" value="Feminino">
-                                    <label for="registarFeminino">Feminino</label>
-                                </div>
+                    <div>
+                        <input type="date" id="registarData" required>
+                        <div class="controls">
+                            <div>
+                                <input type="radio" id="registarMasculino" name="gender" value="Masculino" checked>
+                                <label for="registarMasculino">Masculino</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="registarFeminino" name="gender" value="Feminino">
+                                <label for="registarFeminino">Feminino</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw"
-                                minlength="4" required>
-                        </div>
-                        <div class="col">
-                            <input type="password" id="registarPasswordConf" placeholder="Confirma palavra-passe"
-                                name="pswconfirm" minlength="4" required>
-                        </div>
+                    <div>
+                        <input type="password" id="registarPassword" placeholder="Palavra-passe" name="psw"
+                            minlength="4" required>
+                        <input type="password" id="registarPasswordConf" placeholder="Confirma palavra-passe"
+                            name="pswconfirm" minlength="4" required>
                     </div>
-                    <button type="submit" id="btnRegistar" onclick="registar()">
-                        <h1>Registar</h1>
-                    </button>
-                </div>
+                    <button type="submit" id="btnRegistar">Registar</button>
+                </form>
             </div>
         </div>
     </header>
 
-    <main class="main">
-        <div class="backgroundsRow">
-            <div class="background">
-                <form name="formis" method="get" id="formis" class="form-container">
-                    <h2 style="text-align:center">Iniciar Sessão</h2>
-                    <div class="formIS">
-                        <input type="text" id="iniciarUtilizador" placeholder="Nome de utilizador" name="utilizador"
-                            required>
-                    </div>
-                    <div class="formIS">
-                        <input type="password" id="iniciarPassword" placeholder="Palavra-passe" name="psw" required>
-                    </div>
-                    <button type="submit" id="btnIS" onclick="login()">
-                        <h2>Iniciar Sessão</h2>
-                    </button>
-                </form>
-            </div>
-
-
-            <div class="background">
-                <h2 style="text-align:center">Sabias que...</h2>
-                <section class="carousel" aria-label="Gallery">
-                    <ol class="carousel__viewport">
-                        <li id="carousel__slide1" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">...deves lavar as mãos antes de colocar e após de retirar a
-                                máscara!</h2>
-                        </li>
-                        <li id="carousel__slide2" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">....a febre, dor de garganta e dificuldade de
-                                respirar são alguns dos sintomas mais comuns!
-                            </h2>
-                        </li>
-                        <li id="carousel__slide3" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">....deves de tirar a máscara sempre pelos elásticos!
-                            </h2>
-                        </li>
-                        <li id="carousel__slide4" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">...os primeiros casos da Covid-19 tiveram origem em Wuhan, China.
-                            </h2>
-                        </li>
-                        <li id="carousel__slide5" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">....deves manter uma distância de pelo menos um
-                                metro das pessoas ao teu redor.</h2>
-                        </li>
-                        <li id="carousel__slide6" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">...o grupo de idade com maior risco de alta
-                                gravidade com Covid-19 são as pessoas acima de 65 anos.</h2>
-                        </li>
-                        <li id="carousel__slide7" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">....deves de cobrir o nariz e a boca quando colocas
-                                a máscara!</h2>
-                        </li>
-                        <li id="carousel__slide8" class="carousel__slide">
-                            <div class="carousel__snapper"></div>
-                            <h2 class="h2sabiasque">...deves evitar locais fechados com muitas pessoas.
-                            </h2>
-                        </li>
-                    </ol>
-                </section>
-            </div>
-        </div>
-
-        <div class="rowCards">
-            <div class="card" style="background-color: rgb(240, 193, 75, 0.90)">
-                <a href="#jogar" style="text-decoration: none;">
-                    <h4>Jogo</h4>
-                </a>
-            </div>
-            <div class="card" style="background-color: rgb(234, 112, 101, 0.90)">
-                <a href="#quiz" style="text-decoration: none;">
-                    <h4>Quiz</h4>
-                </a>
-            </div>
-            <div class="card" style="background-color: rgb(181, 213, 106, 0.90)">
-                <a href="#video" style="text-decoration: none;">
-                    <h4>Vídeo</h4>
-                </a>
-            </div>
+    <main>
+        <div class="card">
+            <form name="formis" id="formis" onsubmit="return login(event)">
+                <h1>Iniciar Sessão</h1>
+                <input type="text" id="userNameLogin" name="utilizador" placeholder="Nome de utilizador" required>
+                <input type="password" id="passwordLogin" name="psw" placeholder="Palavra-passe" required>
+                <button type="submit">Iniciar Sessão</button>
+            </form>
         </div>
     </main>
-
-    <section class="sectionBG" id="jogar">
-        <div class="content" style="background-color: rgb(240, 193, 75, 0.90)">
-            <h1>Diverte-te a jogar</h1>
-            <video autoplay muted loop class="videoInfo">
-                <source src="../imagens/videoum.mp4" type="video/mp4">
-            </video>
-        </div>
-    </section>
-
-    <section class="sectionBG" id="quiz">
-        <div class="content" style="background-color: rgb(234, 112, 101, 0.90)">
-            <h1>Testa-te com Quiz!</h1>
-            <video autoplay muted loop class="videoInfo">
-                <source src="../imagens/videodois.mp4" type="video/mp4">
-            </video>
-        </div>
-    </section>
-
-    <section class="sectionBG" id="video">
-        <div class="content" style="background-color: rgb(181, 213, 106, 0.90)">
-            <h1>PlayCovid</h1>
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/8z9BsKpCJY0"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer">
-            <p> Play Covid &copy;; Bernardo Ferreira - 2021</p>
-        </div>
-    </footer>
 
     <script src="js/index.js "></script>
 </body>

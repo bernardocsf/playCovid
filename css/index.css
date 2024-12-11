@@ -1,557 +1,219 @@
 :root {
-    --cor1: #349a38;
-    --cor2: #001d3c;
-    --cor3: #247227;
+  --cor1: #247227;
+  --cor2: #001d3c;
+  --cor3: #e6e6e6;
 }
 
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth; 
+html,
+body {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  height: 100%;
+  font-family: "Franklin Gothic Medium";
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 body {
-    margin: 0;
-    font-family: 'Franklin Gothic Medium';
-    color: #ffffff;
-    -webkit-text-size-adjust: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../images/fundo1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-/*MENU */
-
-.navbar {
-    position: relative;
-    display: flex;  /* Usa flexbox para organizar os itens */
-    align-items: center;  /* Alinha os itens verticalmente no centro */
-    justify-content: space-between;  /* Distribui espaço entre o logo e o botão */
-    background-color: var(--cor1);  /* Cor de fundo */
-    color: rgb(255, 255, 255);  /* Cor do texto */
-    height: 10vh;  /* Altura da navbar */
-    padding: 0 120px;  /* Espaçamento lateral opcional */
+header {
+  height: auto;
 }
 
-img#imgNB {
-    width: 50px;  /* Largura da imagem */
-    height: 50px;  /* Altura da imagem */
+main {
+  flex-grow: 1;
 }
 
-/* Estilo para o link "Regista-te" */
-a#btnNBR {
-    color: rgb(255, 255, 255);  /* Cor do link */
-    text-decoration: none;  /* Remove o sublinhado */
+button {
+  all: unset;
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 
-/* MODAL */
+input {
+  width: 100%;
+  padding: 1rem;
+  background: var(--cor3);
+  border-radius: 0.5rem;
+  border: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 1rem 3rem;
+}
+
+.menu-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-nav img {
+  width: clamp(30px, 3.5%, 3.5%);
+  height: clamp(30px, 3.5%, 3.5%);
+}
 
 .modal {
-    position: fixed;
-    z-index: 1;
-    width: 0%;
-    height: 0%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    right: 10%;
-    top: 5%;
-    transition: 0.5s;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal.show {
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+.modal[aria-hidden="false"] {
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;  /* Coloca a parte superior no meio da tela */
-    left: 50%; /* Coloca a parte esquerda no meio da tela */
-    transform: translate(-50%, -50%); /* Ajusta a posição para que o centro fique alinhado */
-    background-color: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 1);
-    padding: 2rem; /* Adicione algum espaço interno, se necessário */
-    width: 50%; /* Limita a largura do modal */
+  position: relative;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 100px 20px rgba(0, 0, 0, 1);
+  padding: 2rem;
+  width: 50%;
 }
 
-.modalEP {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    left: 100%;
-    top: 0;
-    opacity: 0;
-    transition: 0.5s;
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  margin-bottom: 2vh;
 }
 
-.modalEP.show {
-    left: 0;
-    border-radius: 1rem;
-    opacity: 1;
+.modalHeader h1 {
+  color: var(--cor2);
+  flex-grow: 1;
+  text-align: center;
 }
 
-.modalAlert {
-    position: absolute;
-    top: 50%;  /* Coloca a parte superior no meio da tela */
-    left: 50%; /* Coloca a parte esquerda no meio da tela */
-    transform: translate(-50%, -50%); /* Ajusta a posição para que o centro fique alinhado */
-    background-color: #ffffff;
-    color: #000000;
-    padding: 0.5rem; /* Adicione algum espaço interno, se necessário */
-    border-radius: 1rem;
-    width: 60%;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 1);
+.modalHeader button {
+  color: var(--cor2);
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.contentAlert {
-    font-weight: bold;
-    font-size: 2rem;
-    text-align: center;
+.modalHeader button:hover {
+  scale: 1.2;
 }
 
-/*Formaulario de registo */
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; /* Ocupa 100% da altura do background */
+.form-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.form-row {
-    display: flex;
-    justify-content: center;     /* Centraliza os itens horizontalmente no contêiner */
-    align-items: center;         /* Centraliza os itens verticalmente no contêiner */
+.form-container img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.firstCol {
-    text-align: center;          /* Centraliza o texto dentro da coluna */
-    padding: 0.3em;
-    color: var(--cor2);
+.registarFoto input {
+  display: none;
 }
 
-button#btnClose {
-    position: absolute;          /* Posiciona o botão de fechar de forma absoluta dentro do contêiner pai */
-    top: 0.5em;                   /* Define a distância do topo do modal */
-    right: 0.3em;                 /* Define a distância do lado direito do modal */
-    background: none;            /* Remove o fundo padrão do botão */
-    border: none;                /* Remove a borda padrão do botão */
-    font-size: 2em;            /* Aumenta o tamanho da cruz de fechar */
-    cursor: pointer;             /* Muda o cursor para indicar interatividade */
-    transition: 0.3s;
+.form-container input {
+  padding: 1.2rem;
 }
 
-button#btnClose:hover {
-    color: var(--cor2);
-    text-decoration: none;
-    opacity: 1;
-    transition: 0.3s;
-    transform: scale(2);
+div.controls {
+  display: flex;
+  justify-content: space-evenly;
+  color: black;
+  width: 100%;
 }
 
-.col-small {
-    display: flex;
-    justify-content: center;
-    flex: 0.4;                   /* A primeira coluna será mais estreita */
-    padding: 0.3em;
+.controls div {
+  display: flex;
+  flex-direction: column;
 }
 
-.col {
-    flex: 1;             /* Faz cada coluna ocupar espaço igual */
-    text-align: center;  /* Centraliza o texto dentro de cada coluna */
-    padding: 0.3em;      /* Centraliza o conteúdo verticalmente */
+.form-container button {
+  margin-top: 10px;
+  background-color: var(--cor2);
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
 }
 
-label#addFoto {
-    position: relative; /* Permite o uso de top e left */
-    top: 30px;         /* Move 10px para baixo */
-    right: 10px;
-}
-
-img#registarFoto {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-input#inputfile {
-    display: none; /* Oculta o botão padrão de upload de arquivo */
-}
-
-input[type=text], input[type=email], input[type=password], input[type=date], input[type=radio] {
-    width: 100%;
-    padding: 1.2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: none;
-    background: #e6e6e6;
-    border-radius: 1rem;
-    transition: 0.5s;
-}
-
-.controls {
-    display: flex;
-    color: black;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-}
-
-.radio-group {
-    display: flex;
-    align-items: center;
-    gap: 0.5em; /* Espaçamento entre o rádio e o texto */
-}
-
-button#btnRegistar {
-    background-color: var(--cor1);
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 1rem;
-    transition: 0.5s;
-    margin-top: 10px;
-}
-
-button#btnRegistar:hover {
-    background-color: var(--cor3);
-    transition: 0.5s;
-}
-
-/* MAIN */
-
-.main {
-    position: relative; /* Define o posicionamento do elemento como relativo. */
-    background-image: url("../imagens/fundo.jpg"); /* Define a imagem de fundo. */
-    background-repeat: no-repeat; /* Impede a repetição da imagem de fundo. */
-    background-position: center; /* Centraliza a imagem de fundo. */
-    background-attachment: fixed; /* Mantém a imagem fixa em relação à viewport. */
-    background-size: cover; /* Faz a imagem cobrir todo o espaço do elemento. */
-    height: 90vh; /* Define a altura como 100% da altura da viewport. */
-}
-
-.backgroundsRow{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: row;
-    height: 700px;
-   /*  height: 100vh; /* A altura continua como 100% da viewport */ 
-    padding-top: 4rem; /* Ajuste este valor conforme o necessário para movê-la mais para baixo */
-}
-
-.background {
-    position: relative;
-    width: 40%;
-    height: 50%;
-    border-radius: 1rem;
-    background: rgba(0, 0, 0, 0.8);
-    top: 1rem;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.50);
-}
-
-.formIS {
-    margin-left: 3rem;
-    margin-right: 3rem;
-}
-
-button#btnIS {
-    background-color: var(--cor1);
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 0rem 0rem 1rem 1rem;
-    transition: 0.5s;
-}
-
-button#btnIS:hover {
-    background-color: var(--cor3);
-    transition: 0.5s;
-}
-
-.carousel {
-    position: relative;
-    height: 14rem;
-    filter: drop-shadow(0 0 10px #0003);
-    perspective: 100px;
-    scrollbar-width: 0;
-}
-
-.carousel__viewport {
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    flex-direction: row;
-}
-
-.carousel__slide {
-    position: relative;
-    flex: 0 0 100%;
-}
-
-.carousel__snapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation-name: tonext, snap;
-    animation-timing-function: ease;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-}
-
-.carousel__slide:last-child .carousel__snapper {
-    animation-name: tostart, snap;
-}
-
-.h2sabiasque {
-    position: relative;
-    margin-top: 4rem;
-    font-size: 1.7rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-ol,
-li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-
-@keyframes tonext {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: 100%;
-    }
-    98% {
-        left: 100%;
-    }
-    99% {
-        left: 0;
-    }
-}
-
-@keyframes tostart {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: -300%;
-    }
-    98% {
-        left: -300%;
-    }
-    99% {
-        left: 0;
-    }
-}
-
-@keyframes snap {
-    96% {
-        scroll-snap-align: center;
-    }
-    97% {
-        scroll-snap-align: none;
-    }
-    99% {
-        scroll-snap-align: none;
-    }
-    100% {
-        scroll-snap-align: center;
-    }
-}
-
-*::-webkit-scrollbar {
-    width: 0;
-}
-
-.rowCards {
-    display: flex;
-    justify-content: space-evenly; /* Espaçamento uniforme entre os botões */
-    width: 100%; /* Ocupa a largura total para manter os botões centralizados */
-    position: absolute; /* Permite que os cards sejam posicionados sobre a imagem */
-    bottom: 0%; /* Distância do fundo */
+main {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .card {
-    font-size: 20px;
-    border-radius: 1rem 1rem 0rem 0rem;
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.2s;
-    width: 20%; /* Largura dos botões */
-    text-align: center; /* Centraliza o texto dentro dos botões */
+  position: relative;
+  width: clamp(250px, 40vw, 50vw);
+  height: clamp(250px, 50vh, 50vh);
+  padding-top: 2vw;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 100px 20px rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
 }
 
-.card:hover {
-    transform: scale(1.10);
-    box-shadow: 0 0 40px -10px rgb(0, 0, 0);
-    transition: 0.2s;
+.card form {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-a > h4 {
-    color: #fff;
+.card input {
+  width: 60%;
+  font-size: 1rem;
 }
 
-/* css das sections */
-
-.sectionBG {
-    background-image: url("../imagens/fundo2.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+.card button {
+  width: 100%;
+  height: clamp(40px, 8vh, 10vh);
+  font-size: clamp(15px, 4vw, 4vh);
+  background-color: var(--cor1);
+  border-radius: 0rem 0 0.5rem 0.5rem;
+  transition: opacity 0.2s ease;
 }
 
-.content {
-    width: 100%; /* Limita a largura do conteúdo */
-    margin: auto; /* Centraliza o conteúdo */
-    text-align: center; /* Centraliza o texto do título */
-    padding: 20px; /* Espaçamento interno */
-}
-
-.videoInfo {
-    width: 50%; /* Ajusta a largura do vídeo */
-    height: auto; /* Mantém a proporção do vídeo */
-    border-radius: 1rem; /* Adiciona bordas arredondadas */
-}
-
-.footer {
-    background-color: #000000;
-    padding: 30px;
-    text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-    .navbar {
-        padding: 0 20px; /* Espaçamento lateral menor */
-    }
-
-    img#imgNB {
-        width: 70px;
-        height: 70px;
-    }
-
-    a#btnNBR {
-        margin-top: 10px;
-    }
-
-    .modal-content {
-        width: 80%;
-    }
-
-    button#btnRegistar {
-        font-size: 0.7rem;
-    }
-
-    /* Formulário de Registo */
-    .form-container {
-        height: auto;
-    }
-
-    .form-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .col-small, .col {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    input[type=text], input[type=email], input[type=password], input[type=date], input[type=radio] {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    /* Main Section */
-    .main {
-        background-size: cover;
-        height: auto; /* Ajusta a altura */
-    }
-
-    .rowCards {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        position: static; /* Remove a posição absoluta para evitar sobreposição */
-    }
-
-    .card {
-        width: 90%; /* Ajusta para ocupar 90% da largura */
-        margin-bottom: 20px;
-        padding: 1rem;
-        font-size: 1.2rem;
-    }
-
-    .background {
-        width: 90%;
-        margin: 20px 0;
-        height: 42%;
-    }
-
-    /* Iniciar Sessão */
-    .formIS {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    button#btnIS {
-        font-size: 1rem;
-    }
-
-    /* Carousel */
-    .carousel {
-        height: 10rem;
-    }
-
-    .carousel__viewport {
-        scroll-snap-type: x mandatory;
-    }
-
-    /* Sabias que Section */
-    .h2sabiasque {
-        font-size: 1.2rem;
-        margin-top: 2rem;
-    }
-
-    /* Estilo do container do iframe */
-    .video-container {
-        position: relative;
-        width: 100%; /* Largura total do container */
-        max-width: 600px; /* Largura máxima do vídeo */
-        overflow: hidden; /* Oculta qualquer transbordamento */
-        padding-top: 56.25%; /* Proporção 16:9 */
-        margin-bottom: 20px; /* Espaço abaixo do vídeo */
-    }
-
-    /* Estilo do iframe */
-    iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%; /* Largura total do iframe */
-        height: 100%; /* Altura total do iframe */
-        border: none; /* Remove a borda padrão do iframe */
-        border-radius: 10px; /* Bordas arredondadas */
-    }
-
-    /* Footer */
-    .footer {
-        padding: 20px;
-        font-size: 1rem;
-    }
+.card button:hover {
+  opacity: 0.8;
 }
