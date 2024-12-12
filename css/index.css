@@ -205,7 +205,6 @@ main {
 
 .card input {
   width: 60%;
-  font-size: 1vw;
 }
 
 .card button {
@@ -234,8 +233,16 @@ main {
     margin-bottom: 5px;
   }
 
+  .form-container input {
+    padding: 1rem;
+}
+
   div.controls { 
     flex-direction: row;
+  }
+
+  .form-container button { 
+    font-size: 1rem; 
   }
 
   .card {
@@ -246,6 +253,10 @@ main {
 
   .card input {
     width: 80%;
+  }
+
+  input[type="radio"] {
+    transform: scale(0.75);
   }
 
   .card button {
