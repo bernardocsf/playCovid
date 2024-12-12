@@ -241,7 +241,12 @@ main {
     flex-direction: row;
   }
 
+  input[type="radio"] {
+    transform: scale(0.5);
+  }
+
   .form-container button { 
+    padding: 1rem;
     font-size: 1rem; 
   }
 
@@ -253,10 +258,6 @@ main {
 
   .card input {
     width: 80%;
-  }
-
-  input[type="radio"] {
-    transform: scale(0.75);
   }
 
   .card button {
