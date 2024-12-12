@@ -221,8 +221,7 @@ main {
 }
 
 @media (max-width: 576px) {
-
-  .modal-content {    
+  .modal-content {
     width: 90%;
   }
 
@@ -235,20 +234,20 @@ main {
 
   .form-container input {
     padding: 1rem;
-}
+  }
 
-  div.controls { 
+  div.controls {
     flex-direction: row;
     align-items: center;
   }
 
   input[type="radio"] {
-    transform: scale(0.5);
+    transform: scale(0.3);
   }
 
-  .form-container button { 
-    padding: 1rem;
-    font-size: 1rem; 
+  .form-container button {
+    padding: 0.75rem;
+    font-size: 1rem;
   }
 
   .card {
