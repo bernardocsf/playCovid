@@ -239,6 +239,7 @@ main {
 
   div.controls { 
     flex-direction: row;
+    align-items: center;
   }
 
   input[type="radio"] {
