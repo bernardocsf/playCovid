@@ -34,14 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return overlay;
       }
 
-      show(contentHtml, callBack) {
+      show(contentHtml) {
         const content = this.overlay.querySelector(".overlay-content");
         content.innerHTML = contentHtml;
-
-        const buttonJogar = document.getElementById("jogar");
-        if (buttonJogar && typeof callBack === "function") {
-          buttonJogar.addEventListener("click", callBack);
-        }
         this.overlay.classList.add("active");
       }
 
@@ -52,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const matchCovid = document.querySelector(".matchCovid");
     const overlayMatchCovid = new Overlay(matchCovid);
+    const overlayCongrats = new Overlay(matchCovid);
     const moves = document.getElementById("moves");
     const time = document.getElementById("timer");
 
@@ -77,10 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `
-          <div class="card-inner">
-              <div class="card-front">${symbol}</div>
-              <div class="card-back"></div>
-          </div>`;
+            <div class="card-inner">
+                <div class="card-front">${symbol}</div>
+                <div class="card-back"></div>
+            </div>`;
         card.addEventListener("click", () => flipCard(card));
         matchCovid.appendChild(card);
       });
@@ -174,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           localStorage.setItem("userList", JSON.stringify(updatesUsers));
 
-          showStartOverlay();
+          showOverlayCongrats();
         }
       }, 500);
     }
@@ -188,39 +184,74 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     }
 
-    overlayMatchCovid.show(
-      `
-          <button id="jogar" class="buttonJogar">Jogar</button>
-          <button class="buttonEstatisticas">As minhas estatísticas</button>`,
-      () => {
-        overlayMatchCovid.hide();
-      }
-    );
+    function showOverlayMatchCovid() {
+      overlayMatchCovid.show(
+        `
+          <button id="closeOverlay" class="buttonFecharOverlay">Jogar</button>
+          <button class="buttonEstatisticas">As minhas estatísticas</button>`
+      );
 
-    let valueEstatisticas = false;
-    const buttonEstatisticas = document.querySelector(".buttonEstatisticas");
-    buttonEstatisticas.addEventListener("click", () => {
-      const content =
-        overlayMatchCovid.overlay.querySelector(".overlay-content");
-      let estatisticasDiv = document.querySelector(".estatisticas");
+      let valueEstatisticas = false;
 
-      if (!valueEstatisticas) {
-        valueEstatisticas = true;
-        if (!estatisticasDiv) {
-          estatisticasDiv = document.createElement("div");
-          estatisticasDiv.classList.add("estatisticas");
-          const averageTimeForm = user.averageTime.toFixed(1);
-          estatisticasDiv.innerHTML = `<p>Já completei ${user.jogosCompletos} jogos
-              com uma duração média de ${averageTimeForm} segundos por jogo!`;
-          content.appendChild(estatisticasDiv);
+      overlayMatchCovid.overlay.addEventListener("click", (event) => {
+        if (event.target.id === "closeOverlay") {
+          overlayMatchCovid.hide();
+        } else if (event.target.classList.contains("buttonEstatisticas")) {
+          const content =
+            overlayMatchCovid.overlay.querySelector(".overlay-content");
+          let estatisticasDiv = document.querySelector(".estatisticas");
+
+          if (!valueEstatisticas) {
+            valueEstatisticas = true;
+            if (!estatisticasDiv) {
+              estatisticasDiv = document.createElement("div");
+              estatisticasDiv.classList.add("estatisticas");
+              const averageTimeForm = user.averageTime.toFixed(1);
+              estatisticasDiv.innerHTML = `<p>Já completei ${user.jogosCompletos} jogos
+                  com uma duração média de ${averageTimeForm} segundos por jogo!</p>`;
+              content.appendChild(estatisticasDiv);
+            }
+          } else {
+            valueEstatisticas = false;
+            if (estatisticasDiv) {
+              estatisticasDiv.remove();
+            }
+          }
         }
-      } else {
-        valueEstatisticas = false;
-        if (estatisticasDiv) {
-          estatisticasDiv.remove();
+      });
+    }
+
+    function showOverlayCongrats() {
+      overlayCongrats.show(`
+        <h1>Parabéns!</h1> 
+        <h3>Completou o MatchCovid com ${jogadas} jogadas!</h3>
+        <button id="closeOverlay" class="buttonFecharOverlay">Fechar</button>
+      `);
+    
+      overlayCongrats.overlay.addEventListener("click", (event) => {
+        if (event.target.id === "closeOverlay") {
+          overlayCongrats.hide();
+          resetMatchCovid();
         }
-      }
-    });
+      });
+    }
+
+    function resetMatchCovid() {
+      jogadas = 0;
+      timeSeconds = 0;
+      moves.textContent = jogadas;
+      time.textContent = "00:00";
+      clearInterval(timeInterval);
+      timeInterval = null;
+
+      const cards = matchCovid.querySelectorAll(".card");
+      cards.forEach((card) => card.remove());
+      createCards();
+
+      showOverlayMatchCovid();
+    }
+
+    showOverlayMatchCovid();
     createCards();
   }
 });
