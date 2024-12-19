@@ -49,6 +49,8 @@ class User {
     this.data = data;
     this.genero = genero;
     this.password = password;
+    this.jogosCompletos = 0;
+    this.averageTime = 0;
   }
 }
 
@@ -112,6 +114,8 @@ function login(event) {
     alert("Palavra-passe incorreta!");
     return;
   }
+
+  localStorage.setItem("lastLoggedInUser", userNameLogin);
 
   window.location.href = "utilizador.html";
 }
