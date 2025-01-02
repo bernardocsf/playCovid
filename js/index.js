@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.getElementById("registarUserName").addEventListener("input", function () {
+document
+  .getElementById("registarUserName")
+  .addEventListener("input", function () {
     this.value = this.value.toLowerCase();
   });
 
@@ -51,6 +53,9 @@ class User {
     this.password = password;
     this.jogosCompletos = 0;
     this.averageTime = 0;
+    this.xps = 0;
+    this.xpsTotal = 0;
+    this.cardsBought = [];
   }
 }
 
@@ -66,7 +71,9 @@ function registar(event) {
   const genderInput = document.querySelector('input[name="gender"]:checked');
   const registarGenero = genderInput ? genderInput.value : "";
   const registarPassword = document.getElementById("registarPassword").value;
-  const registarPasswordConf = document.getElementById("registarPasswordConf").value;
+  const registarPasswordConf = document.getElementById(
+    "registarPasswordConf"
+  ).value;
 
   if (registarPassword !== registarPasswordConf) {
     alert("As palavras-passe não coincidem!");
@@ -95,6 +102,8 @@ function registar(event) {
 
   document.getElementById("registarForm").reset();
   fotoPerfilUpload = "";
+
+  modal.setAttribute("aria-hidden", "true");
 }
 
 function login(event) {
@@ -103,12 +112,14 @@ function login(event) {
   const userNameLogin = document.getElementById("userNameLogin").value;
   const passwordLogin = document.getElementById("passwordLogin").value;
 
-  const utilizador = utilizadores.find((user) => user.userName === userNameLogin);
+  const utilizador = utilizadores.find(
+    (user) => user.userName === userNameLogin
+  );
 
   if (!utilizador) {
     alert("Utilzador não encontrado!");
     return;
-  } 
+  }
 
   if (utilizador.password !== passwordLogin) {
     alert("Palavra-passe incorreta!");

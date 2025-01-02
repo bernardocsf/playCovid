@@ -32,7 +32,7 @@ body {
 }
 
 header {
-  height: auto; 
+  height: auto;
   padding: 1rem 3rem;
 }
 
@@ -47,11 +47,13 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 5rem;
 }
 
 section h1 {
   font-size: 3rem;
   font-weight: 900;
+  text-align: center;
 }
 
 button {
@@ -73,6 +75,56 @@ form {
   flex-direction: column;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  text-align: left;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+thead {
+  background-color: var(--cor1);
+  color: white;
+}
+
+thead th {
+  padding: 12px 15px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  color: var(--cor2);
+  padding: 12px 15px;
+}
+
+th {
+  padding: 12px 15px;
+  font-weight: bold;
+}
+
+footer {
+  background-color: var(--cor1);
+  padding: 1rem;
+  text-align: center;
+}
+
 .menu-nav {
   display: flex;
   justify-content: space-between;
@@ -88,7 +140,7 @@ form {
   margin-top: 2vh;
   width: 50%;
   display: flex;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .overlay {
@@ -114,7 +166,7 @@ form {
 }
 
 .overlay-content {
-  width: 25vw;
+  width: clamp(90%, 25vw, 25vw);
   height: auto;
   display: flex;
   flex-direction: column;
@@ -124,9 +176,9 @@ form {
   gap: 2vh;
   background: white;
   border-radius: 0.5rem;
-  overflow: hidden; 
-  transition: height 2s ease; 
-  color: var(--cor2)
+  overflow: hidden;
+  transition: height 2s ease;
+  color: var(--cor2);
 }
 
 .buttonFecharOverlay {
@@ -157,8 +209,8 @@ form {
 }
 
 .card {
-  width: clamp(80px, 8vw, 200px); 
-  height: clamp(80px, 8vw, 200px); 
+  width: clamp(80px, 8vw, 200px);
+  height: clamp(80px, 8vw, 200px);
   cursor: pointer;
   perspective: 1000px;
 }
@@ -168,14 +220,15 @@ form {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.5s
+  transition: transform 0.5s;
 }
 
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -184,7 +237,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 4rem;
   border-radius: 0.5rem;
 }
 
@@ -196,7 +249,7 @@ form {
   background-image: url(../images/card.png);
   background-repeat: no-repeat;
   background-size: cover;
-  transition: 0.5s
+  transition: 0.5s;
 }
 
 .card-back:hover {
@@ -207,4 +260,232 @@ form {
   transition: 0.3s;
   background-color: var(--cor1);
   cursor: default;
+}
+
+.cardsList {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 2vh;
+  margin-top: 5vh;
+  padding: 1rem;
+}
+
+@media (max-width: 576px) {
+ 
+
+  button {
+    all: unset;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 1rem;
+    background: var(--cor3);
+    border-radius: 0.5rem;
+    border: none;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: left;
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+
+  thead {
+    background-color: var(--cor1);
+    color: white;
+  }
+
+  thead th {
+    padding: 12px 15px;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  td {
+    color: var(--cor2);
+    padding: 12px 15px;
+  }
+
+  th {
+    padding: 12px 15px;
+    font-weight: bold;
+  }
+
+  footer {
+    background-color: var(--cor1);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .menu-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-nav img {
+    width: clamp(30px, 3.5%, 3.5%);
+    height: clamp(30px, 3.5%, 3.5%);
+  }
+
+  .dados {
+    margin-top: 2vh;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 1;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .overlay-content {
+    width: clamp(90%, 25vw, 25vw);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 2vh 1vw;
+    gap: 2vh;
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: height 2s ease;
+    color: var(--cor2);
+  }
+
+  .buttonFecharOverlay {
+    padding: 1vh;
+    color: white;
+    background-color: #001d3c;
+    border-radius: 0.5rem;
+  }
+
+  .buttonEstatisticas {
+    color: var(--cor2);
+    background-color: white;
+    font-weight: 600;
+  }
+
+  .estatisticas {
+    color: var(--cor2);
+  }
+
+  .matchCovid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 2vh;
+    justify-content: center;
+    margin-top: 5vh;
+    padding: 1rem;
+  }
+
+  .card {
+    width: clamp(80px, 8vw, 200px);
+    height: clamp(80px, 8vw, 200px);
+    cursor: pointer;
+    perspective: 1000px;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255);
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    border-radius: 0.5rem;
+  }
+
+  .card-front {
+    transform: rotateY(180deg);
+  }
+
+  .card-back {
+    background-image: url(../images/card.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.5s;
+  }
+
+  .card-back:hover {
+    opacity: 0.8;
+  }
+
+  .card.matched .card-front {
+    transition: 0.3s;
+    background-color: var(--cor1);
+    cursor: default;
+  }
+
+  .cardsList {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 2vh;
+    margin-top: 5vh;
+    padding: 1rem;
+  }
 }

@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const overlayCongrats = new Overlay(matchCovid);
     const moves = document.getElementById("moves");
     const time = document.getElementById("timer");
+    const xpsCount = document.getElementById("xpsCount");
 
     const symbols = ["💉", "😷", "🧼", "🚑", "🦠", "🤢", "🏠", "🤒"];
     let arraySymbols = [...symbols, ...symbols];
@@ -101,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function checkForMatch(secondCard) {
       jogadas++;
-      updatesJogadas();
+      moves.textContent = jogadas;
 
       const isMatch =
         firstCard.querySelector(".card-front").textContent ===
@@ -113,16 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
         unflipCard(firstCard, secondCard);
       }
       firstCard = null;
-    }
-
-    function updatesJogadas() {
-      moves.textContent = jogadas;
-
-      if (jogadas > 20) {
-        moves.style.color = "red";
-      } else if (jogadas > 15) {
-        moves.style.color = "yellow";
-      }
     }
 
     function startTimer() {
@@ -153,8 +144,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (matchedCards.length == arraySymbols.length) {
           stopTimer();
-
           user.jogosCompletos++;
+
+          if (jogadas <= 8) {
+            user.xps += 25;
+          } else if (jogadas <= 12) {
+            user.xps += 20;
+          } else if (jogadas <= 15) {
+            user.xps += 10;
+          } else {
+            user.xps += 5;
+          }
 
           const totalTime =
             user.averageTime * (user.jogosCompletos - 1) + timeSeconds;
@@ -164,13 +164,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (u.userName === user.userName) {
               u.jogosCompletos = user.jogosCompletos;
               u.averageTime = user.averageTime;
+              u.xps = user.xps;
+              u.xpsTotal = user.xps;
             }
             return u;
           });
 
           localStorage.setItem("userList", JSON.stringify(updatesUsers));
 
+          xpsCountUpd();
           showOverlayCongrats();
+          classTable();
         }
       }, 500);
     }
@@ -227,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>Completou o MatchCovid com ${jogadas} jogadas!</h3>
         <button id="closeOverlay" class="buttonFecharOverlay">Fechar</button>
       `);
-    
+
       overlayCongrats.overlay.addEventListener("click", (event) => {
         if (event.target.id === "closeOverlay") {
           overlayCongrats.hide();
@@ -253,5 +257,98 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showOverlayMatchCovid();
     createCards();
+
+    function xpsCountUpd() {
+      xpsCount.textContent = user.xps;
+    }
+
+    function createCardsList() {
+      symbols.forEach((symbolList) => {
+        const symbol = document.createElement("div");
+        symbol.classList.add("card");
+        symbol.innerHTML = `
+          <div class="card-inner">
+            <div class="card-front">${symbolList}</div>
+            <div class="card-back"></div>
+          </div>`;
+
+        if (user.cardsBought.includes(symbolList)) {
+          symbol.classList.add("flipped");
+        }
+        symbol.addEventListener("click", () => buyCard(symbol));
+        cardsList.appendChild(symbol);
+      });
+
+      if (user.cardsBought.length === 0) {
+        showOverlayCardsList();
+      }
+    }
+
+    function buyCard(symbol) {
+      const symbolBought = symbol.querySelector(".card-front").textContent;
+
+      if (user.xps < 15) {
+        alert("Não tens XPs suficiente!");
+        return;
+      }
+
+      if (user.cardsBought.includes(symbolBought)) {
+        alert("Esse card já foi comprado!");
+        return;
+      }
+
+      user.cardsBought.push(symbolBought);
+      user.xps -= 15;
+
+      const userUpdate = utilizadores.map((u) =>
+        u.userName === user.userName
+          ? { ...u, xps: user.xps, cardsBought: user.cardsBought }
+          : u
+      );
+      localStorage.setItem("userList", JSON.stringify(userUpdate));
+
+      symbol.classList.add("flipped");
+      xpsCountUpd();
+    }
+
+    const cardsList = document.querySelector(".cardsList");
+    const overlayCardsList = new Overlay(cardsList);
+
+    function showOverlayCardsList() {
+      overlayCardsList.show(`
+        <h2>Coleciona os teus cards!</h2>
+        <p>Este espaço é reservado para a compra de cards. Em cada compra, o jogador recebe uma informação do respetivo card.</p>
+        <button id="closeOverlay" class="buttonFecharOverlay">Fechar informação</button>`);
+
+      overlayCardsList.overlay.addEventListener("click", (event) => {
+        if (event.target.id === "closeOverlay") {
+          overlayCardsList.hide();
+        }
+      });
+    }
+
+    xpsCountUpd();
+    createCardsList();
+
+    function classTable() {
+      const classTableBody = document.querySelector(".classTable tbody");
+      let rowsHtml = "";
+
+      utilizadores.sort((a, b) => b.xpsTotal - a.xpsTotal);
+
+      utilizadores.forEach((utilizador, index) => {
+        rowsHtml += `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${utilizador.nome}</td>
+            <td>${utilizador.xpsTotal}</td>
+          </tr>
+        `;
+      });
+
+      classTableBody.innerHTML = rowsHtml;
+    }
+
+    classTable();
   }
 });
